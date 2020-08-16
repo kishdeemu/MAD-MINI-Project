@@ -90,7 +90,7 @@ public class roombooking extends AppCompatActivity implements DatePickerDialog.O
                 CharSequence message = "Syncing with Database...";
                 int duration = Toast.LENGTH_SHORT;
                 Toast toast = Toast.makeText(context, message, duration);
-                toast.setGravity(Gravity.TOP | Gravity.LEFT, 0, 0);
+                toast.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 0);
                 toast.show();
                 startActivity(myI2);
             }
