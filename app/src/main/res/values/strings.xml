@@ -67,6 +67,49 @@
         <item>For 8 people</item>
         <item>For 16 people</item>
     </string-array>
+
+
+    <string name="hall_type1">Indoor Wedding Hall</string>
+    <string name="hallty1in">22 Tables,1000 Chairs</string>
+    <string name="hall1P">75,000LKR</string>
+    <string name="htype2">Outdoor Wedding Hall</string>
+    <string name="hallty2in">10 Tables,150 Chairs</string>
+    <string name="hall2p">50,000LKR</string>
+    <string name="htp3">Conferance Hall</string>
+    <string name="htp3inf">1 Confernace Tables,800 Chairs</string>
+    <string name="hall3p">85,000LKR</string>
+    <string name="pht4">Kids Party Hall</string>
+    <string name="htp4inf">10 Children Tables, 60 children chairs</string>
+    <string name="hall4p">50,000LKR</string>
+    <string name="hbbutton1">BOOK THE HALL</string>
+
+    <string name="booking">BOOK NOW</string>
+    <string name="halltype">Select the hall type</string>
+    <string-array name="halllist">
+        <item>Indoor Wedding Hall</item>
+        <item>Outdoor Wedding Hall </item>
+        <item>Business Conference Hall</item>
+        <item>Kids Party Hall</item>
+    </string-array>
+    <string name="date">Click-on Date</string>
+    <string name="time">Time Duration</string>
+    <string name="persinfor">Personal Information</string>
+    <string name="name">Full Name</string>
+    <string name="fulln">Full Name</string>
+    <string name="phone">Phone Number</string>
+    <string name="bnbutton">BOOK NOW</string>
+
+    <string name="cofirmb">CONFIRM YOUR BOOKING </string>
+    <string name="ddate">07/14/2020</string>
+    <string name="ht">Hall Type</string>
+    <string name="tv">Text View</string>
+    <string name="update">UPDATE BOOKING</string>
+    <string name="delete">DELETE BOOKING</string>
+    <string name="confirmb">CONFIRM</string>
+    <string name="confirmmsg">Are you sure to confirm booking?</string>
+    <string name="upfatehed">UPDATE YOUR BOOKING</string>
+    <string name="upb">UPDATE</string>
+
 </resources>
 
 

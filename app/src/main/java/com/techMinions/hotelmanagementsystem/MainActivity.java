@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton roomBtn;
     ImageButton tableBtn;
     ImageButton deliBtn;
+    ImageButton hallBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         roomBtn = findViewById(R.id.roomBtn);
         tableBtn = findViewById(R.id.tableBtn);
         deliBtn = findViewById(R.id.deliBtn);
+        hallBtn = findViewById(R.id.hall);
     }
 
     @Override
@@ -49,5 +51,13 @@ public class MainActivity extends AppCompatActivity {
 //                startActivity(myI);
 //            }
 //        });
+
+        hallBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myI = new Intent(MainActivity.this, hall.class);
+                startActivity(myI);
+            }
+        });
     }
 }
