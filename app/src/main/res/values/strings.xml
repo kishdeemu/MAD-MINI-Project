@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">Hotel Management System</string>
+    <string name="sr">Single Room</string>
+    <string name="dr">Double Room</string>
+    <string name="tr">Triple Room</string>
+    <string name="qr">Quadruple Room</string>
+    <string name="srd">Single bed, TV, AC, Wi-Fi, Minibar</string>
+    <string name="drd">Two beds, TV, AC, Wi-Fi, Minibar</string>
+    <string name="trd">Double bed and single bed, TV, AC, Wi-Fi, Minibar</string>
+    <string name="qrd">Four single beds, TV, AC, Wi-Fi, Minibar</string>
+    <string name="srp">-10,500 LKR-</string>
+    <string name="drp">-14,500 LKR-</string>
+    <string name="trp">-16,500 LKR-</string>
+    <string name="qrp">-18,000 LKR-</string>
+    <string name="btbtr">BOOK THE ROOM</string>
+    <string name="btbk">BOOK NOW</string>
+    <string name="chit">Check-In</string>
+    <string name="chot">Check-Out</string>
+    <string name="rlh">Please select the room type</string>
+    <string name="gh">Guests</string>
+    <string name="ghad">Adult(s)</string>
+    <string name="ghch">Children</string>
+    <string name="pi">Personal Information</string>
+    <string name="dplrt">Room Type</string>
+    <string name="dplfn">Full Name</string>
+    <string name="dplem">Email</string>
+    <string name="dplph">Phone</string>
+    <string name="broup">UPDATE</string>
+    <string name="broedit">UPDATE BOOKING</string>
+    <string name="brodel">DELETE BOOKING</string>
+    <string name="brocon">COMFIRM</string>
+    <string name="brconf">Are you sure to confirm booking?</string>
+    <string name="bnwh">BOOK NOW</string>
+    <string name="updh">UPDATE YOUR BOOKING</string>
+    <string name="bdrwh">CONFIRM YOUR BOOKING</string>
+    <string name="roomreservation">Rooms</string>
+    <string name="hallreservation">Halls</string>
+    <string name="tablereservation">Tables</string>
+    <string name="delivery">Delivery</string>
+    <string name="noOfPeople">Number of people</string>
+    <string name="table_booking">TABLE BOOKING</string>
+    <string name="pick_a_date">Pick a Date</string>
+    <string name="choose_a_time">Choose a time</string>
+    <string name="comments">Comments</string>
+    <string name="contact">CONTACT</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="telephone">Telephone</string>
+    <string name="book">BOOK</string>
+    <string name="firstname">First Name</string>
+
+
+    <string-array name="rolist">
+        <item>Room Type</item>
+        <item>Single Room</item>
+        <item>Double Room</item>
+        <item>Triple Room</item>
+        <item>Quadruple Room</item>
+    </string-array>
+
+    <string-array name="numberOfPeople">
+        <item>Number of People</item>
+        <item>For 1 person</item>
+        <item>For 2 people</item>
+        <item>For 4 people</item>
+        <item>For 8 people</item>
+        <item>For 16 people</item>
+    </string-array>
+</resources>
+
+
+
