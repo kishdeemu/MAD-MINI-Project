@@ -110,6 +110,48 @@
     <string name="upfatehed">UPDATE YOUR BOOKING</string>
     <string name="upb">UPDATE</string>
 
+    <string name="rc">Rice And Curry</string>
+    <string name="rcp">Veg and Non-Veg</string>
+    <string name="rcprice">-250 LKR-</string>
+    <string name="frc">Fried Rice</string>
+    <string name="frcp">Veg and Non-Veg \nLump Rice \nNasi Goreng</string>
+    <string name="frcprice">-350 LKR-</string>
+    <string name="kttu">Koththu</string>
+    <string name="kttup"> Veg and Non-Veg \Cheese \nEgg</string>
+    <string name="kttuprice">-400 LKR-</string>
+    <string name="hpprs">Hoppers</string>
+    <string name="hpprsp"> Egg \nHoney</string>
+    <string name="hpprsprice">-30 LKR-</string>
+    <string name="odn">ORDER NOW</string>
+    <string name="doh">Place Your Order</string>
+    <string name="nme">Name</string>
+    <string name="diemail"> Email</string>
+    <string name="phn">Phone</string>
+    <string name="slctfd">Select Food Item</string>
+    <string name="quntt">Quantity</string>
+    <string name="deliads">Delivery Address</string>
+    <string name="cty">Near By City</string>
+    <string name="plcodrbtn">PLACE ORDER</string>
+    <string name="odch">Confirm Your Order</string>
+    <string name="sfitm">Selected Food Item</string>
+    <string name="updodr">UPDATE ORDER</string>
+    <string name="delodr">DELETE ORDER</string>
+    <string name="odrcf">CONFIRM</string>
+    <string name="deliupdtH">Update Your Order</string>
+    <string name="deliupdtbtn">UPDATE</string>
+
+    <string-array name="fooditem">
+        <item>Rice And Curry</item>
+        <item>Fried Rice</item>
+        <item>Koththu</item>
+        <item>Hoppers</item>
+    </string-array>
+
+    <string-array name="nearcity">
+        <item>Gampaha</item>
+        <item>Colombo</item>
+        <item>Kaluthara</item>
+    </string-array>
 </resources>
 
 

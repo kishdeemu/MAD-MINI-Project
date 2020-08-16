@@ -44,13 +44,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(myI);
             }
         });
-//        deliBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent myI = new Intent(MainActivity.this, deliverylanding.class);
-//                startActivity(myI);
-//            }
-//        });
+        deliBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myI = new Intent(MainActivity.this, deliverylanding.class);
+                startActivity(myI);
+            }
+        });
 
         hallBtn.setOnClickListener(new View.OnClickListener() {
             @Override
