@@ -1,5 +1,6 @@
 package com.techMinions.hotelmanagementsystem;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -54,8 +55,15 @@ public class bookedroomdply extends AppCompatActivity {
         borcom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myI6 = new Intent(bookedroomdply.this, MainActivity.class);
-                startActivity(myI6);
+                //Intent myI6 = new Intent(bookedroomdply.this, MainActivity.class);
+                AlertDialog dialog;
+                AlertDialog.Builder builder = new AlertDialog.Builder(bookedroomdply.this);
+                builder.setTitle("CONFIRMED!");
+                builder.setMessage("Your booking has been confirmed.");
+                builder.setPositiveButton("OK", null);
+                dialog = builder.create();
+                dialog.show();
+                //startActivity(myI6);
             }
         });
     }

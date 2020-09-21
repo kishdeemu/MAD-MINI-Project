@@ -16,7 +16,7 @@
     <string name="btbk">BOOK NOW</string>
     <string name="chit">Check-In</string>
     <string name="chot">Check-Out</string>
-    <string name="rlh">Please select the room type</string>
+    <string name="rlh">Select the room type</string>
     <string name="gh">Guests</string>
     <string name="ghad">Adult(s)</string>
     <string name="ghch">Children</string>
@@ -139,6 +139,8 @@
     <string name="odrcf">CONFIRM</string>
     <string name="deliupdtH">Update Your Order</string>
     <string name="deliupdtbtn">UPDATE</string>
+    <string name="norselect">Number of Rooms</string>
+    <string name="totprice">Total Price</string>
 
     <string-array name="fooditem">
         <item>Rice And Curry</item>
