@@ -10,6 +10,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -19,6 +20,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -26,20 +30,104 @@ import java.util.Date;
 public class roombooking extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
     Spinner rlist;
-    Button btnbnwrb;
+    Button rbbtn;
+    EditText chiinput, choinput,  numofRooms, adlinput, chilinput, fullnin, emin, phonein;
+    Spinner roomlist;
+    DatabaseReference dbRef;
+    room_model roomModel;
+    int total;
+
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.roombooking);
-        EditText date_picker = findViewById(R.id.chiinput);
-        EditText date_picker2 = findViewById(R.id.choinput);
+        chiinput = findViewById(R.id.chiinput);
+        choinput = findViewById(R.id.choinput);
+        roomlist = findViewById(R.id.roomlist);
+        numofRooms = findViewById(R.id.numofRooms);
+        adlinput = findViewById(R.id.adlinput);
+        chilinput = findViewById(R.id.chilinput);
+        fullnin = findViewById(R.id.fullnin);
+        emin = findViewById(R.id.emin);
+        phonein = findViewById(R.id.phonein);
+
+        roomModel = new room_model();
+
+        rbbtn = findViewById(R.id.rbbtn);
+
+        rbbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dbRef = FirebaseDatabase.getInstance().getReference().child("room_model");
+                try{
+                    if(TextUtils.isEmpty(chiinput.getText().toString()))
+                        Toast.makeText(getApplicationContext(), "Please enter check-in date", Toast.LENGTH_SHORT).show();
+                    else if(TextUtils.isEmpty(choinput.getText().toString()))
+                        Toast.makeText(getApplicationContext(), "Please enter check-out date", Toast.LENGTH_SHORT).show();
+                    else if(TextUtils.isEmpty(roomlist.getSelectedItem().toString()))
+                        Toast.makeText(getApplicationContext(), "Please select a room type", Toast.LENGTH_SHORT).show();
+                    else if(TextUtils.isEmpty(numofRooms.getText().toString()))
+                        Toast.makeText(getApplicationContext(), "Please enter no. of rooms", Toast.LENGTH_SHORT).show();
+                    else if(TextUtils.isEmpty(adlinput.getText().toString()))
+                        Toast.makeText(getApplicationContext(), "Please enter no.of adults", Toast.LENGTH_SHORT).show();
+                    else if(TextUtils.isEmpty(chilinput.getText().toString()))
+                        Toast.makeText(getApplicationContext(), "Please enter no. of children", Toast.LENGTH_SHORT).show();
+                    else if(TextUtils.isEmpty(fullnin.getText().toString()))
+                        Toast.makeText(getApplicationContext(), "Please enter full name", Toast.LENGTH_SHORT).show();
+                    else if(TextUtils.isEmpty(emin.getText().toString()))
+                        Toast.makeText(getApplicationContext(), "Please enter email", Toast.LENGTH_SHORT).show();
+                    else if(TextUtils.isEmpty(phonein.getText().toString()))
+                        Toast.makeText(getApplicationContext(), "Please enter phone number", Toast.LENGTH_SHORT).show();
+                    else{
+                        if(roomlist.getSelectedItem().toString().equals("Single Room")){
+                            total = 10500 * Integer.parseInt(numofRooms.getText().toString());
+                        }else if(roomlist.getSelectedItem().toString().equals("Double Room")){
+                            total = 14500 * Integer.parseInt(numofRooms.getText().toString());
+                        }else if(roomlist.getSelectedItem().toString().equals("Triple Room")){
+                            total = 16500 * Integer.parseInt(numofRooms.getText().toString());
+                        }else if(roomlist.getSelectedItem().toString().equals("Quadruple Room")){
+                            total = 18000 * Integer.parseInt(numofRooms.getText().toString());
+                        }
+
+                        roomModel.setCheckIn(chiinput.getText().toString().trim());
+                        roomModel.setCheckOut(choinput.getText().toString().trim());
+                        roomModel.setRoomlist(roomlist.getSelectedItem().toString().trim());
+                        roomModel.setNumofRooms(numofRooms.getText().toString().trim());
+                        roomModel.setNumofAdults(adlinput.getText().toString().trim());
+                        roomModel.setNumofChildren(chilinput.getText().toString().trim());
+                        roomModel.setFullnin(fullnin.getText().toString().trim());
+                        roomModel.setEmin(emin.getText().toString().trim());
+                        roomModel.setPhonein(phonein.getText().toString());
+                        roomModel.setTotal(total);
+
+                        dbRef.push().setValue(roomModel);
+
+                        Toast.makeText(getApplicationContext(), "Data Saved Successfully", Toast.LENGTH_SHORT).show();
+                    }
+                }catch(NumberFormatException e){
+                    Toast.makeText(getApplicationContext(), "Invalid contact number", Toast.LENGTH_SHORT).show();
+
+                }
+
+                Intent myI2 = new Intent(roombooking.this, bookedroomdply.class);
+
+                //Toast Message for reacting to button clicked
+                Context context = getApplicationContext();
+                CharSequence message = "Syncing with Database...";
+                int duration = Toast.LENGTH_SHORT;
+                Toast toast = Toast.makeText(context, message, duration);
+                toast.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 0);
+                toast.show();
+                startActivity(myI2);
+            }
+        });
 
 
-        btnbnwrb = findViewById(R.id.rbbtn);
 
-        date_picker.setOnClickListener(new View.OnClickListener() {
+        chiinput.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 DialogFragment datePicker = new DatePickerFragment();
@@ -47,7 +135,7 @@ public class roombooking extends AppCompatActivity implements DatePickerDialog.O
             }
         });
 
-        date_picker2.setOnClickListener(new View.OnClickListener() {
+        choinput.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 DialogFragment datePicker2 = new DatePickerFragment();
@@ -76,24 +164,4 @@ public class roombooking extends AppCompatActivity implements DatePickerDialog.O
     }
 
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        btnbnwrb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent myI2 = new Intent(roombooking.this, bookedroomdply.class);
-
-                //Toast Message for reacting to button clicked
-                Context context = getApplicationContext();
-                CharSequence message = "Syncing with Database...";
-                int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(context, message, duration);
-                toast.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 0);
-                toast.show();
-                startActivity(myI2);
-            }
-        });
-    }
 }

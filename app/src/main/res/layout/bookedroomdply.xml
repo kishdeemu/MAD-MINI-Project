@@ -9,49 +9,46 @@
     tools:context=".bookedroomdply">
 
     <TextView
-        android:id="@+id/dpco"
+        android:id="@+id/checkOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="cursive"
         android:text="TextView"
         android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/dplyco"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/dplyco" />
+        app:layout_constraintStart_toEndOf="@+id/dplyco"
+        app:layout_constraintTop_toBottomOf="@+id/checkIn" />
 
     <TextView
-        android:id="@+id/dppho"
+        android:id="@+id/phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="cursive"
         android:text="TextView"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/dplph"
-        app:layout_constraintTop_toBottomOf="@+id/dpeml" />
+        app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <TextView
-        android:id="@+id/dpfne"
+        android:id="@+id/fullName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="cursive"
         android:text="TextView"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.029"
         app:layout_constraintStart_toEndOf="@+id/dplfn"
-        app:layout_constraintTop_toBottomOf="@+id/dplygus" />
+        app:layout_constraintTop_toBottomOf="@+id/numOfAdults" />
 
     <TextView
-        android:id="@+id/dpc"
+        android:id="@+id/numOfAdults"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
+        android:layout_marginStart="168dp"
         android:layout_marginTop="8dp"
         android:fontFamily="cursive"
         android:text="TextView"
@@ -63,82 +60,82 @@
         android:id="@+id/dplya"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
+        android:layout_marginStart="168dp"
         android:layout_marginTop="24dp"
         android:fontFamily="cursive"
         android:text="@string/ghad"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/dplygus"
-        app:layout_constraintTop_toBottomOf="@+id/dprt" />
+        app:layout_constraintTop_toBottomOf="@+id/roomType" />
 
     <TextView
-        android:id="@+id/dprt"
+        android:id="@+id/roomType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:fontFamily="cursive"
-        android:text="TextView"
-        android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/dplyrt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.029"
-        app:layout_constraintStart_toEndOf="@+id/dplyrt" />
-
-    <TextView
-        android:id="@+id/dpa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="144dp"
         android:layout_marginTop="8dp"
         android:fontFamily="cursive"
         android:text="TextView"
         android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/dpc"
-        app:layout_constraintTop_toBottomOf="@+id/dplyc" />
+        app:layout_constraintStart_toEndOf="@+id/dplyrt"
+        app:layout_constraintTop_toBottomOf="@+id/checkOut" />
 
     <TextView
-        android:id="@+id/dpci"
+        android:id="@+id/numOfChildren"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="cursive"
         android:text="TextView"
         android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/dplyci"
+        app:layout_constraintStart_toEndOf="@+id/numOfAdults"
+        app:layout_constraintTop_toBottomOf="@+id/dplyc" />
+
+    <TextView
+        android:id="@+id/checkIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="cursive"
+        android:text="TextView"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toEndOf="@+id/dplyci" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/dplyci"
+        app:layout_constraintTop_toBottomOf="@+id/cbhead" />
 
     <TextView
         android:id="@+id/dplyc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:fontFamily="cursive"
         android:text="@string/ghch"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/dplya"
-        app:layout_constraintTop_toBottomOf="@+id/dprt" />
+        app:layout_constraintTop_toBottomOf="@+id/roomType" />
 
     <TextView
-        android:id="@+id/dpeml"
+        android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="172dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="cursive"
         android:text="TextView"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/dplem"
-        app:layout_constraintTop_toBottomOf="@+id/dpfne" />
+        app:layout_constraintTop_toBottomOf="@+id/fullName" />
 
     <TextView
         android:id="@+id/dplph"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="cursive"
         android:text="@string/dplph"
         android:textSize="18sp"
@@ -162,7 +159,7 @@
         android:id="@+id/dplyci"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:fontFamily="cursive"
         android:text="@string/chit"
@@ -174,8 +171,8 @@
         android:id="@+id/dplyco"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="cursive"
         android:text="@string/chot"
         android:textSize="18sp"
@@ -186,8 +183,8 @@
         android:id="@+id/dplem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="cursive"
         android:text="@string/dplem"
         android:textSize="18sp"
@@ -211,7 +208,7 @@
         android:id="@+id/dplfn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="64dp"
         android:fontFamily="cursive"
         android:text="@string/dplfn"
@@ -223,7 +220,7 @@
         android:id="@+id/dplygus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:fontFamily="cursive"
         android:text="@string/gh"
@@ -235,8 +232,8 @@
         android:id="@+id/dplyrt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="cursive"
         android:text="@string/dplrt"
         android:textSize="18sp"
