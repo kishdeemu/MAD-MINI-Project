@@ -85,7 +85,7 @@ public class roombooking extends AppCompatActivity implements DatePickerDialog.O
             public void onClick(View view) {
                 Intent myI2 = new Intent(roombooking.this, bookedroomdply.class);
 
-                //Toast Message for reacting to button click
+                //Toast Message for reacting to button clicked
                 Context context = getApplicationContext();
                 CharSequence message = "Syncing with Database...";
                 int duration = Toast.LENGTH_SHORT;
