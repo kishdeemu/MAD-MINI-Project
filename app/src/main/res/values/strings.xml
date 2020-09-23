@@ -141,6 +141,7 @@
     <string name="deliupdtbtn">UPDATE</string>
     <string name="norselect">Number of Rooms</string>
     <string name="totprice">Total Price</string>
+    <string name="welcome">Welcome</string>
 
     <string-array name="fooditem">
         <item>Rice And Curry</item>
@@ -154,6 +155,10 @@
         <item>Colombo</item>
         <item>Kaluthara</item>
     </string-array>
+    <string name="navigation_drawer_open">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+
 </resources>
 
 

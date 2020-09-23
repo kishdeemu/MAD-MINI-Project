@@ -9,28 +9,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".bookedhallsdply"></activity>
-        <activity android:name=".updatehalls"/>
-        <activity android:name=".hallsbooking"/>
-        <activity android:name=".hall"/>
-        <activity android:name=".deliveryupdate"/>
-        <activity android:name=".deliveryconfirm"/>
-        <activity android:name=".deliveryorder"/>
-        <activity android:name=".deliverylanding"/>
-        <activity android:name=".tableUpdate"/>
-        <activity android:name=".tableBookings" />
-        <activity android:name=".tables" />
-        <activity android:name=".updateroom" />
-        <activity android:name=".bookedroomdply" />
-        <activity android:name=".roombooking" />
-        <activity android:name=".rooms" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".bookedhallsdply" />
+        <activity android:name=".updatehalls" />
+        <activity android:name=".hallsbooking" />
+        <activity android:name=".hall" />
+        <activity android:name=".deliveryupdate" />
+        <activity android:name=".deliveryconfirm" />
+        <activity android:name=".deliveryorder" />
+        <activity android:name=".deliverylanding" />
+        <activity android:name=".tableUpdate" />
+        <activity android:name=".tableBookings" />
+        <activity android:name=".tables" />
+        <activity android:name=".updateroom" />
+        <activity android:name=".bookedroomdply" />
+        <activity android:name=".roombooking" />
+        <activity android:name=".rooms" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
