@@ -20,8 +20,7 @@
 
 
     <item android:title="Profiles">
-
-
+        
         <menu>
 
             <group android:checkableBehavior="single">
@@ -29,7 +28,7 @@
                 <item
                     android:id="@+id/nav_login"
                     android:icon="@drawable/login"
-                    android:title="Login" />
+                    android:title="Admin Login" />
 
                 <item
                     android:id="@+id/nav_profile"
@@ -44,7 +43,6 @@
             </group>
 
         </menu>
-
 
     </item>
 

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context=".AdminDashboard">
+
+    <Button
+        android:id="@+id/rooms"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="284dp"
+        android:layout_marginBottom="90dp"
+        android:background="@drawable/splashscreen"
+        android:text="View All Room Bookings"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/halls"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/tables"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="372dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/splashscreen"
+        android:text="View All Room Bookings"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/halls"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/halls"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="177dp"
+        android:background="@drawable/splashscreen"
+        android:text="View All Room Bookings"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tables" />
+
+    <Button
+        android:id="@+id/delivery"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="85dp"
+        android:background="@drawable/splashscreen"
+        android:text="View All Room Bookings"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/halls" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

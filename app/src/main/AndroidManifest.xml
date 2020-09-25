@@ -9,6 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".AdminDashboard"></activity>
+        <activity android:name=".Admin_Register" />
+        <activity android:name=".Admin_Login" />
+        <activity android:name=".About_us" />
+        <activity android:name=".Contact_us" />
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,7 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity" />
         <activity android:name=".bookedhallsdply" />
         <activity android:name=".updatehalls" />
         <activity android:name=".hallsbooking" />

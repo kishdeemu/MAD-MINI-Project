@@ -59,6 +59,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         navigationView.setNavigationItemSelectedListener(this);
 
+        navigationView.setCheckedItem(R.id.nav_home);
+
 
     }
 
@@ -100,6 +102,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        switch(item.getItemId()){
+            case R.id.nav_home:
+                break;
+            case R.id.nav_phone:
+                Intent intent = new Intent(MainActivity.this, Contact_us.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_aboutus:
+                Intent intentB = new Intent(MainActivity.this, About_us.class);
+                startActivity(intentB);
+                break;
+            case R.id.nav_login:
+                Intent intentC = new Intent(MainActivity.this, Admin_Login.class);
+                startActivity(intentC);
+                break;
+        }
+
+        drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 }
