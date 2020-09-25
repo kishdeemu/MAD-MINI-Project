@@ -5,11 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/back"
-    tools:context=".tables">
+    tools:context=".tables"
+    android:padding="20dp">
 
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/noOfPeople"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/spinner_background"
@@ -85,7 +86,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
+        android:id="@+id/comment"
         android:layout_width="match_parent"
         android:layout_height="157dp"
         android:background="@drawable/spinner_background_none"
@@ -113,10 +114,10 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.632" />
+        app:layout_constraintVertical_bias="0.632"/>
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/lname"
         android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:background="@drawable/spinner_background_none"
