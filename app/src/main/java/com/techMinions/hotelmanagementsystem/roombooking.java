@@ -27,9 +27,8 @@ import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class roombooking extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
+public class roombooking extends AppCompatActivity{
 
-    Spinner rlist;
     Button rbbtn;
     EditText chiinput, choinput,  numofRooms, adlinput, chilinput, fullnin, emin, phonein;
     Spinner roomlist;
@@ -61,7 +60,7 @@ public class roombooking extends AppCompatActivity implements DatePickerDialog.O
         rbbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dbRef = FirebaseDatabase.getInstance().getReference().child("room_model");
+                dbRef = FirebaseDatabase.getInstance().getReference().child("Rooms");
                 try{
                     if(TextUtils.isEmpty(chiinput.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter check-in date", Toast.LENGTH_SHORT).show();
@@ -127,41 +126,39 @@ public class roombooking extends AppCompatActivity implements DatePickerDialog.O
 
 
 
-        chiinput.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DialogFragment datePicker = new DatePickerFragment();
-                datePicker.show(getSupportFragmentManager(), "date picker");
-            }
-        });
+//        chiinput.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                DialogFragment datePicker = new DatePickerFragment();
+//                datePicker.show(getSupportFragmentManager(), "date picker");
+//            }
+//        });
+//
+//        choinput.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                DialogFragment datePicker2 = new DatePickerFragment();
+//                datePicker2.show(getSupportFragmentManager(), "date picker");
+//            }
+//        });
 
-        choinput.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DialogFragment datePicker2 = new DatePickerFragment();
-                datePicker2.show(getSupportFragmentManager(), "date picker");
-            }
-        });
 
-
-        rlist = findViewById(R.id.roomlist);
         ArrayAdapter<String> radp = new ArrayAdapter<String>(roombooking.this,
                 android.R.layout.simple_expandable_list_item_1, getResources().getStringArray(R.array.rolist));
         radp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        rlist.setAdapter(radp);
+        roomlist.setAdapter(radp);
 
     }
 
-    @Override
-    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-        Calendar c = Calendar.getInstance();
-        c.set(Calendar.YEAR, year);
-        c.set(Calendar.MONTH, month);
-        c.set(Calendar.DAY_OF_MONTH, day);
-        String currentDate = DateFormat.getDateInstance().format(c.getTime());
-        EditText date_picker = findViewById(R.id.chiinput);
-        date_picker.setText(currentDate);
-    }
+//    @Override
+//    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+//        Calendar c = Calendar.getInstance();
+//        c.set(Calendar.YEAR, year);
+//        c.set(Calendar.MONTH, month);
+//        c.set(Calendar.DAY_OF_MONTH, day);
+//        String currentDate = DateFormat.getDateInstance().format(c.getTime());
+//        chiinput.setText(currentDate);
+//    }
 
 
 }
