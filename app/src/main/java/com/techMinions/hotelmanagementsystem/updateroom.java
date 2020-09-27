@@ -27,7 +27,9 @@ public class updateroom extends AppCompatActivity {
     Button uproombtn;
     EditText chiinput, choinput, mumofroomsup, adlinput, chilinput, fullnin, emin, phonein;
     DatabaseReference dbRef;
+    DatabaseReference dbRef3;
     room_model roomModel;
+    String roomList;
     int total;
 
     @Override
@@ -55,8 +57,8 @@ public class updateroom extends AppCompatActivity {
         rlistup.setAdapter(radp);
 
 
-        dbRef = FirebaseDatabase.getInstance().getReference().child("Rooms").child("lastRoomData");
-        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        DatabaseReference dbRef2 = FirebaseDatabase.getInstance().getReference().child("Rooms").child("lastRoomData");
+        dbRef2.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChildren()) {
@@ -70,9 +72,17 @@ public class updateroom extends AppCompatActivity {
                     phonein.setText(dataSnapshot.child("phonein").getValue().toString());
                     //rlistup.((dataSnapshot.child("roomlist").getValue().toString()));
                     //total.setText(dataSnapshot.child("total").getValue().toString());
-                    total = (int) dataSnapshot.child("total").getValue();
+                    roomList = dataSnapshot.child("roomlist").getValue().toString();
 
-                    total = dataSnapshot.
+                    if (roomList.equals("Single Room")) {
+                        total = 10500 * Integer.parseInt(mumofroomsup.getText().toString());
+                    } else if (roomList.equals("Double Room")) {
+                        total = 14500 * Integer.parseInt(mumofroomsup.getText().toString());
+                    } else if (roomList.equals("Triple Room")) {
+                        total = 16500 * Integer.parseInt(mumofroomsup.getText().toString());
+                    } else if (roomList.equals("Quadruple Room")) {
+                        total = 18000 * Integer.parseInt(mumofroomsup.getText().toString());
+                    }
 
 
 
@@ -88,30 +98,83 @@ public class updateroom extends AppCompatActivity {
 
         });
 
-
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
         uproombtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myI5 = new Intent(updateroom.this, bookedroomdply.class);
+                dbRef = FirebaseDatabase.getInstance().getReference().child("Rooms");
+                dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.hasChild("lastRoomData"))
+                        try{
+                            roomModel.setCheckIn(chiinput.getText().toString().trim());
+                            roomModel.setCheckOut(choinput.getText().toString().trim());
+                            roomModel.setEmin(emin.getText().toString().trim());
+                            roomModel.setFullnin(fullnin.getText().toString().trim());
+                            roomModel.setNumofAdults(adlinput.getText().toString().trim());
+                            roomModel.setNumofChildren(chilinput.getText().toString().trim());
+                            roomModel.setNumofRooms(mumofroomsup.getText().toString().trim());
+                            roomModel.setPhonein(phonein.getText().toString().trim());
+                            roomModel.setRoomlist(rlistup.getSelectedItem().toString().trim());
 
-                //Toast Message for reacting to button click
-                Context context = getApplicationContext();
-                CharSequence message = "booking updated";
-                int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(context, message, duration);
-                toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 0);
-                toast.show();
+                            if (rlistup.getSelectedItem().toString().equals("Single Room")) {
+                                total = 10500 * Integer.parseInt(mumofroomsup.getText().toString());
+                            } else if (rlistup.getSelectedItem().toString().equals("Double Room")) {
+                                total = 14500 * Integer.parseInt(mumofroomsup.getText().toString());
+                            } else if (rlistup.getSelectedItem().toString().equals("Triple Room")) {
+                                total = 16500 * Integer.parseInt(mumofroomsup.getText().toString());
+                            } else if (rlistup.getSelectedItem().toString().equals("Quadruple Room")) {
+                                total = 18000 * Integer.parseInt(mumofroomsup.getText().toString());
+                            }
 
-                startActivity(myI5);
 
+                            roomModel.setTotal(total);
+
+                            dbRef3 = FirebaseDatabase.getInstance().getReference().child("Rooms").child("lastRoomData");
+                            dbRef3.setValue(roomModel);
+
+                            Intent myI5 = new Intent(updateroom.this, bookedroomdply.class);
+                            startActivity(myI5);
+
+                            Toast.makeText(getApplicationContext(), "Data updated successfully", Toast.LENGTH_SHORT).show();
+
+                        }catch(NumberFormatException e){
+                            Toast.makeText(getApplicationContext(), "Invalid Contact number", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
             }
         });
+
+
+
     }
+
+
+
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//
+//        uproombtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                //Toast Message for reacting to button click
+//                Context context = getApplicationContext();
+//                CharSequence message = "booking updated";
+//                int duration = Toast.LENGTH_SHORT;
+//                Toast toast = Toast.makeText(context, message, duration);
+//                toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 0);
+//                toast.show();
+//
+//
+//            }
+//        });
+//    }
 }
