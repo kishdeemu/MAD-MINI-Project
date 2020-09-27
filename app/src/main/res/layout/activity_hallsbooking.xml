@@ -4,10 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".hallsbooking"
     android:background="#F3EEC7"
-    android:textAlignment="center">
+    android:textAlignment="center"
+    tools:context=".hallsbooking">
 
+
+    <EditText
+        android:id="@+id/noOfPeople"
+        android:layout_width="220dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="82dp"
+        android:layout_marginTop="201dp"
+        android:layout_marginEnd="109dp"
+        android:layout_marginBottom="490dp"
+        android:background="@color/back"
+        android:ems="10"
+        android:fontFamily="cursive"
+        android:hint="No. of people attending"
+        android:inputType="textEmailAddress"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/halltype"
@@ -20,15 +40,19 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hallhead"
-        app:layout_constraintVertical_bias="0.063" />
+        app:layout_constraintVertical_bias="0.043" />
 
     <TextView
         android:id="@+id/hbooking"
         android:layout_width="142dp"
         android:layout_height="25dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginEnd="144dp"
+        android:layout_marginBottom="456dp"
         android:fontFamily="cursive"
         android:text="@string/date"
         android:textAlignment="center"
@@ -36,10 +60,24 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/halllist"
-        app:layout_constraintVertical_bias="0.038" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/hbooking2"
+        android:layout_width="168dp"
+        android:layout_height="33dp"
+        android:fontFamily="cursive"
+        android:text="No. of people attending"
+        android:textAlignment="center"
+        android:textColor="@color/txc"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.469"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.242" />
 
     <TextView
         android:id="@+id/hallhead"
@@ -52,15 +90,15 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.04" />
+        app:layout_constraintVertical_bias="0.038" />
 
     <Spinner
         android:id="@+id/halllist"
-        android:layout_width="247dp"
-        android:layout_height="58dp"
+        android:layout_width="248dp"
+        android:layout_height="38dp"
         android:background="@color/back"
         android:clickable="true"
         android:fadeScrollbars="false"
@@ -77,7 +115,8 @@
         android:id="@+id/time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="384dp"
+        android:layout_marginTop="336dp"
+        android:layout_marginBottom="368dp"
         android:fontFamily="cursive"
         android:text="@string/time"
         android:textAlignment="center"
@@ -85,7 +124,8 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/timed"
@@ -100,31 +140,34 @@
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/time"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.125" />
 
     <TextView
         android:id="@+id/personalinfor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="432dp"
+        android:layout_marginBottom="209dp"
         android:fontFamily="cursive"
         android:text="@string/persinfor"
         android:textColor="@color/txc"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/booknb"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timed"
-        app:layout_constraintVertical_bias="0.083" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/fullName"
         android:layout_width="220dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="124dp"
+        android:layout_marginStart="94dp"
+        android:layout_marginTop="473dp"
+        android:layout_marginEnd="97dp"
+        android:layout_marginBottom="218dp"
         android:background="@color/back"
         android:ems="10"
         android:fontFamily="cursive"
@@ -134,13 +177,11 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/personalinfor"
-        app:layout_constraintVertical_bias="0.226" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/emailAddress"
         android:layout_width="217dp"
         android:layout_height="39dp"
         android:background="@color/back"
@@ -158,9 +199,10 @@
         app:layout_constraintVertical_bias="0.759" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/phone"
         android:layout_width="214dp"
         android:layout_height="38dp"
+        android:layout_marginBottom="108dp"
         android:background="@color/back"
         android:ems="10"
         android:fontFamily="cursive"
@@ -171,15 +213,16 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
         app:layout_constraintVertical_bias="0.088" />
 
     <Button
-        android:id="@+id/booknb"
+        android:id="@+id/bookBtn"
         android:layout_width="175dp"
         android:layout_height="57dp"
+        android:layout_marginBottom="36dp"
         android:background="@color/butc"
         android:fontFamily="serif"
         android:text="@string/bnbutton"
@@ -188,8 +231,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3"
-        app:layout_constraintVertical_bias="0.4" />
+        app:layout_constraintTop_toBottomOf="@+id/phone"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/booking"
@@ -206,15 +249,10 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/time"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.456"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.834" />
-
-
-
-
-
-
+        app:layout_constraintVertical_bias="0.969" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,9 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".bookedhallsdply"
-    android:background="#F3EEC7">
+    android:background="#F3EEC7"
+    tools:context=".bookedhallsdply">
 
+
+    <TextView
+        android:id="@+id/cdt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="46dp"
+        android:layout_marginEnd="74dp"
+        android:fontFamily="cursive"
+        android:text="No. of People"
+        android:textColor="@color/txc"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/ctimed2"
+        app:layout_constraintEnd_toStartOf="@+id/ctimed2"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/hconfirmbooking"
@@ -64,10 +78,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintHorizontal_bias="0.109"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.28" />
+        app:layout_constraintVertical_bias="0.223" />
 
     <EditText
         android:id="@+id/cdate"
@@ -90,21 +104,22 @@
         android:id="@+id/cdt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginEnd="62dp"
         android:fontFamily="cursive"
         android:text="@string/time"
         android:textColor="@color/txc"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.095"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.38" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/ctimed"
+        app:layout_constraintEnd_toStartOf="@+id/ctimed"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/ctimed"
-        android:layout_width="190dp"
+        android:layout_width="0dp"
         android:layout_height="42dp"
+        android:layout_marginTop="79dp"
+        android:layout_marginBottom="79dp"
         android:background="@color/back"
         android:ems="10"
         android:fontFamily="cursive"
@@ -113,12 +128,29 @@
         android:textAlignment="center"
         android:textColor="@android:color/darker_gray"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.728"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.377" />
+        app:layout_constraintBottom_toTopOf="@+id/discfemail"
+        app:layout_constraintEnd_toEndOf="@+id/cdate"
+        app:layout_constraintStart_toStartOf="@+id/difullname"
+        app:layout_constraintTop_toBottomOf="@+id/timrdu" />
+
+    <EditText
+        android:id="@+id/ctimed2"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="49dp"
+        android:layout_marginBottom="50dp"
+        android:background="@color/back"
+        android:ems="10"
+        android:fontFamily="cursive"
+        android:hint="No. of people"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/cdt"
+        app:layout_constraintEnd_toEndOf="@+id/cdate"
+        app:layout_constraintStart_toStartOf="@+id/ctimed"
+        app:layout_constraintTop_toTopOf="@+id/timrdu" />
 
     <TextView
         android:id="@+id/fname"
@@ -128,17 +160,18 @@
         android:text="@string/fulln"
         android:textColor="@color/txc"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/difullname"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.097"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.465" />
+        app:layout_constraintHorizontal_bias="0.102"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/difullname"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
+        android:layout_marginTop="57dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="58dp"
         android:background="@color/back"
         android:ems="10"
         android:fontFamily="cursive"
@@ -147,10 +180,9 @@
         android:textAlignment="center"
         android:textColor="@android:color/darker_gray"
         android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/fname"
+        app:layout_constraintBottom_toBottomOf="@+id/discfemail"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.847"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/cdt" />
 
     <TextView
         android:id="@+id/cfemail"
@@ -160,17 +192,16 @@
         android:text="@string/email"
         android:textColor="@color/txc"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/discfemail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.089"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.548" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/discfemail"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
+        android:layout_marginEnd="3dp"
         android:background="@color/back"
         android:ems="10"
         android:fontFamily="cursive"
@@ -179,10 +210,9 @@
         android:textAlignment="center"
         android:textColor="@android:color/darker_gray"
         android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/cfemail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.847"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/difullname"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/cfphone"
@@ -192,17 +222,17 @@
         android:text="@string/phone"
         android:textColor="@color/txc"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/disphone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.091"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.635" />
+        app:layout_constraintHorizontal_bias="0.086"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/disphone"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
+        android:layout_marginTop="233dp"
+        android:layout_marginBottom="233dp"
         android:background="@color/back"
         android:ems="10"
         android:fontFamily="cursive"
@@ -211,10 +241,9 @@
         android:textAlignment="center"
         android:textColor="@android:color/darker_gray"
         android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/cfphone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.852"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/askconfirm"
+        app:layout_constraintStart_toStartOf="@+id/discfemail"
+        app:layout_constraintTop_toTopOf="@+id/cdt2" />
 
     <Button
         android:id="@+id/update"
@@ -225,33 +254,30 @@
         android:text="@string/update"
         android:textColor="@color/txc"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/delete"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.122"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.764" />
+        app:layout_constraintHorizontal_bias="0.135"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="47dp"
+        android:layout_marginBottom="70dp"
         android:background="@android:color/holo_red_light"
         android:fontFamily="serif"
         android:text="@string/delete"
         android:textColor="@color/txc"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.852"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.764" />
+        app:layout_constraintBottom_toTopOf="@+id/askconfirm"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/confirmbooking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="37dp"
         android:background="@color/conf"
         android:fontFamily="serif"
         android:text="@string/confirmb"
@@ -261,7 +287,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ctimed"
         app:layout_constraintVertical_bias="0.956" />
 
     <TextView
@@ -274,9 +300,8 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.854" />
+        app:layout_constraintVertical_bias="0.836" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
