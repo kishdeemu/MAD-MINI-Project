@@ -30,12 +30,16 @@ import java.util.Date;
 public class roombooking extends AppCompatActivity{
 
     Button rbbtn;
-    EditText chiinput, choinput,  numofRooms, adlinput, chilinput, fullnin, emin, phonein;
+    EditText chiinput, choinput, numofRooms, adlinput, chilinput, fullnin, emin, phonein;
     Spinner roomlist;
     DatabaseReference dbRef;
     room_model roomModel;
     int total;
 
+    int in_year, in_month, in_day, out_year, out_month, out_day;
+//    DatePickerDialog.OnDateSetListener in_dateListner, out_dateListner;
+//    int DATE_PICKER_IN = 0;
+//    int DATE_PICKER_OUT= 1;
 
 
 
@@ -61,33 +65,33 @@ public class roombooking extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 dbRef = FirebaseDatabase.getInstance().getReference().child("Rooms");
-                try{
-                    if(TextUtils.isEmpty(chiinput.getText().toString()))
+                try {
+                    if (TextUtils.isEmpty(chiinput.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter check-in date", Toast.LENGTH_SHORT).show();
-                    else if(TextUtils.isEmpty(choinput.getText().toString()))
+                    else if (TextUtils.isEmpty(choinput.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter check-out date", Toast.LENGTH_SHORT).show();
-                    else if(TextUtils.isEmpty(roomlist.getSelectedItem().toString()))
+                    else if (TextUtils.isEmpty(roomlist.getSelectedItem().toString()))
                         Toast.makeText(getApplicationContext(), "Please select a room type", Toast.LENGTH_SHORT).show();
-                    else if(TextUtils.isEmpty(numofRooms.getText().toString()))
+                    else if (TextUtils.isEmpty(numofRooms.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter no. of rooms", Toast.LENGTH_SHORT).show();
-                    else if(TextUtils.isEmpty(adlinput.getText().toString()))
+                    else if (TextUtils.isEmpty(adlinput.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter no.of adults", Toast.LENGTH_SHORT).show();
-                    else if(TextUtils.isEmpty(chilinput.getText().toString()))
+                    else if (TextUtils.isEmpty(chilinput.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter no. of children", Toast.LENGTH_SHORT).show();
-                    else if(TextUtils.isEmpty(fullnin.getText().toString()))
+                    else if (TextUtils.isEmpty(fullnin.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter full name", Toast.LENGTH_SHORT).show();
-                    else if(TextUtils.isEmpty(emin.getText().toString()))
+                    else if (TextUtils.isEmpty(emin.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter email", Toast.LENGTH_SHORT).show();
-                    else if(TextUtils.isEmpty(phonein.getText().toString()))
+                    else if (TextUtils.isEmpty(phonein.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter phone number", Toast.LENGTH_SHORT).show();
-                    else{
-                        if(roomlist.getSelectedItem().toString().equals("Single Room")){
+                    else {
+                        if (roomlist.getSelectedItem().toString().equals("Single Room")) {
                             total = 10500 * Integer.parseInt(numofRooms.getText().toString());
-                        }else if(roomlist.getSelectedItem().toString().equals("Double Room")){
+                        } else if (roomlist.getSelectedItem().toString().equals("Double Room")) {
                             total = 14500 * Integer.parseInt(numofRooms.getText().toString());
-                        }else if(roomlist.getSelectedItem().toString().equals("Triple Room")){
+                        } else if (roomlist.getSelectedItem().toString().equals("Triple Room")) {
                             total = 16500 * Integer.parseInt(numofRooms.getText().toString());
-                        }else if(roomlist.getSelectedItem().toString().equals("Quadruple Room")){
+                        } else if (roomlist.getSelectedItem().toString().equals("Quadruple Room")) {
                             total = 18000 * Integer.parseInt(numofRooms.getText().toString());
                         }
 
@@ -104,9 +108,11 @@ public class roombooking extends AppCompatActivity{
 
                         dbRef.push().setValue(roomModel);
 
+                        dbRef.child("lastRoomData").setValue(roomModel);
+
                         Toast.makeText(getApplicationContext(), "Data Saved Successfully", Toast.LENGTH_SHORT).show();
                     }
-                }catch(NumberFormatException e){
+                } catch (NumberFormatException e) {
                     Toast.makeText(getApplicationContext(), "Invalid contact number", Toast.LENGTH_SHORT).show();
 
                 }
@@ -124,8 +130,7 @@ public class roombooking extends AppCompatActivity{
             }
         });
 
-
-
+//
 //        chiinput.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -148,17 +153,38 @@ public class roombooking extends AppCompatActivity{
         radp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         roomlist.setAdapter(radp);
 
-    }
+//        in_dateListner = new DatePickerDialog.OnDateSetListener() {
+//            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+//                Calendar c = Calendar.getInstance();
+//                c.set(Calendar.YEAR, year);
+//                c.set(Calendar.MONTH, month);
+//                c.set(Calendar.DAY_OF_MONTH, day);
+//                String currentDate = DateFormat.getDateInstance().format(c.getTime());
+//                chiinput.setText(currentDate);
+//
+//            }
+//
+//
+//        };
+//
+//        out_dateListner = new DatePickerDialog.OnDateSetListener() {
+//            @Override
+//            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+//                Calendar c = Calendar.getInstance();
+//                c.set(Calendar.YEAR, year);
+//                c.set(Calendar.MONTH, month);
+//                c.set(Calendar.DAY_OF_MONTH, day);
+//                String currentDate = DateFormat.getDateInstance().format(c.getTime());
+//                choinput.setText(currentDate);
+//            }
+//        };
 
-//    @Override
-//    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-//        Calendar c = Calendar.getInstance();
-//        c.set(Calendar.YEAR, year);
-//        c.set(Calendar.MONTH, month);
-//        c.set(Calendar.DAY_OF_MONTH, day);
-//        String currentDate = DateFormat.getDateInstance().format(c.getTime());
-//        chiinput.setText(currentDate);
-//    }
+
+
+
+
+
+    }
 
 
 }

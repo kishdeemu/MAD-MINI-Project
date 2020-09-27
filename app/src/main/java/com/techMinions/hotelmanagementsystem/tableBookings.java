@@ -2,6 +2,7 @@ package com.techMinions.hotelmanagementsystem;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -67,6 +68,7 @@ public class tableBookings extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.hasChildren()){
+                    Log.d("tableTag", String.valueOf(dataSnapshot));
                     fname.setText(dataSnapshot.child("fname").getValue().toString());
                     lname.setText(dataSnapshot.child("lname").getValue().toString());
                     email.setText(dataSnapshot.child("email").getValue().toString());
