@@ -98,6 +98,7 @@ public class bookedroomdply extends AppCompatActivity {
                 startActivity(myI3);
             }
         });
+
         bordcal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

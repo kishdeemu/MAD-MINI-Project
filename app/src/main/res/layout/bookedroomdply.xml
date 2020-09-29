@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="144dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="36dp"
         android:fontFamily="cursive"
         android:text="TextView"
         android:textSize="18sp"
@@ -60,11 +60,12 @@
         android:id="@+id/dplya"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="168dp"
         android:layout_marginTop="16dp"
         android:fontFamily="cursive"
         android:text="@string/ghad"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/numOfAdults"
+        app:layout_constraintStart_toEndOf="@+id/dplygus"
         app:layout_constraintTop_toBottomOf="@+id/numOfRooms" />
 
     <TextView
@@ -83,12 +84,12 @@
         android:id="@+id/numOfChildren"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginStart="252dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="cursive"
         android:text="TextView"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/dplyc"
+        app:layout_constraintStart_toEndOf="@+id/dplygus"
         app:layout_constraintTop_toBottomOf="@+id/dplyc" />
 
     <TextView
@@ -207,7 +208,7 @@
         android:id="@+id/dplfn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="68dp"
         android:fontFamily="cursive"
         android:text="@string/dplfn"
@@ -219,13 +220,13 @@
         android:id="@+id/dplygus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:fontFamily="cursive"
         android:text="@string/gh"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/dplynr" />
 
     <TextView
         android:id="@+id/dplyrt"
@@ -243,7 +244,6 @@
         android:id="@+id/brcon"
         android:layout_width="175dp"
         android:layout_height="57dp"
-        android:layout_marginTop="8dp"
         android:layout_marginBottom="24dp"
         android:background="@color/conf"
         android:fontFamily="serif"
@@ -252,22 +252,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contex" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/contex"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="cursive"
         android:text="@string/brconf"
         android:textColor="@color/txc"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/brcon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/brup" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/cbhead"
@@ -287,14 +286,14 @@
         android:id="@+id/textView29"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="cursive"
         android:text="@string/totprice"
         android:textColor="@color/txc"
         android:textIsSelectable="true"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dplph" />
 
@@ -311,11 +310,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textView29" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/dplynr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="cursive"
         android:text="No. of Rooms"
         android:textSize="18sp"
@@ -326,12 +325,12 @@
         android:id="@+id/numOfRooms"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="cursive"
-        android:text="asdgawid"
+        android:text="TextView"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/roomType"
+        app:layout_constraintStart_toEndOf="@+id/dplynr"
         app:layout_constraintTop_toBottomOf="@+id/roomType" />
 
 

@@ -36,7 +36,7 @@ public class roombooking extends AppCompatActivity{
     room_model roomModel;
     int total;
 
-    int in_year, in_month, in_day, out_year, out_month, out_day;
+//    int in_year, in_month, in_day, out_year, out_month, out_day;
 //    DatePickerDialog.OnDateSetListener in_dateListner, out_dateListner;
 //    int DATE_PICKER_IN = 0;
 //    int DATE_PICKER_OUT= 1;
@@ -111,26 +111,31 @@ public class roombooking extends AppCompatActivity{
                         dbRef.child("lastRoomData").setValue(roomModel);
 
                         Toast.makeText(getApplicationContext(), "Data Saved Successfully", Toast.LENGTH_SHORT).show();
+                        clearControls();
+                        Intent intent = new Intent(roombooking.this, bookedroomdply.class);
+                        startActivity(intent);
+
+
+                        //Toast.makeText(getApplicationContext(), "Data Saved Successfully", Toast.LENGTH_SHORT).show();
                     }
                 } catch (NumberFormatException e) {
                     Toast.makeText(getApplicationContext(), "Invalid contact number", Toast.LENGTH_SHORT).show();
 
                 }
 
-                Intent myI2 = new Intent(roombooking.this, bookedroomdply.class);
+                //Intent myI2 = new Intent(roombooking.this, bookedroomdply.class);
 
                 //Toast Message for reacting to button clicked
-                Context context = getApplicationContext();
-                CharSequence message = "Syncing with Database...";
-                int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(context, message, duration);
-                toast.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 0);
-                toast.show();
-                startActivity(myI2);
+                //Context context = getApplicationContext();
+                //CharSequence message = "Syncing with Database...";
+                //int duration = Toast.LENGTH_SHORT;
+                //Toast toast = Toast.makeText(context, message, duration);
+                //toast.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 0);
+                //toast.show();
+                //startActivity(myI2);
             }
         });
 
-//
 //        chiinput.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -179,12 +184,15 @@ public class roombooking extends AppCompatActivity{
 //            }
 //        };
 
-
-
-
-
-
     }
-
-
+    public void clearControls() {
+        chiinput.setText("");
+        choinput.setText("");
+        numofRooms.setText("");
+        adlinput.setText("");
+        chilinput.setText("");
+        fullnin.setText("");
+        emin.setText("");
+        phonein.setText("");
+    }
 }
