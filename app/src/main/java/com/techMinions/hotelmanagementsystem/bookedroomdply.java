@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -115,15 +116,21 @@ public class bookedroomdply extends AppCompatActivity {
         borcom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent myI6 = new Intent(bookedroomdply.this, MainActivity.class);
+
                 AlertDialog dialog;
                 AlertDialog.Builder builder = new AlertDialog.Builder(bookedroomdply.this);
                 builder.setTitle("CONFIRMED!");
                 builder.setMessage("Your booking has been confirmed.");
-                builder.setPositiveButton("OK", null);
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Intent myI6 = new Intent(bookedroomdply.this, MainActivity.class);
+                        startActivity(myI6);
+                    }
+                });
                 dialog = builder.create();
                 dialog.show();
-                //startActivity(myI6);
+
             }
         });
     }

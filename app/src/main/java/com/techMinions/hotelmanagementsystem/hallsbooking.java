@@ -1,21 +1,29 @@
 package com.techMinions.hotelmanagementsystem;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class hallsbooking extends AppCompatActivity {
+import java.text.DateFormat;
+import java.util.Calendar;
+
+public class hallsbooking extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
     DatabaseReference dbRef;
     EditText booking, timed, emailAddress, fullName, phone, noOfPeople;
     Button booknb;
@@ -37,6 +45,22 @@ public class hallsbooking extends AppCompatActivity {
         halllist = findViewById(R.id.halllist);
 
         hall_model = new hall_model();
+
+        booking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DialogFragment datePicker = new DatePickerFragment();
+                datePicker.show(getSupportFragmentManager(), "date picker");
+            }
+        });
+
+        timed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DialogFragment timePicker = new TimePickerFragment();
+                timePicker.show(getSupportFragmentManager(), "time picker");
+            }
+        });
 
         booknb.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,7 +93,8 @@ public class hallsbooking extends AppCompatActivity {
                         dbRef.child("lastHallBooking").setValue(hall_model);
                         //feedback to the user via a Toast
                         Toast.makeText(getApplicationContext(), "Data Saved Successfully", Toast.LENGTH_SHORT).show();
-
+                        Intent intent = new Intent(hallsbooking.this, bookedhallsdply.class);
+                        startActivity(intent);
 
 
                     }
@@ -78,8 +103,7 @@ public class hallsbooking extends AppCompatActivity {
 
                 }
 
-                Intent intent = new Intent(hallsbooking.this, bookedhallsdply.class);
-                startActivity(intent);
+
 
             }
         });
@@ -89,4 +113,24 @@ public class hallsbooking extends AppCompatActivity {
         radp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         halllist.setAdapter(radp);
     }
+
+    @Override
+    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.YEAR, year);
+        c.set(Calendar.MONTH, month);
+        c.set(Calendar.DAY_OF_MONTH, day);
+        String currentDate = DateFormat.getDateInstance().format(c.getTime());
+
+        EditText date_picker = findViewById(R.id.booking);
+        date_picker.setText(currentDate);
+    }
+
+
+    @Override
+    public void onTimeSet(TimePicker timePicker, int hourOfDay, int minute) {
+        EditText time_picker = findViewById(R.id.timed);
+        time_picker.setText(hourOfDay + ":" + minute);
+    }
+
 }

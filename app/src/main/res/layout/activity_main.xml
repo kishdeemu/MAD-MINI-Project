@@ -33,6 +33,7 @@
             android:layout_alignParentEnd="true"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarStyle"
+            app:titleTextColor="#00FFFFFF"
             app:navigationIcon="@drawable/toggle" />
 
         <ImageView

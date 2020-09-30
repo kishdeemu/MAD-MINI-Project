@@ -127,7 +127,6 @@ public class tableUpdate extends AppCompatActivity implements DatePickerDialog.O
                         Log.d("xxx", arr.get(arr.size() - 1).getComments());
                         tables_model lastRecord = arr.get(arr.size() - 2);
 //
-//                        if(dataSnapshot.hasChild(lastRecord.)){
 
                         if (dataSnapshot.hasChild(lastKey)) {
                             try {
@@ -203,7 +202,7 @@ public class tableUpdate extends AppCompatActivity implements DatePickerDialog.O
         c.set(Calendar.DAY_OF_MONTH, day);
         String currentDate = DateFormat.getDateInstance().format(c.getTime());
 
-        EditText date_picker = findViewById(R.id.date_picker);
+        EditText date_picker = findViewById(R.id.date);
         date_picker.setText(currentDate);
     }
 
@@ -211,7 +210,7 @@ public class tableUpdate extends AppCompatActivity implements DatePickerDialog.O
     @SuppressLint("SetTextI18n")
     @Override
     public void onTimeSet(TimePicker timePicker, int hourOfDay, int minute) {
-        EditText time_picker = findViewById(R.id.time_picker);
+        EditText time_picker = findViewById(R.id.time);
         time_picker.setText(hourOfDay + ":" + minute);
     }
 }

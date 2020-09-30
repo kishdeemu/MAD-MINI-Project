@@ -17,9 +17,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class tableBookings extends AppCompatActivity {
     TextView fname, lname, email, phone, noOfPeople, date, time, comments;
     DatabaseReference dbRef;
+    String lastKey;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,37 @@ public class tableBookings extends AppCompatActivity {
         tblDltBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                DatabaseReference delRef = FirebaseDatabase.getInstance().getReference().child("Tables");
+                delRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        ArrayList<String> tableDataKeys = new ArrayList<>();
+                        for(DataSnapshot data : dataSnapshot.getChildren()){
+                            tableDataKeys.add(data.getKey());
+                        }
+                        lastKey = tableDataKeys.get(tableDataKeys.size()-2);
+
+                        if(dataSnapshot.hasChild(lastKey)){
+                            dbRef = FirebaseDatabase.getInstance().getReference().child("Tables").child(lastKey);
+                            dbRef.removeValue();
+                        }
+
+                        if(dataSnapshot.hasChild("tableData")){
+                            dbRef = FirebaseDatabase.getInstance().getReference().child("Tables").child("tableData");
+                            dbRef.removeValue();
+                            Toast.makeText(getApplicationContext(), "Booking Deleted Successfully", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(getApplicationContext(), "No data to delete.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
                 Intent intent = new Intent(tableBookings.this, MainActivity.class);
                 startActivity(intent);
             }
@@ -58,6 +92,7 @@ public class tableBookings extends AppCompatActivity {
         updtBookBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(tableBookings.this, tableUpdate.class);
                 startActivity(intent);
             }
