@@ -60,7 +60,7 @@ public class bookedroomdply extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChildren()) {
-                    Log.d("labba", String.valueOf(dataSnapshot));
+                    Log.d("dbsnp", String.valueOf(dataSnapshot));
                     checkIn.setText(dataSnapshot.child("checkIn").getValue().toString());
                     checkOut.setText(dataSnapshot.child("checkOut").getValue().toString());
                     email.setText(dataSnapshot.child("emin").getValue().toString());
@@ -84,6 +84,19 @@ public class bookedroomdply extends AppCompatActivity {
 
         });
 
+        bordcal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dbRef = FirebaseDatabase.getInstance().getReference().child("Rooms").child("lastRoomData");
+                dbRef.removeValue();
+                Toast.makeText(getApplicationContext(), "Successfully deleted", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(bookedroomdply.this, MainActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
     }
 
     @Override
@@ -93,26 +106,26 @@ public class bookedroomdply extends AppCompatActivity {
         bordup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myI3 = new Intent(bookedroomdply.this, updateroom.class);
-                startActivity(myI3);
+                Intent intent = new Intent(bookedroomdply.this, updateroom.class);
+                startActivity(intent);
             }
         });
 
-        bordcal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent myI4 = new Intent(bookedroomdply.this, MainActivity.class);
+       // bordcal.setOnClickListener(new View.OnClickListener() {
+       //     @Override
+       //     public void onClick(View view) {
+       //         Intent myI4 = new Intent(bookedroomdply.this, MainActivity.class);
 
                 //Toast Message for reacting to button click
-                Context context = getApplicationContext();
-                CharSequence message = "booking canceled";
-                int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(context, message, duration);
-                toast.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 0);
-                toast.show();
-                startActivity(myI4);
-            }
-        });
+       //         Context context = getApplicationContext();
+       //         CharSequence message = "booking canceled";
+       //         int duration = Toast.LENGTH_SHORT;
+       //         Toast toast = Toast.makeText(context, message, duration);
+       //         toast.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 0);
+       //         toast.show();
+       //         startActivity(myI4);
+       //     }
+       // });
         borcom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

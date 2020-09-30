@@ -1,21 +1,12 @@
 package com.techMinions.hotelmanagementsystem;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
-
-import android.app.DatePickerDialog;
-import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -23,9 +14,6 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.text.DateFormat;
-import java.util.Calendar;
-import java.util.Date;
 
 public class roombooking extends AppCompatActivity{
 
@@ -35,13 +23,6 @@ public class roombooking extends AppCompatActivity{
     DatabaseReference dbRef;
     room_model roomModel;
     int total;
-
-//    int in_year, in_month, in_day, out_year, out_month, out_day;
-//    DatePickerDialog.OnDateSetListener in_dateListner, out_dateListner;
-//    int DATE_PICKER_IN = 0;
-//    int DATE_PICKER_OUT= 1;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,7 +88,6 @@ public class roombooking extends AppCompatActivity{
                         roomModel.setTotal(total);
 
                         dbRef.push().setValue(roomModel);
-
                         dbRef.child("lastRoomData").setValue(roomModel);
 
                         Toast.makeText(getApplicationContext(), "Data Saved Successfully", Toast.LENGTH_SHORT).show();
@@ -115,76 +95,23 @@ public class roombooking extends AppCompatActivity{
                         Intent intent = new Intent(roombooking.this, bookedroomdply.class);
                         startActivity(intent);
 
-
-                        //Toast.makeText(getApplicationContext(), "Data Saved Successfully", Toast.LENGTH_SHORT).show();
                     }
                 } catch (NumberFormatException e) {
                     Toast.makeText(getApplicationContext(), "Invalid contact number", Toast.LENGTH_SHORT).show();
 
                 }
 
-                //Intent myI2 = new Intent(roombooking.this, bookedroomdply.class);
-
-                //Toast Message for reacting to button clicked
-                //Context context = getApplicationContext();
-                //CharSequence message = "Syncing with Database...";
-                //int duration = Toast.LENGTH_SHORT;
-                //Toast toast = Toast.makeText(context, message, duration);
-                //toast.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 0);
-                //toast.show();
-                //startActivity(myI2);
             }
         });
-
-//        chiinput.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                DialogFragment datePicker = new DatePickerFragment();
-//                datePicker.show(getSupportFragmentManager(), "date picker");
-//            }
-//        });
-//
-//        choinput.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                DialogFragment datePicker2 = new DatePickerFragment();
-//                datePicker2.show(getSupportFragmentManager(), "date picker");
-//            }
-//        });
-
 
         ArrayAdapter<String> radp = new ArrayAdapter<String>(roombooking.this,
                 android.R.layout.simple_expandable_list_item_1, getResources().getStringArray(R.array.rolist));
         radp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         roomlist.setAdapter(radp);
 
-//        in_dateListner = new DatePickerDialog.OnDateSetListener() {
-//            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-//                Calendar c = Calendar.getInstance();
-//                c.set(Calendar.YEAR, year);
-//                c.set(Calendar.MONTH, month);
-//                c.set(Calendar.DAY_OF_MONTH, day);
-//                String currentDate = DateFormat.getDateInstance().format(c.getTime());
-//                chiinput.setText(currentDate);
-//
-//            }
-//
-//
-//        };
-//
-//        out_dateListner = new DatePickerDialog.OnDateSetListener() {
-//            @Override
-//            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-//                Calendar c = Calendar.getInstance();
-//                c.set(Calendar.YEAR, year);
-//                c.set(Calendar.MONTH, month);
-//                c.set(Calendar.DAY_OF_MONTH, day);
-//                String currentDate = DateFormat.getDateInstance().format(c.getTime());
-//                choinput.setText(currentDate);
-//            }
-//        };
 
     }
+
     public void clearControls() {
         chiinput.setText("");
         choinput.setText("");

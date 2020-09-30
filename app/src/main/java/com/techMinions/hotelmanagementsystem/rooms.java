@@ -24,8 +24,8 @@ public class rooms extends AppCompatActivity {
         btnbook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myI = new Intent(rooms.this, roombooking.class);
-                startActivity(myI);
+                Intent intent = new Intent(rooms.this, roombooking.class);
+                startActivity(intent);
             }
         });
     }
