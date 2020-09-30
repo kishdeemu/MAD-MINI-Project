@@ -96,6 +96,7 @@ public class tables extends AppCompatActivity implements DatePickerDialog.OnDate
                         tables_model.setEmail(email.getText().toString());
                         tables_model.setPhone(Integer.parseInt(phone.getText().toString()));
 
+                        dbRef.push().setValue(tables_model);
                         dbRef.child("tableData").setValue(tables_model);
 
                         Toast.makeText(getApplicationContext(), "Data Saved Successfully", Toast.LENGTH_SHORT).show();

@@ -9,7 +9,7 @@
 
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/noOfPeople"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/spinner_background"
@@ -22,7 +22,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/date_picker"
+        android:id="@+id/date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/spinner_background_datepicker"
@@ -37,7 +37,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/time_picker"
+        android:id="@+id/time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/spinner_background_timepicker"
@@ -85,7 +85,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
+        android:id="@+id/comment"
         android:layout_width="match_parent"
         android:layout_height="157dp"
         android:background="@drawable/spinner_background_none"
@@ -116,7 +116,7 @@
         app:layout_constraintVertical_bias="0.632" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/lname"
         android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:background="@drawable/spinner_background_none"

@@ -54,8 +54,6 @@ public class bookedroomdply extends AppCompatActivity {
         bordcal = findViewById(R.id.brcanl);
         borcom = findViewById(R.id.brcon);
 
-
-
         dbRef = FirebaseDatabase.getInstance().getReference().child("Rooms").child("lastRoomData");
         dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

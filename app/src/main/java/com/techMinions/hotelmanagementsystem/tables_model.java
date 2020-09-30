@@ -13,6 +13,17 @@ public class tables_model {
     private String email;
     private int phone;
 
+    public tables_model(String noOfPeople, String date, String time, String comments, String fname, String lname, String email, int phone) {
+        this.noOfPeople = noOfPeople;
+        this.date = date;
+        this.time = time;
+        this.comments = comments;
+        this.fname = fname;
+        this.lname = lname;
+        this.email = email;
+        this.phone = phone;
+    }
+
     public tables_model() {
     }
 
