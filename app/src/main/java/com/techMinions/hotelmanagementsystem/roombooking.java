@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -14,6 +15,13 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
+
 
 public class roombooking extends AppCompatActivity{
 
@@ -23,8 +31,10 @@ public class roombooking extends AppCompatActivity{
     DatabaseReference dbRef;
     room_model roomModel;
     int total;
+    long diff;
     String phoneNo;
     String emailAdd;
+    String date;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
 
@@ -51,6 +61,21 @@ public class roombooking extends AppCompatActivity{
             public void onClick(View view) {
                 phoneNo = phonein.getText().toString();
                 emailAdd = emin.getText().toString().trim();
+                date = chiinput.getText().toString().trim();
+
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+                Date firstDate = null;
+                try {
+                    firstDate = sdf.parse(chiinput.getText().toString());
+                    Date secondDate = sdf.parse(choinput.getText().toString());
+                    long diffInMillies = Math.abs(secondDate.getTime() - firstDate.getTime());
+                    diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+                    Log.d("xxx", String.valueOf(diff));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+
                 dbRef = FirebaseDatabase.getInstance().getReference().child("Rooms");
                 try {
                     if (TextUtils.isEmpty(chiinput.getText().toString()))
@@ -77,13 +102,13 @@ public class roombooking extends AppCompatActivity{
                         Toast.makeText(getApplicationContext(), "Please enter valid phone number", Toast.LENGTH_SHORT).show();
                     else {
                         if (roomlist.getSelectedItem().toString().equals("Single Room")) {
-                            total = 10500 * Integer.parseInt(numofRooms.getText().toString());
+                            total = ((int) diff ) * 10500 * Integer.parseInt(numofRooms.getText().toString());
                         } else if (roomlist.getSelectedItem().toString().equals("Double Room")) {
-                            total = 14500 * Integer.parseInt(numofRooms.getText().toString());
+                            total = ((int) diff ) * 14500 * Integer.parseInt(numofRooms.getText().toString());
                         } else if (roomlist.getSelectedItem().toString().equals("Triple Room")) {
-                            total = 16500 * Integer.parseInt(numofRooms.getText().toString());
+                            total = ((int) diff ) * 16500 * Integer.parseInt(numofRooms.getText().toString());
                         } else if (roomlist.getSelectedItem().toString().equals("Quadruple Room")) {
-                            total = 18000 * Integer.parseInt(numofRooms.getText().toString());
+                            total = ((int) diff ) * 18000 * Integer.parseInt(numofRooms.getText().toString());
                         }
 
                         roomModel.setCheckIn(chiinput.getText().toString().trim());

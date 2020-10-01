@@ -22,7 +22,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 public class updateroom extends AppCompatActivity {
 
@@ -34,6 +39,7 @@ public class updateroom extends AppCompatActivity {
     room_model roomModel;
     String roomList;
     int total;
+    long diff;
 
     String phoneNo;
     String emailAdd;
@@ -65,6 +71,8 @@ public class updateroom extends AppCompatActivity {
         rlistup.setAdapter(radp);
 
 
+
+
         DatabaseReference dbRef2 = FirebaseDatabase.getInstance().getReference().child("Rooms").child("lastRoomData");
         dbRef2.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -82,16 +90,6 @@ public class updateroom extends AppCompatActivity {
                     //rlistup.((dataSnapshot.child("roomlist").getValue().toString()));
                     //total.setText(dataSnapshot.child("total").getValue().toString());
                     roomList = dataSnapshot.child("roomlist").getValue().toString();
-
-                    if (roomList.equals("Single Room")) {
-                        total = 10500 * Integer.parseInt(mumofroomsup.getText().toString());
-                    } else if (roomList.equals("Double Room")) {
-                        total = 14500 * Integer.parseInt(mumofroomsup.getText().toString());
-                    } else if (roomList.equals("Triple Room")) {
-                        total = 16500 * Integer.parseInt(mumofroomsup.getText().toString());
-                    } else if (roomList.equals("Quadruple Room")) {
-                        total = 18000 * Integer.parseInt(mumofroomsup.getText().toString());
-                    }
 
 
 
@@ -123,6 +121,7 @@ public class updateroom extends AppCompatActivity {
 
                         String lastKey = arrkeys.get(arrkeys.size()-2);
 
+
                         if(dataSnapshot.hasChild(lastKey)){
                             try{
 
@@ -150,16 +149,30 @@ public class updateroom extends AppCompatActivity {
                                     Toast.makeText(getApplicationContext(), "Please enter valid phone number", Toast.LENGTH_SHORT).show();
                                 else {
 
-                                    if (rlistup.getSelectedItem().toString().equals("Single Room")) {
-                                        total = 10500 * Integer.parseInt(mumofroomsup.getText().toString());
-                                    } else if (rlistup.getSelectedItem().toString().equals("Double Room")) {
-                                        total = 14500 * Integer.parseInt(mumofroomsup.getText().toString());
-                                    } else if (rlistup.getSelectedItem().toString().equals("Triple Room")) {
-                                        total = 16500 * Integer.parseInt(mumofroomsup.getText().toString());
-                                    } else if (rlistup.getSelectedItem().toString().equals("Quadruple Room")) {
-                                        total = 18000 * Integer.parseInt(mumofroomsup.getText().toString());
+                                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+                                    Date firstDate = null;
+                                    try {
+                                        firstDate = sdf.parse(chiinput.getText().toString());
+                                        Date secondDate = sdf.parse(choinput.getText().toString());
+                                        long diffInMillies = Math.abs(secondDate.getTime() - firstDate.getTime());
+                                        diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+                                        Log.d("xxx", String.valueOf(diff));
+                                    } catch (ParseException e) {
+                                        e.printStackTrace();
                                     }
 
+                                    roomList = rlistup.getSelectedItem().toString().trim();
+                                    if (roomList.equals("Single Room")) {
+                                        total = ((int) diff )  * 10500 * Integer.parseInt(mumofroomsup.getText().toString());
+                                    } else if (roomList.equals("Double Room")) {
+                                        total = ((int) diff ) * 14500 * Integer.parseInt(mumofroomsup.getText().toString());
+                                    } else if (roomList.equals("Triple Room")) {
+                                        total = ((int) diff ) * 16500 * Integer.parseInt(mumofroomsup.getText().toString());
+                                    } else if (roomList.equals("Quadruple Room")) {
+                                        total = ((int) diff ) * 18000 * Integer.parseInt(mumofroomsup.getText().toString());
+                                    }
+
+                                    Log.d("total", String.valueOf(total));
 
                                     roomModel.setCheckIn(chiinput.getText().toString().trim());
                                     roomModel.setCheckOut(choinput.getText().toString().trim());
@@ -214,15 +227,15 @@ public class updateroom extends AppCompatActivity {
                                 else if (phoneNo.length() != 10);
                                     //Toast.makeText(getApplicationContext(), "Please enter valid phone number", Toast.LENGTH_SHORT).show();
                                 else {
-
-                                    if (rlistup.getSelectedItem().toString().equals("Single Room")) {
-                                        total = 10500 * Integer.parseInt(mumofroomsup.getText().toString());
-                                    } else if (rlistup.getSelectedItem().toString().equals("Double Room")) {
-                                        total = 14500 * Integer.parseInt(mumofroomsup.getText().toString());
-                                    } else if (rlistup.getSelectedItem().toString().equals("Triple Room")) {
-                                        total = 16500 * Integer.parseInt(mumofroomsup.getText().toString());
-                                    } else if (rlistup.getSelectedItem().toString().equals("Quadruple Room")) {
-                                        total = 18000 * Integer.parseInt(mumofroomsup.getText().toString());
+                                    roomList = rlistup.getSelectedItem().toString().trim();
+                                    if (roomList.equals("Single Room")) {
+                                        total = ((int) diff )  * 10500 * Integer.parseInt(mumofroomsup.getText().toString());
+                                    } else if (roomList.equals("Double Room")) {
+                                        total = ((int) diff ) * 14500 * Integer.parseInt(mumofroomsup.getText().toString());
+                                    } else if (roomList.equals("Triple Room")) {
+                                        total = ((int) diff ) * 16500 * Integer.parseInt(mumofroomsup.getText().toString());
+                                    } else if (roomList.equals("Quadruple Room")) {
+                                        total = ((int) diff ) * 18000 * Integer.parseInt(mumofroomsup.getText().toString());
                                     }
 
 
