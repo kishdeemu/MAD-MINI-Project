@@ -25,13 +25,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class bookedroomdply extends AppCompatActivity {
     Button bordup;
     Button bordcal;
     Button borcom;
 
     TextView checkIn, checkOut, roomType, numOfRooms, numOfAdults, numOfChildren, fullName, email, phone, total;
-    DatabaseReference dbRef;
+    DatabaseReference dbRef, delRef;
+    String lastKey;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,9 +90,37 @@ public class bookedroomdply extends AppCompatActivity {
         bordcal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dbRef = FirebaseDatabase.getInstance().getReference().child("Rooms").child("lastRoomData");
-                dbRef.removeValue();
-                Toast.makeText(getApplicationContext(), "Successfully deleted", Toast.LENGTH_SHORT).show();
+
+                delRef = FirebaseDatabase.getInstance().getReference().child("Rooms");
+                delRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        ArrayList<String> arrkeys = new ArrayList<>();
+                        for(DataSnapshot data : dataSnapshot.getChildren()){
+                            arrkeys.add(data.getKey());
+                        }
+
+                        lastKey = arrkeys.get(arrkeys.size()-2);
+
+                        if(dataSnapshot.hasChild(lastKey)){
+                            dbRef = FirebaseDatabase.getInstance().getReference().child("Rooms").child(lastKey);
+                            dbRef.removeValue();
+                        }
+
+                        if(dataSnapshot.hasChild("lastRoomData")){
+                            dbRef = FirebaseDatabase.getInstance().getReference().child("Rooms").child("lastRoomData");
+                            dbRef.removeValue();
+                            Toast.makeText(getApplicationContext(), "Booking Deleted Successfully", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(getApplicationContext(), "No data to delete.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
                 Intent intent = new Intent(bookedroomdply.this, MainActivity.class);
                 startActivity(intent);
