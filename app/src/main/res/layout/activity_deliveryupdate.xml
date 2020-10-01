@@ -129,7 +129,7 @@
         app:layout_constraintVertical_bias="0.518" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName8"
+        android:id="@+id/deliuedittxtQuantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -142,7 +142,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/deliuedittxtName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -156,7 +156,7 @@
         app:layout_constraintVertical_bias="0.176" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/deliuedittxtEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -170,7 +170,7 @@
         app:layout_constraintVertical_bias="0.256" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName5"
+        android:id="@+id/deliuedittxtPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -184,7 +184,7 @@
         app:layout_constraintVertical_bias="0.336" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName9"
+        android:id="@+id/deliuedittxtAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -198,7 +198,7 @@
         app:layout_constraintVertical_bias="0.588" />
 
     <Spinner
-        android:id="@+id/fooditemlist"
+        android:id="@+id/deliufooditemlist"
         android:layout_width="207dp"
         android:layout_height="44dp"
         android:scrollbarStyle="insideInset"
@@ -211,7 +211,7 @@
         app:layout_constraintVertical_bias="0.414" />
 
     <Spinner
-        android:id="@+id/nearcitylist"
+        android:id="@+id/deliunearcitylist"
         android:layout_width="207dp"
         android:layout_height="44dp"
         android:scrollbarStyle="insideInset"
@@ -224,7 +224,7 @@
         app:layout_constraintVertical_bias="0.681" />
 
     <Button
-        android:id="@+id/plcodrBtn"
+        android:id="@+id/updtodrBtn"
         android:layout_width="108dp"
         android:layout_height="51dp"
         android:background="@color/upd"
