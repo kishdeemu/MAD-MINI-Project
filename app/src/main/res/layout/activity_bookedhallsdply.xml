@@ -54,8 +54,8 @@
 
     <EditText
         android:id="@+id/sht"
-        android:layout_width="190dp"
-        android:layout_height="42dp"
+        android:layout_width="214dp"
+        android:layout_height="36dp"
         android:background="@color/back"
         android:ems="10"
         android:fontFamily="cursive"
@@ -65,7 +65,7 @@
         android:textColor="@android:color/darker_gray"
         app:layout_constraintBaseline_toBaselineOf="@+id/cht"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.728"
+        app:layout_constraintHorizontal_bias="0.908"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -76,28 +76,9 @@
         android:text="@string/date"
         android:textColor="@color/txc"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/cdate"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.109"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.223" />
-
-    <EditText
-        android:id="@+id/cdate"
-        android:layout_width="190dp"
-        android:layout_height="42dp"
-        android:background="@color/back"
-        android:ems="10"
-        android:fontFamily="cursive"
-        android:inputType="textPersonName"
-        android:text="@string/ddate"
-        android:textAlignment="center"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/timrdu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.728"
+        app:layout_constraintHorizontal_bias="0.11"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -116,9 +97,11 @@
 
     <EditText
         android:id="@+id/ctimed"
-        android:layout_width="0dp"
-        android:layout_height="42dp"
+        android:layout_width="212dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="79dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="79dp"
         android:background="@color/back"
         android:ems="10"
@@ -129,16 +112,16 @@
         android:textColor="@android:color/darker_gray"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/discfemail"
-        app:layout_constraintEnd_toEndOf="@+id/cdate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
         app:layout_constraintStart_toStartOf="@+id/difullname"
-        app:layout_constraintTop_toBottomOf="@+id/timrdu" />
+        app:layout_constraintTop_toBottomOf="@+id/timrdu"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/ctimed2"
         android:layout_width="0dp"
         android:layout_height="42dp"
-        android:layout_marginTop="49dp"
-        android:layout_marginBottom="50dp"
         android:background="@color/back"
         android:ems="10"
         android:fontFamily="cursive"
@@ -147,10 +130,9 @@
         android:textAlignment="center"
         android:textColor="@android:color/darker_gray"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/cdt"
-        app:layout_constraintEnd_toEndOf="@+id/cdate"
+        app:layout_constraintBottom_toTopOf="@+id/ctimed"
         app:layout_constraintStart_toStartOf="@+id/ctimed"
-        app:layout_constraintTop_toTopOf="@+id/timrdu" />
+        app:layout_constraintTop_toBottomOf="@+id/cdate" />
 
     <TextView
         android:id="@+id/fname"
@@ -170,7 +152,6 @@
         android:layout_width="wrap_content"
         android:layout_height="42dp"
         android:layout_marginTop="57dp"
-        android:layout_marginEnd="44dp"
         android:layout_marginBottom="58dp"
         android:background="@color/back"
         android:ems="10"
@@ -182,7 +163,10 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/discfemail"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/cdt" />
+        app:layout_constraintHorizontal_bias="0.802"
+        app:layout_constraintStart_toEndOf="@+id/fname"
+        app:layout_constraintTop_toTopOf="@+id/cdt"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/cfemail"
@@ -201,7 +185,7 @@
         android:id="@+id/discfemail"
         android:layout_width="wrap_content"
         android:layout_height="42dp"
-        android:layout_marginEnd="3dp"
+        android:layout_marginEnd="12dp"
         android:background="@color/back"
         android:ems="10"
         android:fontFamily="cursive"
@@ -211,8 +195,9 @@
         android:textColor="@android:color/darker_gray"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/difullname"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.574" />
 
     <TextView
         android:id="@+id/cfphone"
@@ -224,14 +209,16 @@
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/disphone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.086"
+        app:layout_constraintHorizontal_bias="0.101"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/disphone"
         android:layout_width="wrap_content"
         android:layout_height="42dp"
+        android:layout_marginStart="36dp"
         android:layout_marginTop="233dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="233dp"
         android:background="@color/back"
         android:ems="10"
@@ -242,8 +229,11 @@
         android:textColor="@android:color/darker_gray"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/askconfirm"
-        app:layout_constraintStart_toStartOf="@+id/discfemail"
-        app:layout_constraintTop_toTopOf="@+id/cdt2" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/cfphone"
+        app:layout_constraintTop_toTopOf="@+id/cdt2"
+        app:layout_constraintVertical_bias="0.155" />
 
     <Button
         android:id="@+id/update"
@@ -256,15 +246,15 @@
         android:textSize="16sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/delete"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.135"
+        app:layout_constraintHorizontal_bias="0.097"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="47dp"
-        android:layout_marginBottom="70dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="20dp"
         android:background="@android:color/holo_red_light"
         android:fontFamily="serif"
         android:text="@string/delete"
@@ -303,5 +293,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.836" />
+
+    <EditText
+        android:id="@+id/cdate"
+        android:layout_width="224dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/back"
+        android:fontFamily="cursive"
+        android:hint="Select Date"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.74"
+        app:layout_constraintStart_toEndOf="@+id/timrdu"
+        app:layout_constraintTop_toTopOf="@+id/sht" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

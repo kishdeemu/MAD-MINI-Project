@@ -37,10 +37,26 @@
       android:textSize="20sp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.446"
+      app:layout_constraintHorizontal_bias="0.447"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.158" />
+      app:layout_constraintVertical_bias="0.129" />
+
+  <TextView
+      android:id="@+id/vwefwev"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:fontFamily="cursive"
+      android:text="No. of People"
+      android:textAlignment="center"
+      android:textColor="@color/txc"
+      android:textSize="20sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.452"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.244" />
 
   <Spinner
       android:id="@+id/spinnerhty"
@@ -53,7 +69,7 @@
       app:layout_constraintHorizontal_bias="0.411"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.201" />
+      app:layout_constraintVertical_bias="0.172" />
 
   <TextView
       android:id="@+id/upddate"
@@ -68,7 +84,7 @@
       app:layout_constraintHorizontal_bias="0.435"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.293" />
+      app:layout_constraintVertical_bias="0.352" />
 
   <EditText
       android:id="@+id/updtedate"
@@ -83,10 +99,28 @@
       android:textColor="@android:color/darker_gray"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.405"
+      app:layout_constraintHorizontal_bias="0.421"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.338" />
+      app:layout_constraintVertical_bias="0.412" />
+
+  <EditText
+      android:id="@+id/noOfPeople"
+      android:layout_width="226dp"
+      android:layout_height="40dp"
+      android:background="@color/back"
+      android:ems="10"
+      android:fontFamily="cursive"
+      android:inputType="phone"
+      android:hint="No. of People"
+      android:textAlignment="center"
+      android:textColor="@android:color/darker_gray"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.421"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.29" />
 
   <TextView
       android:id="@+id/updtime"
@@ -102,7 +136,7 @@
       app:layout_constraintHorizontal_bias="0.43"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.436" />
+      app:layout_constraintVertical_bias="0.479" />
 
   <EditText
       android:id="@+id/utimet"
@@ -118,10 +152,10 @@
       android:textSize="18sp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.418"
+      app:layout_constraintHorizontal_bias="0.437"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.486" />
+      app:layout_constraintVertical_bias="0.545" />
 
   <TextView
       android:id="@+id/updpinfo"
@@ -137,7 +171,7 @@
       app:layout_constraintHorizontal_bias="0.448"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.568" />
+      app:layout_constraintVertical_bias="0.615" />
 
   <EditText
       android:id="@+id/updname"
@@ -156,7 +190,7 @@
       app:layout_constraintHorizontal_bias="0.421"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.651" />
+      app:layout_constraintVertical_bias="0.681" />
 
   <EditText
       android:id="@+id/upemail"
@@ -175,7 +209,7 @@
       app:layout_constraintHorizontal_bias="0.421"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.736" />
+      app:layout_constraintVertical_bias="0.749" />
 
   <EditText
       android:id="@+id/updphone"

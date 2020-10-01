@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F3EEC7"
-    android:padding="10dp"
     android:textAlignment="center"
     tools:context=".hallsbooking">
 
@@ -15,7 +14,7 @@
         android:layout_width="248dp"
         android:layout_height="38dp"
         android:layout_marginStart="86dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="67dp"
         android:background="@color/back"
         android:ems="10"
@@ -49,7 +48,7 @@
         android:layout_width="142dp"
         android:layout_height="0dp"
         android:layout_marginStart="140dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="125dp"
         android:fontFamily="cursive"
         android:text="@string/date"
@@ -57,6 +56,7 @@
         android:textColor="@color/txc"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/noOfPeople" />
 
@@ -65,7 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="34dp"
         android:layout_marginStart="140dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="125dp"
         android:fontFamily="cursive"
         android:text="No. of people attending"
@@ -73,6 +73,7 @@
         android:textColor="@color/txc"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.894"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/halllist" />
 
@@ -96,7 +97,7 @@
         android:layout_width="248dp"
         android:layout_height="38dp"
         android:layout_marginStart="86dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="67dp"
         android:background="@color/back"
         android:clickable="true"
@@ -113,7 +114,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="140dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="125dp"
         android:fontFamily="cursive"
         android:text="@string/time"
@@ -121,6 +122,7 @@
         android:textColor="@color/txc"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.536"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/booking" />
 
@@ -129,7 +131,7 @@
         android:layout_width="248dp"
         android:layout_height="38dp"
         android:layout_marginStart="86dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="67dp"
         android:background="@color/back"
         android:ems="10"
@@ -138,6 +140,7 @@
         android:inputType="time"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/time" />
 
@@ -206,33 +209,35 @@
         android:textAlignment="center"
         android:textColor="@android:color/darker_gray"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/bookBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/emailAddress"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/bookBtn"
         android:layout_width="175dp"
         android:layout_height="57dp"
         android:layout_marginStart="86dp"
-        android:layout_marginTop="20dp"
         android:layout_marginEnd="67dp"
+        android:layout_marginBottom="32dp"
         android:background="@color/butc"
         android:fontFamily="serif"
         android:text="@string/bnbutton"
         android:textColor="@color/back"
         android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone" />
+        app:layout_constraintHorizontal_bias="0.53"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/booking"
         android:layout_width="248dp"
         android:layout_height="38dp"
         android:layout_marginStart="86dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="67dp"
         android:background="@color/back"
         android:ems="10"
