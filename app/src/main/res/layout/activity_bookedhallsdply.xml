@@ -12,8 +12,8 @@
         android:id="@+id/cdt2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:layout_marginEnd="74dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="56dp"
         android:fontFamily="cursive"
         android:text="No. of People"
         android:textColor="@color/txc"
@@ -47,10 +47,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.098"
+        app:layout_constraintHorizontal_bias="0.095"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.166" />
+        app:layout_constraintVertical_bias="0.113" />
 
     <TextView
         android:id="@+id/sht"
@@ -82,8 +82,8 @@
         android:id="@+id/cdt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="41dp"
-        android:layout_marginEnd="62dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="68dp"
         android:fontFamily="cursive"
         android:text="@string/time"
         android:textColor="@color/txc"
@@ -93,124 +93,181 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="65dp"
+        android:fontFamily="cursive"
+        android:text="@string/no_of_hours"
+        android:textAlignment="center"
+        android:textColor="@color/txc"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/ctimednew"
+        app:layout_constraintEnd_toStartOf="@+id/ctimednew"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
         android:id="@+id/ctimed"
-        android:layout_width="214dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="79dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="11dp"
+        android:ems="10"
+        android:fontFamily="cursive"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/ctimednew"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cdt"
+        app:layout_constraintTop_toBottomOf="@+id/ctimed2" />
+
+    <TextView
+        android:id="@+id/ctimednew"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="79dp"
+        android:layout_marginBottom="7dp"
+        android:ems="10"
+        android:fontFamily="cursive"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/difullname"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/time"
+        app:layout_constraintTop_toBottomOf="@+id/ctimed" />
+
+    <TextView
+        android:id="@+id/ctimed2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="165dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="13dp"
+        android:ems="10"
+        android:fontFamily="cursive"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/ctimed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cdt2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/fname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="73dp"
+        android:fontFamily="cursive"
+        android:text="@string/fulln"
+        android:textColor="@color/txc"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/difullname"
+        app:layout_constraintEnd_toStartOf="@+id/difullname"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/difullname"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="11dp"
         android:ems="10"
         android:fontFamily="cursive"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/discfemail"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.04"
-        app:layout_constraintStart_toStartOf="@+id/difullname"
-        app:layout_constraintTop_toBottomOf="@+id/timrdu"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/ctimed2"
-        android:layout_width="214dp"
-        android:layout_height="36dp"
-        android:ems="10"
-        android:textSize="20sp"
-        android:fontFamily="cursive"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/ctimed"
-        app:layout_constraintStart_toStartOf="@+id/ctimed"
-        app:layout_constraintTop_toBottomOf="@+id/cdate" />
-
-    <TextView
-        android:id="@+id/fname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="cursive"
-        android:text="@string/fulln"
-        android:textColor="@color/txc"
-        android:textSize="20sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/difullname"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.102"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/difullname"
-        android:layout_width="214dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="57dp"
-        android:layout_marginBottom="58dp"
-        android:ems="10"
-        android:fontFamily="cursive"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/discfemail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.802"
         app:layout_constraintStart_toEndOf="@+id/fname"
-        app:layout_constraintTop_toTopOf="@+id/cdt"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/ctimednew" />
 
     <TextView
         android:id="@+id/cfemail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="104dp"
         android:fontFamily="cursive"
         android:text="@string/email"
         android:textColor="@color/txc"
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/discfemail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.091"
+        app:layout_constraintEnd_toStartOf="@+id/discfemail"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/discfemail"
-        android:layout_width="214dp"
-        android:layout_height="36dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:fontFamily="cursive"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/disphone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cfemail"
+        app:layout_constraintTop_toBottomOf="@+id/difullname" />
+
+    <TextView
+        android:id="@+id/cfphone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="40dp"
+        android:fontFamily="cursive"
+        android:text="@string/phone"
+        android:textColor="@color/txc"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/disphone"
+        app:layout_constraintEnd_toStartOf="@+id/disphone"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/disphone"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="11dp"
+        android:ems="10"
+        android:fontFamily="cursive"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/totalprice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cfphone"
+        app:layout_constraintTop_toBottomOf="@+id/discfemail" />
+
+    <TextView
+        android:id="@+id/total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="71dp"
+        android:fontFamily="cursive"
+        android:text="@string/total_price"
+        android:textColor="@color/txc"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/totalprice"
+        app:layout_constraintEnd_toStartOf="@+id/totalprice"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/totalprice"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="253dp"
         android:ems="10"
         android:fontFamily="cursive"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.557" />
-
-    <TextView
-        android:id="@+id/cfphone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="cursive"
-        android:text="@string/phone"
-        android:textColor="@color/txc"
-        android:textSize="20sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/disphone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.101"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/disphone"
-        android:layout_width="214dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="233dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="233dp"
-        android:ems="10"
-        android:fontFamily="cursive"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/askconfirm"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/cfphone"
-        app:layout_constraintTop_toTopOf="@+id/cdt2"
-        app:layout_constraintVertical_bias="0.155" />
+        app:layout_constraintStart_toEndOf="@+id/total"
+        app:layout_constraintTop_toBottomOf="@+id/disphone" />
 
     <Button
         android:id="@+id/update"
@@ -274,14 +331,14 @@
 
     <TextView
         android:id="@+id/cdate"
-        android:layout_width="214dp"
-        android:layout_height="36dp"
-        android:textSize="20sp"
-        android:layout_marginTop="50dp"
+        android:layout_width="211dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="cursive"
         android:textAlignment="center"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.74"
+        app:layout_constraintHorizontal_bias="0.698"
         app:layout_constraintStart_toEndOf="@+id/timrdu"
         app:layout_constraintTop_toTopOf="@+id/sht" />
 

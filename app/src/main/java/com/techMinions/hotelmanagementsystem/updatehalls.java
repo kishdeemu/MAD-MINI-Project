@@ -2,6 +2,7 @@ package com.techMinions.hotelmanagementsystem;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -24,10 +25,14 @@ import java.util.ArrayList;
 public class updatehalls extends AppCompatActivity {
 
     Spinner spinnerhty;
-    EditText updtedate, utimet, updname, upemail, updphone, upnoofPeople;
+    EditText updtedate, utimet, updname, upemail, updphone, upnoofPeople, noOfHours;
     Button updabutton;
     DatabaseReference dbRef;
     hall_model hallModel;
+    int total;
+    String phoneNo;
+    String emailAdd;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +46,7 @@ public class updatehalls extends AppCompatActivity {
         upemail = findViewById(R.id.upemail);
         updphone = findViewById(R.id.updphone);
         upnoofPeople = findViewById(R.id.noOfPeople);
+        noOfHours = findViewById(R.id.noOfHours);
 
         updabutton = findViewById(R.id.updabutton);
 
@@ -64,6 +70,17 @@ public class updatehalls extends AppCompatActivity {
                     upemail.setText(dataSnapshot.child("email").getValue().toString());
                     updphone.setText(dataSnapshot.child("phone").getValue().toString());
                     upnoofPeople.setText(dataSnapshot.child("numpeople").getValue().toString());
+                    noOfHours.setText(dataSnapshot.child("noOfHours").getValue().toString());
+
+                    if (spinnerhty.getSelectedItem().toString().equals("Indoor Wedding Hall")) {
+                        total = 8000 * Integer.parseInt(noOfHours.getText().toString());
+                    } else if (spinnerhty.getSelectedItem().toString().equals("Outdoor Wedding Hall")) {
+                        total = 5000 * Integer.parseInt(noOfHours.getText().toString());
+                    } else if (spinnerhty.getSelectedItem().toString().equals("Conference Hall")) {
+                        total = 10000 * Integer.parseInt(noOfHours.getText().toString());
+                    } else if (spinnerhty.getSelectedItem().toString().equals("Kids Party Hall")) {
+                        total = 3500 * Integer.parseInt(noOfHours.getText().toString());
+                    }
                 }else{
                     Toast.makeText(getApplicationContext(), "No source to display", Toast.LENGTH_SHORT).show();
                 }
@@ -78,6 +95,8 @@ public class updatehalls extends AppCompatActivity {
         updabutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                phoneNo = updphone.getText().toString();
+                emailAdd = upemail.getText().toString().trim();
                 DatabaseReference upRef = FirebaseDatabase.getInstance().getReference().child("Halls");
                 upRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -90,23 +109,49 @@ public class updatehalls extends AppCompatActivity {
 
                         if (dataSnapshot.hasChild(lastKey)) {
                             try {
-                                hallModel.setHallType(spinnerhty.getSelectedItem().toString().trim());
-                                hallModel.setDate(updtedate.getText().toString().trim());
-                                hallModel.setTime(utimet.getText().toString().trim());
-                                hallModel.setEmail(upemail.getText().toString().trim());
-                                hallModel.setPhone(updphone.getText().toString().trim());
-                                hallModel.setFullName(updname.getText().toString().trim());
-                                hallModel.setEmail(upemail.getText().toString().trim());
-                                hallModel.setNumpeople(upnoofPeople.getText().toString().trim());
+                                if (TextUtils.isEmpty(upnoofPeople.getText().toString()))
+                                    Toast.makeText(getApplicationContext(), "Please enter No. of People", Toast.LENGTH_SHORT).show();
+                                else if (TextUtils.isEmpty(spinnerhty.getSelectedItem().toString()))
+                                    Toast.makeText(getApplicationContext(), "Please enter Booking", Toast.LENGTH_SHORT).show();
+                                else if (TextUtils.isEmpty(utimet.getText().toString()))
+                                    Toast.makeText(getApplicationContext(), "Please enter Time", Toast.LENGTH_SHORT).show();
+                                else if (TextUtils.isEmpty(upemail.getText().toString()) || !emailAdd.matches(emailPattern))
+                                    Toast.makeText(getApplicationContext(), "Please check EmailAddress", Toast.LENGTH_SHORT).show();
+                                else if (TextUtils.isEmpty(updname.getText().toString()))
+                                    Toast.makeText(getApplicationContext(), "Please enter FullName", Toast.LENGTH_SHORT).show();
+                                else if (TextUtils.isEmpty(updphone.getText().toString()) || phoneNo.length() != 10)
+                                    Toast.makeText(getApplicationContext(), "Please enter check Phone Number", Toast.LENGTH_SHORT).show();
+                                else {
+                                    if (spinnerhty.getSelectedItem().toString().equals("Indoor Wedding Hall")) {
+                                        total = 8000 * Integer.parseInt(noOfHours.getText().toString());
+                                    } else if (spinnerhty.getSelectedItem().toString().equals("Outdoor Wedding Hall")) {
+                                        total = 5000 * Integer.parseInt(noOfHours.getText().toString());
+                                    } else if (spinnerhty.getSelectedItem().toString().equals("Conference Hall")) {
+                                        total = 10000 * Integer.parseInt(noOfHours.getText().toString());
+                                    } else if (spinnerhty.getSelectedItem().toString().equals("Kids Party Hall")) {
+                                        total = 3500 * Integer.parseInt(noOfHours.getText().toString());
+                                    }
 
-                                DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("Halls").child(lastKey);
-                                dbRef.setValue(hallModel);
+                                    hallModel.setHallType(spinnerhty.getSelectedItem().toString().trim());
+                                    hallModel.setDate(updtedate.getText().toString().trim());
+                                    hallModel.setTime(utimet.getText().toString().trim());
+                                    hallModel.setEmail(upemail.getText().toString().trim());
+                                    hallModel.setPhone(updphone.getText().toString().trim());
+                                    hallModel.setFullName(updname.getText().toString().trim());
+                                    hallModel.setEmail(upemail.getText().toString().trim());
+                                    hallModel.setNumpeople(upnoofPeople.getText().toString().trim());
+                                    hallModel.setNoOfHours(Integer.parseInt(noOfHours.getText().toString().trim()));
 
+                                    hallModel.setTotal(total);
 
-                                Toast.makeText(getApplicationContext(), "Data Updated Successfully", Toast.LENGTH_SHORT).show();
+                                    DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("Halls").child(lastKey);
+                                    dbRef.setValue(hallModel);
+                                }
+
+                                //Toast.makeText(getApplicationContext(), "Data Updated Successfully", Toast.LENGTH_SHORT).show();
 
                             } catch (NumberFormatException e) {
-                                Toast.makeText(getApplicationContext(), "Invalid Contact Number", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Error! Check Again", Toast.LENGTH_SHORT).show();
                             }
                         } else {
                             Toast.makeText(getApplicationContext(), "No source to display", Toast.LENGTH_SHORT).show();
@@ -114,27 +159,51 @@ public class updatehalls extends AppCompatActivity {
 
                         if (dataSnapshot.hasChild("lastHallBooking")) {
                             try {
-                                hallModel.setNumpeople(spinnerhty.getSelectedItem().toString().trim());
-                                hallModel.setDate(updtedate.getText().toString().trim());
-                                hallModel.setTime(utimet.getText().toString().trim());
-                                hallModel.setEmail(upemail.getText().toString().trim());
-                                hallModel.setPhone(updphone.getText().toString().trim());
-                                hallModel.setFullName(updname.getText().toString().trim());
-                                hallModel.setEmail(upemail.getText().toString().trim());
-                                hallModel.setNumpeople(upnoofPeople.getText().toString().trim());
+                                if (TextUtils.isEmpty(upnoofPeople.getText().toString()))
+                                    Toast.makeText(getApplicationContext(), "Please enter No. of People", Toast.LENGTH_SHORT).show();
+                                else if (TextUtils.isEmpty(spinnerhty.getSelectedItem().toString()))
+                                    Toast.makeText(getApplicationContext(), "Please enter Booking", Toast.LENGTH_SHORT).show();
+                                else if (TextUtils.isEmpty(utimet.getText().toString()))
+                                    Toast.makeText(getApplicationContext(), "Please enter Time", Toast.LENGTH_SHORT).show();
+                                else if (TextUtils.isEmpty(updname.getText().toString()))
+                                    Toast.makeText(getApplicationContext(), "Please enter FullName", Toast.LENGTH_SHORT).show();
+                                else if (TextUtils.isEmpty(upemail.getText().toString()) || !emailAdd.matches(emailPattern))
+                                    Toast.makeText(getApplicationContext(), "Please check EmailAddress", Toast.LENGTH_SHORT).show();
+                                else if (TextUtils.isEmpty(updphone.getText().toString()) || phoneNo.length() != 10)
+                                    Toast.makeText(getApplicationContext(), "Please enter check Phone Number", Toast.LENGTH_SHORT).show();
+                                else {
 
-                                DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("Halls").child("lastHallBooking");
-                                dbRef.setValue(hallModel);
+                                    if (spinnerhty.getSelectedItem().toString().equals("Indoor Wedding Hall")) {
+                                        total = 8000 * Integer.parseInt(noOfHours.getText().toString());
+                                    } else if (spinnerhty.getSelectedItem().toString().equals("Outdoor Wedding Hall")) {
+                                        total = 5000 * Integer.parseInt(noOfHours.getText().toString());
+                                    } else if (spinnerhty.getSelectedItem().toString().equals("Conference Hall")) {
+                                        total = 10000 * Integer.parseInt(noOfHours.getText().toString());
+                                    } else if (spinnerhty.getSelectedItem().toString().equals("Kids Party Hall")) {
+                                        total = 3500 * Integer.parseInt(noOfHours.getText().toString());
+                                    }
+                                    hallModel.setHallType(spinnerhty.getSelectedItem().toString().trim());
+                                    hallModel.setDate(updtedate.getText().toString().trim());
+                                    hallModel.setTime(utimet.getText().toString().trim());
+                                    hallModel.setEmail(upemail.getText().toString().trim());
+                                    hallModel.setPhone(updphone.getText().toString().trim());
+                                    hallModel.setFullName(updname.getText().toString().trim());
+                                    hallModel.setEmail(upemail.getText().toString().trim());
+                                    hallModel.setNumpeople(upnoofPeople.getText().toString().trim());
+                                    hallModel.setNoOfHours(Integer.parseInt(noOfHours.getText().toString().trim()));
+
+                                    hallModel.setTotal(total);
+                                    DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("Halls").child("lastHallBooking");
+                                    dbRef.setValue(hallModel);
+
+                                    Toast.makeText(getApplicationContext(), "Data Updated Successfully", Toast.LENGTH_SHORT).show();
 
 
-                                Toast.makeText(getApplicationContext(), "Data Updated Successfully", Toast.LENGTH_SHORT).show();
-
-
-                                Intent intent = new Intent(updatehalls.this, bookedhallsdply.class);
-                                startActivity(intent);
-
+                                    Intent intent = new Intent(updatehalls.this, bookedhallsdply.class);
+                                    startActivity(intent);
+                                }
                             } catch (NumberFormatException e) {
-                                Toast.makeText(getApplicationContext(), "Invalid Contact Number", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Error! Check Again", Toast.LENGTH_SHORT).show();
                             }
                         } else {
                             Toast.makeText(getApplicationContext(), "No source to display", Toast.LENGTH_SHORT).show();

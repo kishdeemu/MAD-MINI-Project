@@ -71,16 +71,16 @@
 
     <string name="hall_type1">Indoor Wedding Hall</string>
     <string name="hallty1in">22 Tables,1000 Chairs</string>
-    <string name="hall1P">75,000LKR</string>
+    <string name="hall1P">8,000LKR/hour</string>
     <string name="htype2">Outdoor Wedding Hall</string>
     <string name="hallty2in">10 Tables,150 Chairs</string>
-    <string name="hall2p">50,000LKR</string>
+    <string name="hall2p">5,000LKR/hour</string>
     <string name="htp3">Conferance Hall</string>
     <string name="htp3inf">1 Confernace Tables,800 Chairs</string>
-    <string name="hall3p">85,000LKR</string>
+    <string name="hall3p">10,000LKR/hour</string>
     <string name="pht4">Kids Party Hall</string>
     <string name="htp4inf">10 Children Tables, 60 children chairs</string>
-    <string name="hall4p">50,000LKR</string>
+    <string name="hall4p">3,500LKR/hour</string>
     <string name="hbbutton1">BOOK THE HALL</string>
 
     <string name="booking">BOOK NOW</string>
@@ -88,11 +88,11 @@
     <string-array name="halllist">
         <item>Indoor Wedding Hall</item>
         <item>Outdoor Wedding Hall </item>
-        <item>Business Conference Hall</item>
+        <item>Conference Hall</item>
         <item>Kids Party Hall</item>
     </string-array>
     <string name="date">Click-on Date</string>
-    <string name="time">Time Duration</string>
+    <string name="time">Start Time</string>
     <string name="persinfor">Personal Information</string>
     <string name="name">Full Name</string>
     <string name="fulln">Full Name</string>
@@ -158,6 +158,8 @@
     <string name="navigation_drawer_open">Open Navigation Drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="admin_login">Admin Login</string>
+    <string name="no_of_hours">No of hours</string>
+    <string name="total_price">Total Price</string>
 
 
 </resources>

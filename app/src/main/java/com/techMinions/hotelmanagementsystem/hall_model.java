@@ -9,9 +9,27 @@ public class hall_model {
     private String fullName;
     private String email;
     private String phone;
+    private int noOfHours;
+    private int total;
 
     public hall_model() {
 
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
+    public int getNoOfHours() {
+        return noOfHours;
+    }
+
+    public void setNoOfHours(int noOfHours) {
+        this.noOfHours = noOfHours;
     }
 
     public void setNumpeople(String numpeople) { this.numpeople = numpeople;}

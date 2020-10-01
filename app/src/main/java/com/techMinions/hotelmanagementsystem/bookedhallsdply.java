@@ -24,7 +24,7 @@ public class bookedhallsdply extends AppCompatActivity {
     Button delhbook;
     Button cofhbook;
 
-    TextView Numpeople, Halltype, Date, Time, Fullname, Email, Phone;
+    TextView Numpeople, Halltype, Date, Time, Fullname, Email, Phone, totalprice, noOfHours;
     DatabaseReference dbref;
     hall_model hallModel;
     String lastKey;
@@ -41,6 +41,8 @@ public class bookedhallsdply extends AppCompatActivity {
         Fullname = findViewById(R.id.difullname);
         Email = findViewById(R.id.discfemail);
         Phone = findViewById(R.id.disphone);
+        totalprice = findViewById(R.id.totalprice);
+        noOfHours = findViewById(R.id.ctimednew);
 
         uphbook = findViewById(R.id.update);
         delhbook = findViewById(R.id.delete);
@@ -60,6 +62,8 @@ public class bookedhallsdply extends AppCompatActivity {
                     Time.setText(dataSnapshot.child("time").getValue().toString());
                     Numpeople.setText(dataSnapshot.child("numpeople").getValue().toString());
                     Date.setText(dataSnapshot.child("date").getValue().toString());
+                    totalprice.setText(dataSnapshot.child("total").getValue().toString());
+                    noOfHours.setText(dataSnapshot.child("noOfHours").getValue().toString());
 
 
                 }else{
@@ -117,6 +121,15 @@ public class bookedhallsdply extends AppCompatActivity {
 
                 Intent intent = new Intent(bookedhallsdply.this, MainActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        cofhbook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(bookedhallsdply.this, MainActivity.class);
+                startActivity(intent);
+                Toast.makeText(getApplicationContext(), "Booking confirmed,ThankYou!", Toast.LENGTH_SHORT).show();
             }
         });
 

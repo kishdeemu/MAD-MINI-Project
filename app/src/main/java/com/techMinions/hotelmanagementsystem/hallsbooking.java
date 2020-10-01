@@ -26,13 +26,14 @@ import java.util.Calendar;
 
 public class hallsbooking extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
     DatabaseReference dbRef;
-    EditText booking, timed, emailAddress, fullName, phone, noOfPeople;
+    EditText booking, timed, emailAddress, fullName, phone, noOfPeople, noOfHours;
     Button booknb;
     Spinner halllist;
     hall_model hall_model;
     String phoneNo;
     String emailAdd;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    int total;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,7 @@ public class hallsbooking extends AppCompatActivity implements DatePickerDialog.
         noOfPeople = findViewById(R.id.noOfPeople);
         booknb = findViewById(R.id.bookBtn);
         halllist = findViewById(R.id.halllist);
+        noOfHours = findViewById(R.id.noOfHours);
 
         hall_model = new hall_model();
 
@@ -79,13 +81,23 @@ public class hallsbooking extends AppCompatActivity implements DatePickerDialog.
                         Toast.makeText(getApplicationContext(), "Please enter Booking", Toast.LENGTH_SHORT).show();
                     else if (TextUtils.isEmpty(timed.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter Time", Toast.LENGTH_SHORT).show();
-                    else if (TextUtils.isEmpty(emailAddress.getText().toString()) || !emailAdd.matches(emailPattern))
-                        Toast.makeText(getApplicationContext(), "Please enter EmailAddress", Toast.LENGTH_SHORT).show();
                     else if (TextUtils.isEmpty(fullName.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter FullName", Toast.LENGTH_SHORT).show();
+                    else if (TextUtils.isEmpty(emailAddress.getText().toString()) || !emailAdd.matches(emailPattern))
+                        Toast.makeText(getApplicationContext(), "Please enter EmailAddress", Toast.LENGTH_SHORT).show();
                     else if (TextUtils.isEmpty(phone.getText().toString()) || phoneNo.length() != 10)
                         Toast.makeText(getApplicationContext(), "Please enter valid Phone Number", Toast.LENGTH_SHORT).show();
                     else {
+                        if(halllist.getSelectedItem().toString().equals("Indoor Wedding Hall")){
+                            total = 8000 * Integer.parseInt(noOfHours.getText().toString());
+                        }else if(halllist.getSelectedItem().toString().equals("Outdoor Wedding Hall")){
+                            total = 5000 * Integer.parseInt(noOfHours.getText().toString());
+                        }else if(halllist.getSelectedItem().toString().equals("Conference Hall")){
+                            total = 10000 * Integer.parseInt(noOfHours.getText().toString());
+                        }else if(halllist.getSelectedItem().toString().equals("Kids Party Hall")){
+                            total = 3500 * Integer.parseInt(noOfHours.getText().toString());
+                        }
+
                         hall_model.setNumpeople(noOfPeople.getText().toString().trim());
                         hall_model.setDate(booking.getText().toString().trim());
                         hall_model.setTime(timed.getText().toString().trim());
@@ -93,6 +105,8 @@ public class hallsbooking extends AppCompatActivity implements DatePickerDialog.
                         hall_model.setEmail(emailAddress.getText().toString().trim());
                         hall_model.setFullName(fullName.getText().toString().trim());
                         hall_model.setPhone(phone.getText().toString().trim());
+                        hall_model.setNoOfHours(Integer.parseInt(noOfHours.getText().toString().trim()));
+                        hall_model.setTotal(total);
 
                         //Insert into the data base
                         dbRef.push().setValue(hall_model);
