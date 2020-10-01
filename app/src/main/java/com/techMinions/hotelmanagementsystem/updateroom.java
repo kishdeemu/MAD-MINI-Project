@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -33,6 +34,10 @@ public class updateroom extends AppCompatActivity {
     room_model roomModel;
     String roomList;
     int total;
+
+    String phoneNo;
+    String emailAdd;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,6 +110,8 @@ public class updateroom extends AppCompatActivity {
         uproombtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                phoneNo = phonein.getText().toString();
+                emailAdd = emin.getText().toString().trim();
                 dbRef = FirebaseDatabase.getInstance().getReference().child("Rooms");
                 dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -118,36 +125,63 @@ public class updateroom extends AppCompatActivity {
 
                         if(dataSnapshot.hasChild(lastKey)){
                             try{
-                                roomModel.setCheckIn(chiinput.getText().toString().trim());
-                                roomModel.setCheckOut(choinput.getText().toString().trim());
-                                roomModel.setEmin(emin.getText().toString().trim());
-                                roomModel.setFullnin(fullnin.getText().toString().trim());
-                                roomModel.setNumofAdults(adlinput.getText().toString().trim());
-                                roomModel.setNumofChildren(chilinput.getText().toString().trim());
-                                roomModel.setNumofRooms(mumofroomsup.getText().toString().trim());
-                                roomModel.setPhonein(phonein.getText().toString().trim());
-                                roomModel.setRoomlist(rlistup.getSelectedItem().toString().trim());
 
-                                if (rlistup.getSelectedItem().toString().equals("Single Room")) {
-                                    total = 10500 * Integer.parseInt(mumofroomsup.getText().toString());
-                                } else if (rlistup.getSelectedItem().toString().equals("Double Room")) {
-                                    total = 14500 * Integer.parseInt(mumofroomsup.getText().toString());
-                                } else if (rlistup.getSelectedItem().toString().equals("Triple Room")) {
-                                    total = 16500 * Integer.parseInt(mumofroomsup.getText().toString());
-                                } else if (rlistup.getSelectedItem().toString().equals("Quadruple Room")) {
-                                    total = 18000 * Integer.parseInt(mumofroomsup.getText().toString());
+                                if (TextUtils.isEmpty(chiinput.getText().toString()))
+                                    Toast.makeText(getApplicationContext(), "Please enter check-in date", Toast.LENGTH_SHORT).show();
+                                else if (TextUtils.isEmpty(choinput.getText().toString()))
+                                    Toast.makeText(getApplicationContext(), "Please enter check-out date", Toast.LENGTH_SHORT).show();
+                                else if (TextUtils.isEmpty(rlistup.getSelectedItem().toString()))
+                                    Toast.makeText(getApplicationContext(), "Please select a room type", Toast.LENGTH_SHORT).show();
+                                else if (TextUtils.isEmpty(mumofroomsup.getText().toString()))
+                                    Toast.makeText(getApplicationContext(), "Please enter no. of rooms", Toast.LENGTH_SHORT).show();
+                                else if (TextUtils.isEmpty(adlinput.getText().toString()))
+                                    Toast.makeText(getApplicationContext(), "Please enter no.of adults", Toast.LENGTH_SHORT).show();
+                                else if (TextUtils.isEmpty(chilinput.getText().toString()))
+                                    Toast.makeText(getApplicationContext(), "Please enter no. of children", Toast.LENGTH_SHORT).show();
+                                else if (TextUtils.isEmpty(fullnin.getText().toString()))
+                                    Toast.makeText(getApplicationContext(), "Please enter full name", Toast.LENGTH_SHORT).show();
+                                else if (TextUtils.isEmpty(emin.getText().toString()))
+                                    Toast.makeText(getApplicationContext(), "Please enter email", Toast.LENGTH_SHORT).show();
+                                else if (!emailAdd.matches(emailPattern))
+                                    Toast.makeText(getApplicationContext(), "Please enter valid email", Toast.LENGTH_SHORT).show();
+                                else if (TextUtils.isEmpty(phonein.getText().toString()))
+                                    Toast.makeText(getApplicationContext(), "Please enter phone number", Toast.LENGTH_SHORT).show();
+                                else if (phoneNo.length() != 10)
+                                    Toast.makeText(getApplicationContext(), "Please enter valid phone number", Toast.LENGTH_SHORT).show();
+                                else {
+
+                                    if (rlistup.getSelectedItem().toString().equals("Single Room")) {
+                                        total = 10500 * Integer.parseInt(mumofroomsup.getText().toString());
+                                    } else if (rlistup.getSelectedItem().toString().equals("Double Room")) {
+                                        total = 14500 * Integer.parseInt(mumofroomsup.getText().toString());
+                                    } else if (rlistup.getSelectedItem().toString().equals("Triple Room")) {
+                                        total = 16500 * Integer.parseInt(mumofroomsup.getText().toString());
+                                    } else if (rlistup.getSelectedItem().toString().equals("Quadruple Room")) {
+                                        total = 18000 * Integer.parseInt(mumofroomsup.getText().toString());
+                                    }
+
+
+                                    roomModel.setCheckIn(chiinput.getText().toString().trim());
+                                    roomModel.setCheckOut(choinput.getText().toString().trim());
+                                    roomModel.setEmin(emin.getText().toString().trim());
+                                    roomModel.setFullnin(fullnin.getText().toString().trim());
+                                    roomModel.setNumofAdults(adlinput.getText().toString().trim());
+                                    roomModel.setNumofChildren(chilinput.getText().toString().trim());
+                                    roomModel.setNumofRooms(mumofroomsup.getText().toString().trim());
+                                    roomModel.setPhonein(phonein.getText().toString().trim());
+                                    roomModel.setRoomlist(rlistup.getSelectedItem().toString().trim());
+
+                                    roomModel.setTotal(total);
+
+                                    dbRef3 = FirebaseDatabase.getInstance().getReference().child("Rooms").child(lastKey);
+                                    dbRef3.setValue(roomModel);
+
+                                    Intent myI5 = new Intent(updateroom.this, bookedroomdply.class);
+                                    startActivity(myI5);
+
+                                    Toast.makeText(getApplicationContext(), "Data updated successfully", Toast.LENGTH_SHORT).show();
+
                                 }
-
-
-                                roomModel.setTotal(total);
-
-                                dbRef3 = FirebaseDatabase.getInstance().getReference().child("Rooms").child(lastKey);
-                                dbRef3.setValue(roomModel);
-
-                                Intent myI5 = new Intent(updateroom.this, bookedroomdply.class);
-                                startActivity(myI5);
-
-                                Toast.makeText(getApplicationContext(), "Data updated successfully", Toast.LENGTH_SHORT).show();
 
                             }catch(NumberFormatException e){
                                 Toast.makeText(getApplicationContext(), "Invalid Contact number", Toast.LENGTH_SHORT).show();
@@ -157,37 +191,61 @@ public class updateroom extends AppCompatActivity {
 
                         if(dataSnapshot.hasChild("lastRoomData")) {
                             try{
-                                roomModel.setCheckIn(chiinput.getText().toString().trim());
-                                roomModel.setCheckOut(choinput.getText().toString().trim());
-                                roomModel.setEmin(emin.getText().toString().trim());
-                                roomModel.setFullnin(fullnin.getText().toString().trim());
-                                roomModel.setNumofAdults(adlinput.getText().toString().trim());
-                                roomModel.setNumofChildren(chilinput.getText().toString().trim());
-                                roomModel.setNumofRooms(mumofroomsup.getText().toString().trim());
-                                roomModel.setPhonein(phonein.getText().toString().trim());
-                                roomModel.setRoomlist(rlistup.getSelectedItem().toString().trim());
+                                if (TextUtils.isEmpty(chiinput.getText().toString()));
+                                    //Toast.makeText(getApplicationContext(), "Please enter check-in date", Toast.LENGTH_SHORT).show();
+                                else if (TextUtils.isEmpty(choinput.getText().toString()));
+                                    //Toast.makeText(getApplicationContext(), "Please enter check-out date", Toast.LENGTH_SHORT).show();
+                                else if (TextUtils.isEmpty(rlistup.getSelectedItem().toString()));
+                                    //Toast.makeText(getApplicationContext(), "Please select a room type", Toast.LENGTH_SHORT).show();
+                                else if (TextUtils.isEmpty(mumofroomsup.getText().toString()));
+                                    //Toast.makeText(getApplicationContext(), "Please enter no. of rooms", Toast.LENGTH_SHORT).show();
+                                else if (TextUtils.isEmpty(adlinput.getText().toString()));
+                                    //Toast.makeText(getApplicationContext(), "Please enter no.of adults", Toast.LENGTH_SHORT).show();
+                                else if (TextUtils.isEmpty(chilinput.getText().toString()));
+                                    //Toast.makeText(getApplicationContext(), "Please enter no. of children", Toast.LENGTH_SHORT).show();
+                                else if (TextUtils.isEmpty(fullnin.getText().toString()));
+                                    //Toast.makeText(getApplicationContext(), "Please enter full name", Toast.LENGTH_SHORT).show();
+                                else if (TextUtils.isEmpty(emin.getText().toString()));
+                                    //Toast.makeText(getApplicationContext(), "Please enter email", Toast.LENGTH_SHORT).show();
+                                else if (!emailAdd.matches(emailPattern));
+                                    //Toast.makeText(getApplicationContext(), "Please enter valid email", Toast.LENGTH_SHORT).show();
+                                else if (TextUtils.isEmpty(phonein.getText().toString()));
+                                    //Toast.makeText(getApplicationContext(), "Please enter phone number", Toast.LENGTH_SHORT).show();
+                                else if (phoneNo.length() != 10);
+                                    //Toast.makeText(getApplicationContext(), "Please enter valid phone number", Toast.LENGTH_SHORT).show();
+                                else {
 
-                                if (rlistup.getSelectedItem().toString().equals("Single Room")) {
-                                    total = 10500 * Integer.parseInt(mumofroomsup.getText().toString());
-                                } else if (rlistup.getSelectedItem().toString().equals("Double Room")) {
-                                    total = 14500 * Integer.parseInt(mumofroomsup.getText().toString());
-                                } else if (rlistup.getSelectedItem().toString().equals("Triple Room")) {
-                                    total = 16500 * Integer.parseInt(mumofroomsup.getText().toString());
-                                } else if (rlistup.getSelectedItem().toString().equals("Quadruple Room")) {
-                                    total = 18000 * Integer.parseInt(mumofroomsup.getText().toString());
+                                    if (rlistup.getSelectedItem().toString().equals("Single Room")) {
+                                        total = 10500 * Integer.parseInt(mumofroomsup.getText().toString());
+                                    } else if (rlistup.getSelectedItem().toString().equals("Double Room")) {
+                                        total = 14500 * Integer.parseInt(mumofroomsup.getText().toString());
+                                    } else if (rlistup.getSelectedItem().toString().equals("Triple Room")) {
+                                        total = 16500 * Integer.parseInt(mumofroomsup.getText().toString());
+                                    } else if (rlistup.getSelectedItem().toString().equals("Quadruple Room")) {
+                                        total = 18000 * Integer.parseInt(mumofroomsup.getText().toString());
+                                    }
+
+
+                                    roomModel.setCheckIn(chiinput.getText().toString().trim());
+                                    roomModel.setCheckOut(choinput.getText().toString().trim());
+                                    roomModel.setEmin(emin.getText().toString().trim());
+                                    roomModel.setFullnin(fullnin.getText().toString().trim());
+                                    roomModel.setNumofAdults(adlinput.getText().toString().trim());
+                                    roomModel.setNumofChildren(chilinput.getText().toString().trim());
+                                    roomModel.setNumofRooms(mumofroomsup.getText().toString().trim());
+                                    roomModel.setPhonein(phonein.getText().toString().trim());
+                                    roomModel.setRoomlist(rlistup.getSelectedItem().toString().trim());
+
+                                    roomModel.setTotal(total);
+
+                                    dbRef3 = FirebaseDatabase.getInstance().getReference().child("Rooms").child("lastRoomData");
+                                    dbRef3.setValue(roomModel);
+
+                                    Intent intent = new Intent(updateroom.this, bookedroomdply.class);
+                                    startActivity(intent);
+
+                                    //Toast.makeText(getApplicationContext(), "Data updated successfully", Toast.LENGTH_SHORT).show();
                                 }
-
-
-                                roomModel.setTotal(total);
-
-                                dbRef3 = FirebaseDatabase.getInstance().getReference().child("Rooms").child("lastRoomData");
-                                dbRef3.setValue(roomModel);
-
-                                Intent myI5 = new Intent(updateroom.this, bookedroomdply.class);
-                                startActivity(myI5);
-
-                                Toast.makeText(getApplicationContext(), "Data updated successfully", Toast.LENGTH_SHORT).show();
-
                             }catch(NumberFormatException e){
                                 Toast.makeText(getApplicationContext(), "Invalid Contact number", Toast.LENGTH_SHORT).show();
                             }

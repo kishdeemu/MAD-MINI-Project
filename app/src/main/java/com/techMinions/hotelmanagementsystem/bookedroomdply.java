@@ -142,21 +142,6 @@ public class bookedroomdply extends AppCompatActivity {
             }
         });
 
-       // bordcal.setOnClickListener(new View.OnClickListener() {
-       //     @Override
-       //     public void onClick(View view) {
-       //         Intent myI4 = new Intent(bookedroomdply.this, MainActivity.class);
-
-                //Toast Message for reacting to button click
-       //         Context context = getApplicationContext();
-       //         CharSequence message = "booking canceled";
-       //         int duration = Toast.LENGTH_SHORT;
-       //         Toast toast = Toast.makeText(context, message, duration);
-       //         toast.setGravity(Gravity.BOTTOM | Gravity.CENTER, 0, 0);
-       //         toast.show();
-       //         startActivity(myI4);
-       //     }
-       // });
         borcom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -168,8 +153,8 @@ public class bookedroomdply extends AppCompatActivity {
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent myI6 = new Intent(bookedroomdply.this, MainActivity.class);
-                        startActivity(myI6);
+                        Intent intent = new Intent(bookedroomdply.this, MainActivity.class);
+                        startActivity(intent);
                     }
                 });
                 dialog = builder.create();

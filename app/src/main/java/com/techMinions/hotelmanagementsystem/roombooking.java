@@ -23,6 +23,10 @@ public class roombooking extends AppCompatActivity{
     DatabaseReference dbRef;
     room_model roomModel;
     int total;
+    String phoneNo;
+    String emailAdd;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +49,8 @@ public class roombooking extends AppCompatActivity{
         rbbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                phoneNo = phonein.getText().toString();
+                emailAdd = emin.getText().toString().trim();
                 dbRef = FirebaseDatabase.getInstance().getReference().child("Rooms");
                 try {
                     if (TextUtils.isEmpty(chiinput.getText().toString()))
@@ -63,8 +69,12 @@ public class roombooking extends AppCompatActivity{
                         Toast.makeText(getApplicationContext(), "Please enter full name", Toast.LENGTH_SHORT).show();
                     else if (TextUtils.isEmpty(emin.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter email", Toast.LENGTH_SHORT).show();
+                    else if (!emailAdd.matches(emailPattern))
+                        Toast.makeText(getApplicationContext(), "Please enter valid email", Toast.LENGTH_SHORT).show();
                     else if (TextUtils.isEmpty(phonein.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter phone number", Toast.LENGTH_SHORT).show();
+                    else if (phoneNo.length() != 10)
+                        Toast.makeText(getApplicationContext(), "Please enter valid phone number", Toast.LENGTH_SHORT).show();
                     else {
                         if (roomlist.getSelectedItem().toString().equals("Single Room")) {
                             total = 10500 * Integer.parseInt(numofRooms.getText().toString());
