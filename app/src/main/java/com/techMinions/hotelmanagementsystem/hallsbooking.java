@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -29,6 +30,9 @@ public class hallsbooking extends AppCompatActivity implements DatePickerDialog.
     Button booknb;
     Spinner halllist;
     hall_model hall_model;
+    String phoneNo;
+    String emailAdd;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +70,8 @@ public class hallsbooking extends AppCompatActivity implements DatePickerDialog.
             @Override
             public void onClick(View view) {
                 dbRef = FirebaseDatabase.getInstance().getReference().child("Halls");
+                phoneNo = phone.getText().toString();
+                emailAdd = emailAddress.getText().toString().trim();
                 try {
                     if (TextUtils.isEmpty(noOfPeople.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter No. of People", Toast.LENGTH_SHORT).show();
@@ -73,12 +79,12 @@ public class hallsbooking extends AppCompatActivity implements DatePickerDialog.
                         Toast.makeText(getApplicationContext(), "Please enter Booking", Toast.LENGTH_SHORT).show();
                     else if (TextUtils.isEmpty(timed.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter Time", Toast.LENGTH_SHORT).show();
-                    else if (TextUtils.isEmpty(emailAddress.getText().toString()))
+                    else if (TextUtils.isEmpty(emailAddress.getText().toString()) || !emailAdd.matches(emailPattern))
                         Toast.makeText(getApplicationContext(), "Please enter EmailAddress", Toast.LENGTH_SHORT).show();
                     else if (TextUtils.isEmpty(fullName.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter FullName", Toast.LENGTH_SHORT).show();
-                    else if (TextUtils.isEmpty(phone.getText().toString()))
-                        Toast.makeText(getApplicationContext(), "Please enter PhoneNumber", Toast.LENGTH_SHORT).show();
+                    else if (TextUtils.isEmpty(phone.getText().toString()) || phoneNo.length() != 10)
+                        Toast.makeText(getApplicationContext(), "Please enter valid Phone Number", Toast.LENGTH_SHORT).show();
                     else {
                         hall_model.setNumpeople(noOfPeople.getText().toString().trim());
                         hall_model.setDate(booking.getText().toString().trim());

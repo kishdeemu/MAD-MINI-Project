@@ -17,14 +17,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class bookedhallsdply extends AppCompatActivity {
     Button uphbook;
     Button delhbook;
     Button cofhbook;
 
-    EditText Numpeople, Halltype, Date, Time, Fullname, Email, Phone;
+    TextView Numpeople, Halltype, Date, Time, Fullname, Email, Phone;
     DatabaseReference dbref;
     hall_model hallModel;
+    String lastKey;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +53,7 @@ public class bookedhallsdply extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChildren()) {
-
+                    Halltype.setText(dataSnapshot.child("hallType").getValue().toString());
                     Fullname.setText(dataSnapshot.child("fullName").getValue().toString());
                     Email.setText(dataSnapshot.child("email").getValue().toString());
                     Phone.setText(dataSnapshot.child("phone").getValue().toString());
@@ -74,6 +77,45 @@ public class bookedhallsdply extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), updatehalls.class);
+                startActivity(intent);
+            }
+        });
+
+        delhbook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatabaseReference delRef = FirebaseDatabase.getInstance().getReference().child("Halls");
+                delRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        ArrayList<String> tableDataKeys = new ArrayList<>();
+                        for(DataSnapshot data : dataSnapshot.getChildren()){
+                            tableDataKeys.add(data.getKey());
+                        }
+                        lastKey = tableDataKeys.get(tableDataKeys.size()-2);
+
+                        if(dataSnapshot.hasChild(lastKey)){
+                            dbref = FirebaseDatabase.getInstance().getReference().child("Halls").child(lastKey);
+                            dbref.removeValue();
+                        }
+
+                        if(dataSnapshot.hasChild("lastHallBooking")){
+                            dbref = FirebaseDatabase.getInstance().getReference().child("Halls").child("lastHallBooking");
+                            dbref.removeValue();
+                            Toast.makeText(getApplicationContext(), "Booking Deleted Successfully", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(getApplicationContext(), "No data to delete.", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
+                Intent intent = new Intent(bookedhallsdply.this, MainActivity.class);
                 startActivity(intent);
             }
         });

@@ -28,7 +28,7 @@
         android:layout_height="31dp"
         android:fontFamily="cursive"
         android:text="@string/cofirmb"
-        android:textColor="@color/txc"
+        android:textColor="@color/rh"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -52,20 +52,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.166" />
 
-    <EditText
+    <TextView
         android:id="@+id/sht"
         android:layout_width="214dp"
         android:layout_height="36dp"
-        android:background="@color/back"
         android:ems="10"
         android:fontFamily="cursive"
-        android:inputType="textPersonName"
-        android:text="@string/tv"
         android:textAlignment="center"
-        android:textColor="@android:color/darker_gray"
+        android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/cht"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.908"
+        app:layout_constraintHorizontal_bias="0.913"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -95,22 +92,18 @@
         app:layout_constraintEnd_toStartOf="@+id/ctimed"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/ctimed"
-        android:layout_width="212dp"
-        android:layout_height="47dp"
+        android:layout_width="214dp"
+        android:layout_height="36dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="79dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="79dp"
-        android:background="@color/back"
         android:ems="10"
         android:fontFamily="cursive"
-        android:hint="8.00 AM - 3.30 AM"
-        android:inputType="textPersonName"
         android:textAlignment="center"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="18sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/discfemail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.04"
@@ -118,18 +111,14 @@
         app:layout_constraintTop_toBottomOf="@+id/timrdu"
         app:layout_constraintVertical_bias="0.0" />
 
-    <EditText
+    <TextView
         android:id="@+id/ctimed2"
-        android:layout_width="0dp"
-        android:layout_height="42dp"
-        android:background="@color/back"
+        android:layout_width="214dp"
+        android:layout_height="36dp"
         android:ems="10"
+        android:textSize="20sp"
         android:fontFamily="cursive"
-        android:hint="No. of people"
-        android:inputType="textPersonName"
         android:textAlignment="center"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/ctimed"
         app:layout_constraintStart_toStartOf="@+id/ctimed"
         app:layout_constraintTop_toBottomOf="@+id/cdate" />
@@ -147,20 +136,16 @@
         app:layout_constraintHorizontal_bias="0.102"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/difullname"
-        android:layout_width="wrap_content"
-        android:layout_height="42dp"
+        android:layout_width="214dp"
+        android:layout_height="36dp"
         android:layout_marginTop="57dp"
         android:layout_marginBottom="58dp"
-        android:background="@color/back"
         android:ems="10"
         android:fontFamily="cursive"
-        android:inputType="textPersonName"
-        android:text="@string/tv"
         android:textAlignment="center"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="18sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/discfemail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.802"
@@ -178,26 +163,22 @@
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/discfemail"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintHorizontal_bias="0.091"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/discfemail"
-        android:layout_width="wrap_content"
-        android:layout_height="42dp"
-        android:layout_marginEnd="12dp"
-        android:background="@color/back"
+        android:layout_width="214dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
         android:fontFamily="cursive"
-        android:inputType="textPersonName"
-        android:text="@string/tv"
         android:textAlignment="center"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="18sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.574" />
+        app:layout_constraintVertical_bias="0.557" />
 
     <TextView
         android:id="@+id/cfphone"
@@ -212,22 +193,18 @@
         app:layout_constraintHorizontal_bias="0.101"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/disphone"
-        android:layout_width="wrap_content"
-        android:layout_height="42dp"
+        android:layout_width="214dp"
+        android:layout_height="36dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="233dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="233dp"
-        android:background="@color/back"
         android:ems="10"
         android:fontFamily="cursive"
-        android:inputType="textPersonName"
-        android:text="@string/tv"
         android:textAlignment="center"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="18sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/askconfirm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -239,6 +216,7 @@
         android:id="@+id/update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:background="@color/upd"
         android:fontFamily="serif"
         android:text="@string/update"
@@ -253,7 +231,7 @@
         android:id="@+id/delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginBottom="20dp"
         android:background="@android:color/holo_red_light"
         android:fontFamily="serif"
@@ -294,14 +272,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.836" />
 
-    <EditText
+    <TextView
         android:id="@+id/cdate"
-        android:layout_width="224dp"
-        android:layout_height="48dp"
+        android:layout_width="214dp"
+        android:layout_height="36dp"
+        android:textSize="20sp"
         android:layout_marginTop="50dp"
-        android:background="@color/back"
         android:fontFamily="cursive"
-        android:hint="Select Date"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.74"
