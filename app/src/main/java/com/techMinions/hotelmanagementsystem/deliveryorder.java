@@ -23,6 +23,9 @@ public class deliveryorder extends AppCompatActivity {
     EditText name,email,phone,quantity,address;
     DatabaseReference dbref;
     int totalprice;
+    String phoneNo;
+    String emailAdd;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,16 +58,18 @@ public class deliveryorder extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                phoneNo = phone.getText().toString();
+                emailAdd = email.getText().toString().trim();
 
                 dbref = FirebaseDatabase.getInstance().getReference().child("Delivery");
                 try{
                     if(TextUtils.isEmpty(name.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter your name", Toast.LENGTH_SHORT).show();
-                    else if(TextUtils.isEmpty(email.getText().toString()))
+                    else if(TextUtils.isEmpty(email.getText().toString()) || !emailAdd.matches(emailPattern))
                         Toast.makeText(getApplicationContext(), "Please enter your email", Toast.LENGTH_SHORT).show();
                     else if(TextUtils.isEmpty(foditm.getSelectedItem().toString()))
                         Toast.makeText(getApplicationContext(), "Please select a food item", Toast.LENGTH_SHORT).show();
-                    else if(TextUtils.isEmpty(phone.getText().toString()))
+                    else if(TextUtils.isEmpty(phone.getText().toString()) || phoneNo.length() != 10)
                        Toast.makeText(getApplicationContext(), "Please enter your phone number", Toast.LENGTH_SHORT).show();
                     else if(TextUtils.isEmpty(quantity.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter quantity", Toast.LENGTH_SHORT).show();
