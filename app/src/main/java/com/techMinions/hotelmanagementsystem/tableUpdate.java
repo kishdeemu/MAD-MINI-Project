@@ -39,9 +39,10 @@ import java.util.HashMap;
 public class tableUpdate extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener{
 
     Spinner noOfPeople;
-    EditText date, time, comment, fname, lname, email, phone;
+    EditText date, time, comment, fname, lname, email, phone, noOfHours;
     DatabaseReference dbRef;
     tables_model tableModel;
+    int total;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,7 @@ public class tableUpdate extends AppCompatActivity implements DatePickerDialog.O
         lname = findViewById(R.id.lname);
         email = findViewById(R.id.email);
         phone = findViewById(R.id.phone);
+        noOfHours = findViewById(R.id.noOfHours);
 
         tableModel = new tables_model();
 
@@ -93,6 +95,9 @@ public class tableUpdate extends AppCompatActivity implements DatePickerDialog.O
                     lname.setText(dataSnapshot.child("lname").getValue().toString());
                     email.setText(dataSnapshot.child("email").getValue().toString());
                     phone.setText(dataSnapshot.child("phone").getValue().toString());
+                    noOfHours.setText(dataSnapshot.child("noOfHours").getValue().toString());
+
+
 
                 } else {
                     Toast.makeText(getApplicationContext(), "No source to display", Toast.LENGTH_SHORT).show();
@@ -116,15 +121,15 @@ public class tableUpdate extends AppCompatActivity implements DatePickerDialog.O
                         ArrayList<tables_model> arr = new ArrayList();
                         ArrayList<String> arrKeys = new ArrayList();
                         for (DataSnapshot data : dataSnapshot.getChildren()) {
-                            Log.d("yyy", data.getKey());
-                            arr.add(data.getValue(tables_model.class));
+//                            Log.d("yyy", data.getKey());
+//                            arr.add(data.getValue(tables_model.class));
                             arrKeys.add(data.getKey());
 //                            tables_model tb = data.getValue(tables_model.class);
                         }
                         String lastKey = arrKeys.get(arrKeys.size() - 2);
-                        Log.d("zzz", lastKey);
-                        Log.d("xxx", arr.get(arr.size() - 1).getComments());
-                        tables_model lastRecord = arr.get(arr.size() - 2);
+//                        Log.d("zzz", lastKey);
+//                        Log.d("xxx", arr.get(arr.size() - 1).getComments());
+//                        tables_model lastRecord = arr.get(arr.size() - 2);
 //
 
                         if (dataSnapshot.hasChild(lastKey)) {
@@ -137,6 +142,21 @@ public class tableUpdate extends AppCompatActivity implements DatePickerDialog.O
                                 tableModel.setFname(fname.getText().toString().trim());
                                 tableModel.setLname(lname.getText().toString().trim());
                                 tableModel.setComments(comment.getText().toString().trim());
+                                tableModel.setNoOfHours(Integer.parseInt(noOfHours.getText().toString().trim()));
+
+                                if(noOfPeople.getSelectedItem().toString().equals("For 1 person")){
+                                    total = 1000 * Integer.parseInt(noOfHours.getText().toString());
+                                }else if(noOfPeople.getSelectedItem().toString().equals("For 2 people")){
+                                    total = 2000 * Integer.parseInt(noOfHours.getText().toString());
+                                }else if(noOfPeople.getSelectedItem().toString().equals("For 4 people")){
+                                    total = 4000 * Integer.parseInt(noOfHours.getText().toString());
+                                }else if(noOfPeople.getSelectedItem().toString().equals("For 8 people")){
+                                    total = 8000 * Integer.parseInt(noOfHours.getText().toString());
+                                }else if(noOfPeople.getSelectedItem().toString().equals("For 16 people")){
+                                    total = 16000 * Integer.parseInt(noOfHours.getText().toString());
+                                }
+
+                                tableModel.setTotal(total);
 
                                 DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("Tables").child(lastKey);
                                 dbRef.setValue(tableModel);
@@ -161,6 +181,22 @@ public class tableUpdate extends AppCompatActivity implements DatePickerDialog.O
                                 tableModel.setFname(fname.getText().toString().trim());
                                 tableModel.setLname(lname.getText().toString().trim());
                                 tableModel.setComments(comment.getText().toString().trim());
+                                tableModel.setNoOfHours(Integer.parseInt(noOfHours.getText().toString().trim()));
+
+                                if(noOfPeople.getSelectedItem().toString().equals("For 1 person")){
+                                    total = 1000 * Integer.parseInt(noOfHours.getText().toString());
+                                }else if(noOfPeople.getSelectedItem().toString().equals("For 2 people")){
+                                    total = 2000 * Integer.parseInt(noOfHours.getText().toString());
+                                }else if(noOfPeople.getSelectedItem().toString().equals("For 4 people")){
+                                    total = 4000 * Integer.parseInt(noOfHours.getText().toString());
+                                }else if(noOfPeople.getSelectedItem().toString().equals("For 8 people")){
+                                    total = 8000 * Integer.parseInt(noOfHours.getText().toString());
+                                }else if(noOfPeople.getSelectedItem().toString().equals("For 16 people")){
+                                    total = 16000 * Integer.parseInt(noOfHours.getText().toString());
+                                }
+
+                                tableModel.setTotal(total);
+
 
                                 DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("Tables").child("tableData");
                                 dbRef.setValue(tableModel);

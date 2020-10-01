@@ -160,6 +160,7 @@
     <string name="admin_login">Admin Login</string>
     <string name="no_of_hours">No of hours</string>
     <string name="total_price">Total Price</string>
+    <string name="how_many_hours">How many hours?</string>
 
 
 </resources>

@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class tableBookings extends AppCompatActivity {
-    TextView fname, lname, email, phone, noOfPeople, date, time, comments;
+    TextView fname, lname, email, phone, noOfPeople, date, time, comments, noOfHours, total;
     DatabaseReference dbRef;
     String lastKey;
 
@@ -37,6 +37,9 @@ public class tableBookings extends AppCompatActivity {
         date = findViewById(R.id.date);
         time = findViewById(R.id.time);
         comments = findViewById(R.id.comment);
+        noOfHours = findViewById(R.id.noOfHours);
+        total = findViewById(R.id.total);
+
 
         Button tblConBtn = findViewById(R.id.tblConBtn);
         Button tblDltBtn = findViewById(R.id.tblDltBtn);
@@ -92,9 +95,10 @@ public class tableBookings extends AppCompatActivity {
         updtBookBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent intent = new Intent(tableBookings.this, tableUpdate.class);
                 startActivity(intent);
+
+
             }
         });
 
@@ -109,9 +113,11 @@ public class tableBookings extends AppCompatActivity {
                     email.setText(dataSnapshot.child("email").getValue().toString());
                     phone.setText(dataSnapshot.child("phone").getValue().toString());
                     noOfPeople.setText(dataSnapshot.child("noOfPeople").getValue().toString());
+                    noOfHours.setText(dataSnapshot.child("noOfHours").getValue().toString());
                     date.setText(dataSnapshot.child("date").getValue().toString());
                     time.setText(dataSnapshot.child("time").getValue().toString());
                     comments.setText(dataSnapshot.child("comments").getValue().toString());
+                    total.setText(dataSnapshot.child("total").getValue().toString());
                 }else{
                     Toast.makeText(getApplicationContext(), "ERROR: No data to display", Toast.LENGTH_SHORT).show();
                 }

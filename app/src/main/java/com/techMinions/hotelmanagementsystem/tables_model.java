@@ -7,11 +7,13 @@ public class tables_model {
     private String noOfPeople;
     private String date;
     private String time;
+    private int noOfHours;
     private String comments;
     private String fname;
     private String lname;
     private String email;
     private int phone;
+    private int total;
 
     public tables_model(String noOfPeople, String date, String time, String comments, String fname, String lname, String email, int phone) {
         this.noOfPeople = noOfPeople;
@@ -25,6 +27,22 @@ public class tables_model {
     }
 
     public tables_model() {
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
+    public int getNoOfHours() {
+        return noOfHours;
+    }
+
+    public void setNoOfHours(int noOfHours) {
+        this.noOfHours = noOfHours;
     }
 
     public String getNoOfPeople() {

@@ -26,10 +26,11 @@ import java.util.Date;
 
 public class tables extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
     Spinner noOfPeople;
-    EditText date, time, comments, fname, lname, email, phone;
+    EditText date, time, comments, fname, lname, email, phone, noOfHours;
     DatabaseReference dbRef;
     tables_model tables_model;
     Button bookBtn;
+    int total;
 
 
     @Override
@@ -45,6 +46,7 @@ public class tables extends AppCompatActivity implements DatePickerDialog.OnDate
         lname = findViewById(R.id.lname);
         email = findViewById(R.id.email);
         phone = findViewById(R.id.phone);
+        noOfHours = findViewById(R.id.noOfHours);
 
         bookBtn = findViewById(R.id.bookBtn);
 
@@ -95,6 +97,21 @@ public class tables extends AppCompatActivity implements DatePickerDialog.OnDate
                         tables_model.setLname(lname.getText().toString());
                         tables_model.setEmail(email.getText().toString());
                         tables_model.setPhone(Integer.parseInt(phone.getText().toString()));
+                        tables_model.setNoOfHours(Integer.parseInt(noOfHours.getText().toString()));
+
+                        if(noOfPeople.getSelectedItem().toString().equals("For 1 person")){
+                            total = 1000 * Integer.parseInt(noOfHours.getText().toString());
+                        }else if(noOfPeople.getSelectedItem().toString().equals("For 2 people")){
+                            total = 2000 * Integer.parseInt(noOfHours.getText().toString());
+                        }else if(noOfPeople.getSelectedItem().toString().equals("For 4 people")){
+                            total = 4000 * Integer.parseInt(noOfHours.getText().toString());
+                        }else if(noOfPeople.getSelectedItem().toString().equals("For 8 people")){
+                            total = 8000 * Integer.parseInt(noOfHours.getText().toString());
+                        }else if(noOfPeople.getSelectedItem().toString().equals("For 16 people")){
+                            total = 16000 * Integer.parseInt(noOfHours.getText().toString());
+                        }
+
+                        tables_model.setTotal(total);
 
                         dbRef.push().setValue(tables_model);
                         dbRef.child("tableData").setValue(tables_model);

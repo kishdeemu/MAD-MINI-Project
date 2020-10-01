@@ -45,11 +45,11 @@
         android:hint="@string/choose_a_time"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.234"
 
+        app:layout_constraintVertical_bias="0.323"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -63,10 +63,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintHorizontal_bias="0.01"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.559" />
+        app:layout_constraintVertical_bias="0.637" />
 
     <TextView
         android:id="@+id/textView2"
@@ -88,7 +88,7 @@
     <EditText
         android:id="@+id/comment"
         android:layout_width="match_parent"
-        android:layout_height="157dp"
+        android:layout_height="131dp"
         android:background="@drawable/spinner_background_none"
         android:ems="10"
         android:gravity="start|top"
@@ -96,14 +96,14 @@
         android:inputType="textMultiLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.366" />
+        app:layout_constraintVertical_bias="0.476" />
 
     <EditText
         android:id="@+id/fname"
-        android:layout_width="190dp"
+        android:layout_width="177dp"
         android:layout_height="wrap_content"
         android:background="@drawable/spinner_background_none"
         android:ems="10"
@@ -111,14 +111,29 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.004"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.711" />
+
+    <EditText
+        android:id="@+id/noOfHours"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/spinner_background_none"
+        android:ems="10"
+        android:hint="@string/how_many_hours"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.632"/>
+        app:layout_constraintVertical_bias="0.243" />
 
     <EditText
         android:id="@+id/lname"
-        android:layout_width="190dp"
+        android:layout_width="183dp"
         android:layout_height="wrap_content"
         android:background="@drawable/spinner_background_none"
         android:ems="10"
@@ -129,37 +144,36 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.632" />
+        app:layout_constraintVertical_bias="0.712" />
 
     <EditText
         android:id="@+id/email"
-        android:hint="@string/email"
-        android:background="@drawable/spinner_background_none"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/spinner_background_none"
         android:ems="10"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.714" />
+        app:layout_constraintVertical_bias="0.793" />
 
     <EditText
         android:id="@+id/phone"
-        android:hint="@string/telephone"
-        android:background="@drawable/spinner_background_none"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/spinner_background_none"
         android:ems="10"
+        android:hint="@string/telephone"
         android:inputType="phone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.425"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.794" />
+        app:layout_constraintVertical_bias="0.879" />
 
     <Button
         android:id="@+id/bookBtn"
@@ -171,8 +185,8 @@
         android:textColor="@color/lbtc"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.931"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.934" />
+        app:layout_constraintVertical_bias="0.991" />
 </androidx.constraintlayout.widget.ConstraintLayout>
