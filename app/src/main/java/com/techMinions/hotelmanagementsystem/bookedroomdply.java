@@ -112,7 +112,7 @@ public class bookedroomdply extends AppCompatActivity {
                             dbRef.removeValue();
                             Toast.makeText(getApplicationContext(), "Booking Deleted Successfully", Toast.LENGTH_SHORT).show();
                         }else{
-                            Toast.makeText(getApplicationContext(), "No data to delete.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "No data to delete", Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -149,7 +149,7 @@ public class bookedroomdply extends AppCompatActivity {
                 AlertDialog dialog;
                 AlertDialog.Builder builder = new AlertDialog.Builder(bookedroomdply.this);
                 builder.setTitle("CONFIRMED!");
-                builder.setMessage("Your booking has been confirmed.");
+                builder.setMessage("Your booking has been confirmed. Thank You!");
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

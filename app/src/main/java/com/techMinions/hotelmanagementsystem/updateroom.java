@@ -40,10 +40,12 @@ public class updateroom extends AppCompatActivity {
     String roomList;
     int total;
     long diff;
-
+    String dateinval;
+    String dateoutval;
     String phoneNo;
     String emailAdd;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    String datePattern = "^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,8 +89,6 @@ public class updateroom extends AppCompatActivity {
                     chilinput.setText(dataSnapshot.child("numofChildren").getValue().toString());
                     mumofroomsup.setText(dataSnapshot.child("numofRooms").getValue().toString());
                     phonein.setText(dataSnapshot.child("phonein").getValue().toString());
-                    //rlistup.((dataSnapshot.child("roomlist").getValue().toString()));
-                    //total.setText(dataSnapshot.child("total").getValue().toString());
                     roomList = dataSnapshot.child("roomlist").getValue().toString();
 
 
@@ -110,6 +110,8 @@ public class updateroom extends AppCompatActivity {
             public void onClick(View view) {
                 phoneNo = phonein.getText().toString();
                 emailAdd = emin.getText().toString().trim();
+                dateinval = chiinput.getText().toString().trim();
+                dateoutval = choinput.getText().toString().trim();
                 dbRef = FirebaseDatabase.getInstance().getReference().child("Rooms");
                 dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -127,6 +129,8 @@ public class updateroom extends AppCompatActivity {
 
                                 if (TextUtils.isEmpty(chiinput.getText().toString()))
                                     Toast.makeText(getApplicationContext(), "Please enter check-in date", Toast.LENGTH_SHORT).show();
+                                else if (!dateinval.matches(datePattern))
+                                    Toast.makeText(getApplicationContext(), "Please enter valid check-in date", Toast.LENGTH_SHORT).show();
                                 else if (TextUtils.isEmpty(choinput.getText().toString()))
                                     Toast.makeText(getApplicationContext(), "Please enter check-out date", Toast.LENGTH_SHORT).show();
                                 else if (TextUtils.isEmpty(rlistup.getSelectedItem().toString()))
@@ -189,10 +193,10 @@ public class updateroom extends AppCompatActivity {
                                     dbRef3 = FirebaseDatabase.getInstance().getReference().child("Rooms").child(lastKey);
                                     dbRef3.setValue(roomModel);
 
-                                    Intent myI5 = new Intent(updateroom.this, bookedroomdply.class);
-                                    startActivity(myI5);
+                                    Intent intent = new Intent(updateroom.this, bookedroomdply.class);
+                                    startActivity(intent);
 
-                                    Toast.makeText(getApplicationContext(), "Data updated successfully", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "Booking Update Successfully", Toast.LENGTH_SHORT).show();
 
                                 }
 
@@ -206,8 +210,12 @@ public class updateroom extends AppCompatActivity {
                             try{
                                 if (TextUtils.isEmpty(chiinput.getText().toString()));
                                     //Toast.makeText(getApplicationContext(), "Please enter check-in date", Toast.LENGTH_SHORT).show();
+                                else if (!dateinval.matches(datePattern));
+                                    //Toast.makeText(getApplicationContext(), "Please enter valid check-in date", Toast.LENGTH_SHORT).show();
                                 else if (TextUtils.isEmpty(choinput.getText().toString()));
                                     //Toast.makeText(getApplicationContext(), "Please enter check-out date", Toast.LENGTH_SHORT).show();
+                                else if (!dateoutval.matches(datePattern));
+                                    //Toast.makeText(getApplicationContext(), "Please enter valid check-out date", Toast.LENGTH_SHORT).show();
                                 else if (TextUtils.isEmpty(rlistup.getSelectedItem().toString()));
                                     //Toast.makeText(getApplicationContext(), "Please select a room type", Toast.LENGTH_SHORT).show();
                                 else if (TextUtils.isEmpty(mumofroomsup.getText().toString()));
@@ -280,26 +288,4 @@ public class updateroom extends AppCompatActivity {
 
     }
 
-
-
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//
-//        uproombtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                //Toast Message for reacting to button click
-//                Context context = getApplicationContext();
-//                CharSequence message = "booking updated";
-//                int duration = Toast.LENGTH_SHORT;
-//                Toast toast = Toast.makeText(context, message, duration);
-//                toast.setGravity(Gravity.BOTTOM|Gravity.CENTER, 0, 0);
-//                toast.show();
-//
-//
-//            }
-//        });
-//    }
 }

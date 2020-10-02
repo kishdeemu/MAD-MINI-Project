@@ -34,8 +34,10 @@ public class roombooking extends AppCompatActivity{
     long diff;
     String phoneNo;
     String emailAdd;
-    String date;
+    String dateinval;
+    String dateoutval;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    String datePattern = "^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$";
 
 
     @Override
@@ -61,7 +63,8 @@ public class roombooking extends AppCompatActivity{
             public void onClick(View view) {
                 phoneNo = phonein.getText().toString();
                 emailAdd = emin.getText().toString().trim();
-                date = chiinput.getText().toString().trim();
+                dateinval = chiinput.getText().toString().trim();
+                dateoutval = choinput.getText().toString().trim();
 
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
                 Date firstDate = null;
@@ -80,8 +83,12 @@ public class roombooking extends AppCompatActivity{
                 try {
                     if (TextUtils.isEmpty(chiinput.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter check-in date", Toast.LENGTH_SHORT).show();
+                    else if (!dateinval.matches(datePattern))
+                        Toast.makeText(getApplicationContext(), "Please enter valid check-in date", Toast.LENGTH_SHORT).show();
                     else if (TextUtils.isEmpty(choinput.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter check-out date", Toast.LENGTH_SHORT).show();
+                    else if (!dateoutval.matches(datePattern))
+                        Toast.makeText(getApplicationContext(), "Please enter valid check-out date", Toast.LENGTH_SHORT).show();
                     else if (TextUtils.isEmpty(roomlist.getSelectedItem().toString()))
                         Toast.makeText(getApplicationContext(), "Please select a room type", Toast.LENGTH_SHORT).show();
                     else if (TextUtils.isEmpty(numofRooms.getText().toString()))
@@ -125,7 +132,7 @@ public class roombooking extends AppCompatActivity{
                         dbRef.push().setValue(roomModel);
                         dbRef.child("lastRoomData").setValue(roomModel);
 
-                        Toast.makeText(getApplicationContext(), "Data Saved Successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Room booked Successfully", Toast.LENGTH_SHORT).show();
                         clearControls();
                         Intent intent = new Intent(roombooking.this, bookedroomdply.class);
                         startActivity(intent);
