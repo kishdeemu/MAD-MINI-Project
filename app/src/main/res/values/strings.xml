@@ -28,7 +28,7 @@
     <string name="broup">UPDATE</string>
     <string name="broedit">UPDATE BOOKING</string>
     <string name="brodel">DELETE BOOKING</string>
-    <string name="brocon">COMFIRM</string>
+    <string name="brocon">CONFIRM</string>
     <string name="brconf">Are you sure to confirm booking?</string>
     <string name="bnwh">BOOK NOW</string>
     <string name="updh">UPDATE YOUR BOOKING</string>

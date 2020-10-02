@@ -111,6 +111,8 @@ public class tables extends AppCompatActivity implements DatePickerDialog.OnDate
                             total = 16000 * Integer.parseInt(noOfHours.getText().toString());
                         }
 
+                        total = totPriceCalculation(noOfPeople.getSelectedItem().toString(), Integer.parseInt(noOfHours.getText().toString()));
+
                         tables_model.setTotal(total);
 
                         dbRef.push().setValue(tables_model);
@@ -141,6 +143,22 @@ public class tables extends AppCompatActivity implements DatePickerDialog.OnDate
 
 
 
+    }
+
+    public int totPriceCalculation(String npeople, int noOfHours){
+        if(npeople.equals("For 1 person")){
+            total = 1000 * noOfHours;
+        }else if(npeople.equals("For 2 people")){
+            total = 2000 * noOfHours;
+        }else if(npeople.equals("For 4 people")){
+            total = 4000 * noOfHours;
+        }else if(npeople.equals("For 8 people")){
+            total = 8000 * noOfHours;
+        }else if(npeople.equals("For 16 people")){
+            total = 16000 * noOfHours;
+        }
+
+        return total;
     }
 
     public void clearControls() {
