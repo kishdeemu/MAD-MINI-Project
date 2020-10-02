@@ -1,5 +1,7 @@
 package com.techMinions.hotelmanagementsystem;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -7,12 +9,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,9 +25,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
-public class updatehalls extends AppCompatActivity {
+public class updatehalls extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
     Spinner spinnerhty;
     EditText updtedate, utimet, updname, upemail, updphone, upnoofPeople, noOfHours;
@@ -49,6 +56,22 @@ public class updatehalls extends AppCompatActivity {
         noOfHours = findViewById(R.id.noOfHours);
 
         updabutton = findViewById(R.id.updabutton);
+
+        updtedate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DialogFragment datePicker = new DatePickerFragment();
+                datePicker.show(getSupportFragmentManager(), "date picker");
+            }
+        });
+
+        utimet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DialogFragment timePicker = new TimePickerFragment();
+                timePicker.show(getSupportFragmentManager(), "time picker");
+            }
+        });
 
         hallModel = new hall_model();
 
@@ -225,5 +248,23 @@ public class updatehalls extends AppCompatActivity {
         }
 
         return total;
+    }
+
+    @Override
+    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.YEAR, year);
+        c.set(Calendar.MONTH, month);
+        c.set(Calendar.DAY_OF_MONTH, day);
+        String currentDate = DateFormat.getDateInstance().format(c.getTime());
+
+        EditText date_picker = findViewById(R.id.booking);
+        date_picker.setText(currentDate);
+    }
+
+    @Override
+    public void onTimeSet(TimePicker timePicker, int hourOfDay, int minute) {
+        EditText time_picker = findViewById(R.id.timed);
+        time_picker.setText(hourOfDay + ":" + minute);
     }
 }
