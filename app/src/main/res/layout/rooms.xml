@@ -64,8 +64,8 @@
 
     <TextView
         android:id="@+id/srh"
-        android:layout_width="110dp"
-        android:layout_height="38dp"
+        android:layout_width="144dp"
+        android:layout_height="32dp"
         android:layout_marginStart="64dp"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/roboto_bold"
@@ -73,7 +73,7 @@
         android:textColor="@color/rh"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/iv1"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -92,14 +92,15 @@
 
     <TextView
         android:id="@+id/drh"
-        android:layout_width="122dp"
-        android:layout_height="34dp"
+        android:layout_width="152dp"
+        android:layout_height="32dp"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/dr"
         android:textColor="@color/rh"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.64"
         app:layout_constraintStart_toEndOf="@+id/iv2"
         app:layout_constraintTop_toBottomOf="@+id/srpr" />
 
@@ -118,8 +119,8 @@
 
     <TextView
         android:id="@+id/trh"
-        android:layout_width="110dp"
-        android:layout_height="30dp"
+        android:layout_width="134dp"
+        android:layout_height="32dp"
         android:layout_marginStart="64dp"
         android:layout_marginTop="28dp"
         android:fontFamily="@font/roboto_bold"
@@ -147,7 +148,7 @@
 
     <TextView
         android:id="@+id/qrh"
-        android:layout_width="153dp"
+        android:layout_width="186dp"
         android:layout_height="31dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/roboto_bold"

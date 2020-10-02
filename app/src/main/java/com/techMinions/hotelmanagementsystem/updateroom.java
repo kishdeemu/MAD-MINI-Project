@@ -235,18 +235,6 @@ public class updateroom extends AppCompatActivity {
                                 else if (phoneNo.length() != 10);
                                     //Toast.makeText(getApplicationContext(), "Please enter valid phone number", Toast.LENGTH_SHORT).show();
                                 else {
-                                    roomList = rlistup.getSelectedItem().toString().trim();
-                                    if (roomList.equals("Single Room")) {
-                                        total = ((int) diff )  * 10500 * Integer.parseInt(mumofroomsup.getText().toString());
-                                    } else if (roomList.equals("Double Room")) {
-                                        total = ((int) diff ) * 14500 * Integer.parseInt(mumofroomsup.getText().toString());
-                                    } else if (roomList.equals("Triple Room")) {
-                                        total = ((int) diff ) * 16500 * Integer.parseInt(mumofroomsup.getText().toString());
-                                    } else if (roomList.equals("Quadruple Room")) {
-                                        total = ((int) diff ) * 18000 * Integer.parseInt(mumofroomsup.getText().toString());
-                                    }
-
-
                                     roomModel.setCheckIn(chiinput.getText().toString().trim());
                                     roomModel.setCheckOut(choinput.getText().toString().trim());
                                     roomModel.setEmin(emin.getText().toString().trim());
@@ -256,6 +244,8 @@ public class updateroom extends AppCompatActivity {
                                     roomModel.setNumofRooms(mumofroomsup.getText().toString().trim());
                                     roomModel.setPhonein(phonein.getText().toString().trim());
                                     roomModel.setRoomlist(rlistup.getSelectedItem().toString().trim());
+
+                                    total = roomtotPriceCalculation(rlistup.getSelectedItem().toString(), Integer.parseInt(mumofroomsup.getText().toString()), (int) diff);
 
                                     roomModel.setTotal(total);
 
@@ -286,6 +276,20 @@ public class updateroom extends AppCompatActivity {
 
 
 
+    }
+
+    public int roomtotPriceCalculation(String roomlist, int noOfRooms, int dif){
+        if (roomlist.equals("Single Room")) {
+            total = dif * 10500 * noOfRooms;
+        } else if (roomlist.equals("Double Room")) {
+            total = dif * 14500 * noOfRooms;
+        } else if (roomlist.equals("Triple Room")) {
+            total = dif * 16500 * noOfRooms;
+        } else if (roomlist.equals("Quadruple Room")) {
+            total = dif * 18000 * noOfRooms;
+        }
+
+        return total;
     }
 
 }

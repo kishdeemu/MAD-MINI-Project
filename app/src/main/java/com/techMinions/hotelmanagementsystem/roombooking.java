@@ -108,16 +108,6 @@ public class roombooking extends AppCompatActivity{
                     else if (phoneNo.length() != 10)
                         Toast.makeText(getApplicationContext(), "Please enter valid phone number", Toast.LENGTH_SHORT).show();
                     else {
-                        if (roomlist.getSelectedItem().toString().equals("Single Room")) {
-                            total = ((int) diff ) * 10500 * Integer.parseInt(numofRooms.getText().toString());
-                        } else if (roomlist.getSelectedItem().toString().equals("Double Room")) {
-                            total = ((int) diff ) * 14500 * Integer.parseInt(numofRooms.getText().toString());
-                        } else if (roomlist.getSelectedItem().toString().equals("Triple Room")) {
-                            total = ((int) diff ) * 16500 * Integer.parseInt(numofRooms.getText().toString());
-                        } else if (roomlist.getSelectedItem().toString().equals("Quadruple Room")) {
-                            total = ((int) diff ) * 18000 * Integer.parseInt(numofRooms.getText().toString());
-                        }
-
                         roomModel.setCheckIn(chiinput.getText().toString().trim());
                         roomModel.setCheckOut(choinput.getText().toString().trim());
                         roomModel.setRoomlist(roomlist.getSelectedItem().toString().trim());
@@ -127,6 +117,9 @@ public class roombooking extends AppCompatActivity{
                         roomModel.setFullnin(fullnin.getText().toString().trim());
                         roomModel.setEmin(emin.getText().toString().trim());
                         roomModel.setPhonein(phonein.getText().toString());
+
+                        total = roomtotPriceCalculation(roomlist.getSelectedItem().toString(), Integer.parseInt(numofRooms.getText().toString()), (int) diff);
+
                         roomModel.setTotal(total);
 
                         dbRef.push().setValue(roomModel);
@@ -153,6 +146,21 @@ public class roombooking extends AppCompatActivity{
 
 
     }
+
+    public int roomtotPriceCalculation(String roomlist, int noOfRooms, int dif){
+        if (roomlist.equals("Single Room")) {
+            total = dif * 10500 * noOfRooms;
+        } else if (roomlist.equals("Double Room")) {
+            total = dif * 14500 * noOfRooms;
+        } else if (roomlist.equals("Triple Room")) {
+            total = dif * 16500 * noOfRooms;
+        } else if (roomlist.equals("Quadruple Room")) {
+            total = dif * 18000 * noOfRooms;
+        }
+
+        return total;
+    }
+
 
     public void clearControls() {
         chiinput.setText("");

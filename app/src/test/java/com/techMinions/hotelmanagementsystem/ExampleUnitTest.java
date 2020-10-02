@@ -10,8 +10,24 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 public class ExampleUnitTest {
+
+    /** IT19043524 **/
     @Test
-    public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+    public void roomtotPriceCalculation() {
+        String input1 = "Single Room";
+        int input2 = 2;
+        int input3 = 3;
+        int output;
+        int expected = 63000;
+        double delta = .1;
+
+        roombooking rm = new roombooking();
+        output = rm.roomtotPriceCalculation(input1, input2, input3);
+
+        assertEquals(expected, output, delta);
+
     }
+
+
+
 }
