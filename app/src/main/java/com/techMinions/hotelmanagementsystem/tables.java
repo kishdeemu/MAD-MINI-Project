@@ -99,17 +99,6 @@ public class tables extends AppCompatActivity implements DatePickerDialog.OnDate
                         tables_model.setPhone(Integer.parseInt(phone.getText().toString()));
                         tables_model.setNoOfHours(Integer.parseInt(noOfHours.getText().toString()));
 
-                        if(noOfPeople.getSelectedItem().toString().equals("For 1 person")){
-                            total = 1000 * Integer.parseInt(noOfHours.getText().toString());
-                        }else if(noOfPeople.getSelectedItem().toString().equals("For 2 people")){
-                            total = 2000 * Integer.parseInt(noOfHours.getText().toString());
-                        }else if(noOfPeople.getSelectedItem().toString().equals("For 4 people")){
-                            total = 4000 * Integer.parseInt(noOfHours.getText().toString());
-                        }else if(noOfPeople.getSelectedItem().toString().equals("For 8 people")){
-                            total = 8000 * Integer.parseInt(noOfHours.getText().toString());
-                        }else if(noOfPeople.getSelectedItem().toString().equals("For 16 people")){
-                            total = 16000 * Integer.parseInt(noOfHours.getText().toString());
-                        }
 
                         total = totPriceCalculation(noOfPeople.getSelectedItem().toString(), Integer.parseInt(noOfHours.getText().toString()));
 
