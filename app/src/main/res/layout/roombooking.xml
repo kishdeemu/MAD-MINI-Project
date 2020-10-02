@@ -80,7 +80,7 @@
         android:id="@+id/gesvchil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="105dp"
+        android:layout_marginEnd="106dp"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/ghch"
         android:textColor="@color/txc"

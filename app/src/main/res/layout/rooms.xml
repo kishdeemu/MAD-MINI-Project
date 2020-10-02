@@ -64,10 +64,10 @@
 
     <TextView
         android:id="@+id/srh"
-        android:layout_width="144dp"
-        android:layout_height="32dp"
+        android:layout_width="152dp"
+        android:layout_height="37dp"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/sr"
         android:textColor="@color/rh"
@@ -87,13 +87,14 @@
         android:textColor="@color/txc"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.612"
         app:layout_constraintStart_toEndOf="@+id/iv1"
         app:layout_constraintTop_toBottomOf="@+id/srh" />
 
     <TextView
         android:id="@+id/drh"
-        android:layout_width="152dp"
-        android:layout_height="32dp"
+        android:layout_width="147dp"
+        android:layout_height="36dp"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/dr"
@@ -114,6 +115,7 @@
         android:textColor="@color/txc"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.547"
         app:layout_constraintStart_toEndOf="@+id/iv2"
         app:layout_constraintTop_toBottomOf="@+id/drh" />
 
@@ -156,7 +158,7 @@
         android:textColor="@color/rh"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintHorizontal_bias="0.622"
         app:layout_constraintStart_toEndOf="@+id/iv4"
         app:layout_constraintTop_toBottomOf="@+id/trpr" />
 
@@ -170,6 +172,7 @@
         android:textColor="@color/txc"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.692"
         app:layout_constraintStart_toEndOf="@+id/iv4"
         app:layout_constraintTop_toBottomOf="@+id/qrh" />
 
@@ -182,6 +185,7 @@
         android:text="@string/srp"
         android:textColor="@color/lbtc"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toEndOf="@+id/iv1"
         app:layout_constraintTop_toBottomOf="@+id/srds" />
 
@@ -194,6 +198,7 @@
         android:text="@string/drp"
         android:textColor="@color/lbtc"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toEndOf="@+id/iv2"
         app:layout_constraintTop_toBottomOf="@+id/drds" />
 
@@ -206,6 +211,7 @@
         android:text="@string/trp"
         android:textColor="@color/lbtc"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toEndOf="@+id/iv3"
         app:layout_constraintTop_toBottomOf="@+id/trds" />
 
@@ -218,6 +224,7 @@
         android:text="@string/qrp"
         android:textColor="@color/lbtc"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toEndOf="@+id/iv4"
         app:layout_constraintTop_toBottomOf="@+id/qrds" />
 
