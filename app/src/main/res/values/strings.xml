@@ -139,7 +139,7 @@
     <string name="odrcf">CONFIRM</string>
     <string name="deliupdtH">Update Your Order</string>
     <string name="deliupdtbtn">UPDATE</string>
-    <string name="norselect">Number of Rooms</string>
+    <string name="norselect">No. of Rooms</string>
     <string name="totprice">Total Price</string>
     <string name="welcome">Welcome</string>
 
@@ -161,6 +161,8 @@
     <string name="no_of_hours">No of hours</string>
     <string name="total_price">Total Price</string>
     <string name="how_many_hours">How many hours?</string>
+    <string name="_20_07_2020">20/07/2020</string>
+    <string name="_21_07_2020">21/07/2020</string>
 
 
 </resources>
