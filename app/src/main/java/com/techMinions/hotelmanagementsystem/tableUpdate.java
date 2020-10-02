@@ -121,17 +121,9 @@ public class tableUpdate extends AppCompatActivity implements DatePickerDialog.O
                         ArrayList<tables_model> arr = new ArrayList();
                         ArrayList<String> arrKeys = new ArrayList();
                         for (DataSnapshot data : dataSnapshot.getChildren()) {
-//                            Log.d("yyy", data.getKey());
-//                            arr.add(data.getValue(tables_model.class));
                             arrKeys.add(data.getKey());
-//                            tables_model tb = data.getValue(tables_model.class);
                         }
                         String lastKey = arrKeys.get(arrKeys.size() - 2);
-//                        Log.d("zzz", lastKey);
-//                        Log.d("xxx", arr.get(arr.size() - 1).getComments());
-//                        tables_model lastRecord = arr.get(arr.size() - 2);
-//
-
                         if (dataSnapshot.hasChild(lastKey)) {
                             try {
                                 tableModel.setNoOfPeople(noOfPeople.getSelectedItem().toString().trim());
@@ -144,17 +136,7 @@ public class tableUpdate extends AppCompatActivity implements DatePickerDialog.O
                                 tableModel.setComments(comment.getText().toString().trim());
                                 tableModel.setNoOfHours(Integer.parseInt(noOfHours.getText().toString().trim()));
 
-                                if(noOfPeople.getSelectedItem().toString().equals("For 1 person")){
-                                    total = 1000 * Integer.parseInt(noOfHours.getText().toString());
-                                }else if(noOfPeople.getSelectedItem().toString().equals("For 2 people")){
-                                    total = 2000 * Integer.parseInt(noOfHours.getText().toString());
-                                }else if(noOfPeople.getSelectedItem().toString().equals("For 4 people")){
-                                    total = 4000 * Integer.parseInt(noOfHours.getText().toString());
-                                }else if(noOfPeople.getSelectedItem().toString().equals("For 8 people")){
-                                    total = 8000 * Integer.parseInt(noOfHours.getText().toString());
-                                }else if(noOfPeople.getSelectedItem().toString().equals("For 16 people")){
-                                    total = 16000 * Integer.parseInt(noOfHours.getText().toString());
-                                }
+                                total = tabletotPriceCalculation(noOfPeople.getSelectedItem().toString(), Integer.parseInt(noOfHours.getText().toString()));
 
                                 tableModel.setTotal(total);
 
@@ -183,17 +165,7 @@ public class tableUpdate extends AppCompatActivity implements DatePickerDialog.O
                                 tableModel.setComments(comment.getText().toString().trim());
                                 tableModel.setNoOfHours(Integer.parseInt(noOfHours.getText().toString().trim()));
 
-                                if(noOfPeople.getSelectedItem().toString().equals("For 1 person")){
-                                    total = 1000 * Integer.parseInt(noOfHours.getText().toString());
-                                }else if(noOfPeople.getSelectedItem().toString().equals("For 2 people")){
-                                    total = 2000 * Integer.parseInt(noOfHours.getText().toString());
-                                }else if(noOfPeople.getSelectedItem().toString().equals("For 4 people")){
-                                    total = 4000 * Integer.parseInt(noOfHours.getText().toString());
-                                }else if(noOfPeople.getSelectedItem().toString().equals("For 8 people")){
-                                    total = 8000 * Integer.parseInt(noOfHours.getText().toString());
-                                }else if(noOfPeople.getSelectedItem().toString().equals("For 16 people")){
-                                    total = 16000 * Integer.parseInt(noOfHours.getText().toString());
-                                }
+                                total = tabletotPriceCalculation(noOfPeople.getSelectedItem().toString(), Integer.parseInt(noOfHours.getText().toString()));
 
                                 tableModel.setTotal(total);
 
@@ -227,6 +199,22 @@ public class tableUpdate extends AppCompatActivity implements DatePickerDialog.O
         });
 
 
+    }
+
+    public int tabletotPriceCalculation(String npeople, int noOfHours){
+        if(npeople.equals("For 1 person")){
+            total = 1000 * noOfHours;
+        }else if(npeople.equals("For 2 people")){
+            total = 2000 * noOfHours;
+        }else if(npeople.equals("For 4 people")){
+            total = 4000 * noOfHours;
+        }else if(npeople.equals("For 8 people")){
+            total = 8000 * noOfHours;
+        }else if(npeople.equals("For 16 people")){
+            total = 16000 * noOfHours;
+        }
+
+        return total;
     }
 
     @Override

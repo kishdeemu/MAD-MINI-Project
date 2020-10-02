@@ -28,6 +28,22 @@ public class ExampleUnitTest {
 
     }
 
+        /** IT19043456 **/
+    @Test
+    public void tabletotPriceCalculation() {
+        String input1 = "For 2 people";
+        int input2 = 2;
+        int output;
+        int expected = 4000;
+        double delta = .1;
+
+        tables tb = new tables();
+        output = tb.totPriceCalculation(input1, input2);
+
+        assertEquals(expected, output, delta);
+    }
+
+
 
 
 }
