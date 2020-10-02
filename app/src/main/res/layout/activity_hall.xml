@@ -219,10 +219,10 @@
         android:textColor="@color/txc"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.842"
+        app:layout_constraintHorizontal_bias="0.886"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hty3"
-        app:layout_constraintVertical_bias="0.073" />
+        app:layout_constraintVertical_bias="0.054" />
 
     <TextView
         android:id="@+id/hall4p"

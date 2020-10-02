@@ -75,11 +75,11 @@
     <string name="htype2">Outdoor Wedding Hall</string>
     <string name="hallty2in">10 Tables,150 Chairs</string>
     <string name="hall2p">5,000LKR/hour</string>
-    <string name="htp3">Conferance Hall</string>
+    <string name="htp3">Conference Hall</string>
     <string name="htp3inf">1 Confernace Tables,800 Chairs</string>
     <string name="hall3p">10,000LKR/hour</string>
     <string name="pht4">Kids Party Hall</string>
-    <string name="htp4inf">10 Children Tables, 60 children chairs</string>
+    <string name="htp4inf">10 Children Tables, 60 Children chairs</string>
     <string name="hall4p">3,500LKR/hour</string>
     <string name="hbbutton1">BOOK THE HALL</string>
 
@@ -100,7 +100,7 @@
     <string name="bnbutton">BOOK NOW</string>
 
     <string name="cofirmb">CONFIRM YOUR BOOKING </string>
-    <string name="ddate">07/14/2020</string>
+    <string name="ddate">Book the date</string>
     <string name="ht">Hall Type</string>
     <string name="tv">Text View</string>
     <string name="update">UPDATE BOOKING</string>

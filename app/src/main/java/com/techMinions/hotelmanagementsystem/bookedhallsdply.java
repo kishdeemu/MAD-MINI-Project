@@ -1,5 +1,6 @@
 package com.techMinions.hotelmanagementsystem;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
@@ -124,13 +126,32 @@ public class bookedhallsdply extends AppCompatActivity {
             }
         });
 
+
+
         cofhbook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(bookedhallsdply.this, MainActivity.class);
-                startActivity(intent);
-                Toast.makeText(getApplicationContext(), "Booking confirmed,ThankYou!", Toast.LENGTH_SHORT).show();
-            }
+                // Intent intent = new Intent(bookedhallsdply.this, MainActivity.class);
+                //  startActivity(intent);
+                //Toast.makeText(getApplicationContext(), "Booking confirmed,ThankYou!", Toast.LENGTH_SHORT).show();
+
+
+                AlertDialog dialog;
+                AlertDialog.Builder builder = new AlertDialog.Builder(bookedhallsdply.this);
+                builder.setTitle("CONFIRMED!");
+                builder.setMessage("Your booking has been confirmed. Thank You!");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Intent intent = new Intent(bookedhallsdply.this, MainActivity.class);
+                        startActivity(intent);
+                    }
+                });
+                dialog = builder.create();
+                dialog.show();
+
+                }
+
         });
 
 

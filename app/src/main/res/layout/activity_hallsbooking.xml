@@ -137,7 +137,7 @@
         android:background="@color/back"
         android:ems="10"
         android:fontFamily="cursive"
-        android:hint="8.00Am -  3.30PM"
+        android:hint="8:00AM-3:00PM"
         android:inputType="time"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/time"
