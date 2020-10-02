@@ -37,7 +37,7 @@
     <string name="hallreservation">Halls</string>
     <string name="tablereservation">Tables</string>
     <string name="delivery">Delivery</string>
-    <string name="noOfPeople">Number of people</string>
+    <string name="noOfPeople">No. of people</string>
     <string name="table_booking">TABLE BOOKING</string>
     <string name="pick_a_date">Pick a Date</string>
     <string name="choose_a_time">Choose a time</string>
