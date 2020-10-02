@@ -62,7 +62,7 @@ public class updatehalls extends AppCompatActivity {
         dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.hasChildren()){
+                if (dataSnapshot.hasChildren()) {
                     spinnerhty.setSelection(radp.getPosition(dataSnapshot.child("hallType").getValue().toString()));
                     updtedate.setText(dataSnapshot.child("date").getValue().toString());
                     utimet.setText(dataSnapshot.child("time").getValue().toString());
@@ -81,7 +81,7 @@ public class updatehalls extends AppCompatActivity {
                     } else if (spinnerhty.getSelectedItem().toString().equals("Kids Party Hall")) {
                         total = 3500 * Integer.parseInt(noOfHours.getText().toString());
                     }
-                }else{
+                } else {
                     Toast.makeText(getApplicationContext(), "No source to display", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -172,16 +172,6 @@ public class updatehalls extends AppCompatActivity {
                                 else if (TextUtils.isEmpty(updphone.getText().toString()) || phoneNo.length() != 10)
                                     Toast.makeText(getApplicationContext(), "Please enter check Phone Number", Toast.LENGTH_SHORT).show();
                                 else {
-
-                                    if (spinnerhty.getSelectedItem().toString().equals("Indoor Wedding Hall")) {
-                                        total = 8000 * Integer.parseInt(noOfHours.getText().toString());
-                                    } else if (spinnerhty.getSelectedItem().toString().equals("Outdoor Wedding Hall")) {
-                                        total = 5000 * Integer.parseInt(noOfHours.getText().toString());
-                                    } else if (spinnerhty.getSelectedItem().toString().equals("Conference Hall")) {
-                                        total = 10000 * Integer.parseInt(noOfHours.getText().toString());
-                                    } else if (spinnerhty.getSelectedItem().toString().equals("Kids Party Hall")) {
-                                        total = 3500 * Integer.parseInt(noOfHours.getText().toString());
-                                    }
                                     hallModel.setHallType(spinnerhty.getSelectedItem().toString().trim());
                                     hallModel.setDate(updtedate.getText().toString().trim());
                                     hallModel.setTime(utimet.getText().toString().trim());
@@ -191,6 +181,7 @@ public class updatehalls extends AppCompatActivity {
                                     hallModel.setEmail(upemail.getText().toString().trim());
                                     hallModel.setNumpeople(upnoofPeople.getText().toString().trim());
                                     hallModel.setNoOfHours(Integer.parseInt(noOfHours.getText().toString().trim()));
+                                    total = totPriceCalculation(spinnerhty.getSelectedItem().toString(), Integer.parseInt(noOfHours.getText().toString()));
 
                                     hallModel.setTotal(total);
                                     DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("Halls").child("lastHallBooking");
@@ -210,6 +201,7 @@ public class updatehalls extends AppCompatActivity {
                         }
                     }
 
+
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
 
@@ -219,5 +211,19 @@ public class updatehalls extends AppCompatActivity {
             }
         });
 
+    }
+
+    public int totPriceCalculation(String hallType, int hours) {
+        if (hallType.equals("Indoor Wedding Hall")) {
+            total = 8000 * hours;
+        } else if (hallType.equals("Outdoor Wedding Hall")) {
+            total = 5000 * hours;
+        } else if (hallType.equals("Conference Hall")) {
+            total = 10000 * hours;
+        } else if (hallType.equals("Kids Party Hall")) {
+            total = 3500 * hours;
+        }
+
+        return total;
     }
 }

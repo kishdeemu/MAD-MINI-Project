@@ -43,6 +43,21 @@ public class ExampleUnitTest {
         assertEquals(expected, output, delta);
     }
 
+    /**IT19040318**/
+    @Test
+    public void halltotPriceCalculation() {
+        String input1 = "Indoor Wedding Hall";
+        int input2 = 2;
+        int output;
+        int expected = 16000;
+        double delta = .1;
+
+        hallsbooking hall = new hallsbooking();
+        output = hall.totPriceCalculation(input1, input2);
+
+        assertEquals(expected, output, delta);
+    }
+
 
 
 

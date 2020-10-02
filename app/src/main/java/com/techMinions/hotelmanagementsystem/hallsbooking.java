@@ -88,16 +88,6 @@ public class hallsbooking extends AppCompatActivity implements DatePickerDialog.
                     else if (TextUtils.isEmpty(phone.getText().toString()) || phoneNo.length() != 10)
                         Toast.makeText(getApplicationContext(), "Please enter valid Phone Number", Toast.LENGTH_SHORT).show();
                     else {
-                        if(halllist.getSelectedItem().toString().equals("Indoor Wedding Hall")){
-                            total = 8000 * Integer.parseInt(noOfHours.getText().toString());
-                        }else if(halllist.getSelectedItem().toString().equals("Outdoor Wedding Hall")){
-                            total = 5000 * Integer.parseInt(noOfHours.getText().toString());
-                        }else if(halllist.getSelectedItem().toString().equals("Conference Hall")){
-                            total = 10000 * Integer.parseInt(noOfHours.getText().toString());
-                        }else if(halllist.getSelectedItem().toString().equals("Kids Party Hall")){
-                            total = 3500 * Integer.parseInt(noOfHours.getText().toString());
-                        }
-
                         hall_model.setNumpeople(noOfPeople.getText().toString().trim());
                         hall_model.setDate(booking.getText().toString().trim());
                         hall_model.setTime(timed.getText().toString().trim());
@@ -106,6 +96,8 @@ public class hallsbooking extends AppCompatActivity implements DatePickerDialog.
                         hall_model.setFullName(fullName.getText().toString().trim());
                         hall_model.setPhone(phone.getText().toString().trim());
                         hall_model.setNoOfHours(Integer.parseInt(noOfHours.getText().toString().trim()));
+
+                        total = totPriceCalculation(halllist.getSelectedItem().toString(), Integer.parseInt(noOfHours.getText().toString()));
                         hall_model.setTotal(total);
 
                         //Insert into the data base
@@ -132,6 +124,20 @@ public class hallsbooking extends AppCompatActivity implements DatePickerDialog.
                 android.R.layout.simple_expandable_list_item_1, getResources().getStringArray(R.array.halllist));
         radp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         halllist.setAdapter(radp);
+    }
+
+    public int totPriceCalculation(String hallType, int hours){
+        if(hallType.equals("Indoor Wedding Hall")){
+            total = 8000 * hours;
+        }else if(hallType.equals("Outdoor Wedding Hall")){
+            total = 5000 * hours;
+        }else if(hallType.equals("Conference Hall")){
+            total = 10000 * hours;
+        }else if(hallType.equals("Kids Party Hall")){
+            total = 3500 * hours;
+        }
+
+        return total;
     }
 
     @Override
