@@ -63,7 +63,7 @@
         android:fontFamily="@font/roboto_bold"
         android:text="@string/hall_type1"
         android:textColor="@color/rh"
-        android:textSize="22sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.966"
@@ -139,13 +139,13 @@
         android:fontFamily="@font/roboto_bold"
         android:text="@string/htp3"
         android:textColor="@color/rh"
-        android:textSize="22sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.822"
+        app:layout_constraintHorizontal_bias="0.784"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.449" />
+        app:layout_constraintVertical_bias="0.447" />
 
     <TextView
         android:id="@+id/hllty3in"
@@ -185,10 +185,10 @@
         android:fontFamily="@font/roboto_bold"
         android:text="@string/htype2"
         android:textColor="@color/rh"
-        android:textSize="22sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.967"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hall1p"
         app:layout_constraintVertical_bias="0.0" />
@@ -202,7 +202,7 @@
         android:fontFamily="@font/roboto_bold"
         android:text="@string/pht4"
         android:textColor="@color/rh"
-        android:textSize="22sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.784"
