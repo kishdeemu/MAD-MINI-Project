@@ -27,14 +27,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Toolbar toolbar;
 
 
-
     @Override
     public void onBackPressed() {
         if(drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
         }else{
             super.onBackPressed();
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            finish();
+            overridePendingTransition(0,0);
+            startActivity(intent);
+            overridePendingTransition(0,0);
         }
+
+
     }
 
     @Override
