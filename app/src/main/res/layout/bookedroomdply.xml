@@ -12,98 +12,96 @@
         android:id="@+id/checkOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
+        android:layout_marginStart="210dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/roboto_bold"
         android:text="TextView"
         android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/dplyco"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkIn" />
 
     <TextView
         android:id="@+id/phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="164dp"
+        android:layout_marginStart="210dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/roboto_bold"
         android:text="TextView"
         android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/dplph"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <TextView
         android:id="@+id/fullName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
+        android:layout_marginStart="210dp"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/roboto_bold"
         android:text="TextView"
         android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/dplfn"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/numOfAdults" />
 
     <TextView
         android:id="@+id/numOfAdults"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="164dp"
+        android:layout_marginStart="210dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/roboto_bold"
         android:text="TextView"
         android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/dplygus"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dplya" />
 
     <TextView
         android:id="@+id/dplya"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="164dp"
+        android:layout_marginStart="210dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/ghad"
         android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/dplygus"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/numOfRooms" />
 
     <TextView
         android:id="@+id/roomType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
+        android:layout_marginStart="210dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/roboto_bold"
         android:text="TextView"
         android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/dplyrt"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkOut" />
 
     <TextView
         android:id="@+id/numOfChildren"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="248dp"
+        android:layout_marginStart="292dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/roboto_bold"
         android:text="TextView"
         android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/dplygus"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dplyc" />
 
     <TextView
         android:id="@+id/checkIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
+        android:layout_marginStart="210dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/roboto_bold"
         android:text="TextView"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/dplyci"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cbhead" />
 
     <TextView
@@ -122,12 +120,12 @@
         android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="172dp"
+        android:layout_marginStart="210dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/roboto_bold"
         android:text="TextView"
         android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/dplem"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fullName" />
 
     <TextView
@@ -270,7 +268,7 @@
 
     <TextView
         android:id="@+id/cbhead"
-        android:layout_width="394dp"
+        android:layout_width="410dp"
         android:layout_height="47dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/roboto_bold"
@@ -325,12 +323,12 @@
         android:id="@+id/numOfRooms"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
+        android:layout_marginStart="210dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/roboto_bold"
         android:text="TextView"
         android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/dplynr"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/roomType" />
 
 
