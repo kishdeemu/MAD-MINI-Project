@@ -131,6 +131,7 @@ public class bookedhallsdply extends AppCompatActivity {
         cofhbook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 // Intent intent = new Intent(bookedhallsdply.this, MainActivity.class);
                 //  startActivity(intent);
                 //Toast.makeText(getApplicationContext(), "Booking confirmed,ThankYou!", Toast.LENGTH_SHORT).show();
