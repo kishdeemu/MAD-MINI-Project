@@ -36,6 +36,7 @@
         <activity android:name=".updateroom" />
         <activity android:name=".bookedroomdply" />
         <activity android:name=".roombooking" />
+        <activity android:name=".AdminRooms" />
         <activity android:name=".rooms" />
 
         <meta-data
