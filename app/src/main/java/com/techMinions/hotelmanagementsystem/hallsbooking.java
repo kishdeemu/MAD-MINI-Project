@@ -127,7 +127,7 @@ public class hallsbooking extends AppCompatActivity implements DatePickerDialog.
     }
 
     public int totPriceCalculation(String hallType, int hours){
-        if(hallType.equals("Indoor Wedding Hall")){
+        if(hallType.equals("Indcoor Wedding Hall")){
             total = 8000 * hours;
         }else if(hallType.equals("Outdoor Wedding Hall")){
             total = 5000 * hours;
