@@ -3,6 +3,7 @@ package com.techMinions.hotelmanagementsystem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -49,19 +50,19 @@ public class deliveryupdate extends AppCompatActivity {
 
         delimodel = new delivery_model();
 
-        foditm = findViewById(R.id.fooditemlist);
+        //foditm = findViewById(R.id.fooditemlist);
         final ArrayAdapter<String> fditm = new ArrayAdapter<>(deliveryupdate.this,
                 android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.fooditem));
         fditm.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         foditm.setAdapter(fditm);
 
-         ncity = findViewById(R.id.nearcitylist);
+         //ncity = findViewById(R.id.nearcitylist);
         final ArrayAdapter<String> ncty = new ArrayAdapter<>(deliveryupdate.this,
                 android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.nearcity));
         ncty.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         ncity.setAdapter(ncty);
 
-        dbref = FirebaseDatabase.getInstance().getReference().child("Delivery").child("tableData");
+        dbref = FirebaseDatabase.getInstance().getReference().child("Delivery").child("lastDeliveryData");
 
         dbref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -99,23 +100,19 @@ public class deliveryupdate extends AppCompatActivity {
                 upref.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        ArrayList<tables_model> arr = new ArrayList();
                         ArrayList<String> arrKeys = new ArrayList();
                         for (DataSnapshot data : dataSnapshot.getChildren()) {
                             Log.d("yyy", data.getKey());
-                            arr.add(data.getValue(tables_model.class));
                             arrKeys.add(data.getKey());
-//                            tables_model tb = data.getValue(tables_model.class);
+//
                         }
                         String lastKey = arrKeys.get(arrKeys.size() - 2);
-                        Log.d("zzz", lastKey);
-                        Log.d("xxx", arr.get(arr.size() - 1).getComments());
-                        tables_model lastRecord = arr.get(arr.size() - 2);
 
-                        if (dataSnapshot.hasChild("lastDeliveryData")){
+
+                        if (dataSnapshot.hasChild(lastKey)){
 
                             try {
-                                if(TextUtils.isEmpty(name.getText().toString()))
+                               /* if(TextUtils.isEmpty(name.getText().toString()))
                                     Toast.makeText(getApplicationContext(), "Please enter your name", Toast.LENGTH_SHORT).show();
                                 else if(TextUtils.isEmpty(email.getText().toString()))
                                     Toast.makeText(getApplicationContext(), "Please enter your email", Toast.LENGTH_SHORT).show();
@@ -129,7 +126,7 @@ public class deliveryupdate extends AppCompatActivity {
                                     Toast.makeText(getApplicationContext(), "Please enter a delivery address", Toast.LENGTH_SHORT).show();
                                     //else if(TextUtils.isEmpty(ncity.getSelectedItem().toString()))
                                     //Toast.makeText(getApplicationContext(), "Please select a near city", Toast.LENGTH_SHORT).show();
-                                else {
+                                else {*/
                                         if (foditm.getSelectedItem().toString().equals("Rice And Curry")) {
                                             totalprice = 250 * Integer.parseInt(quantity.getText().toString());
                                         } else if (foditm.getSelectedItem().toString().equals("Fried Rice")) {
@@ -139,7 +136,7 @@ public class deliveryupdate extends AppCompatActivity {
                                         } else if (foditm.getSelectedItem().toString().equals("Hoppers")) {
                                             totalprice = 30 * Integer.parseInt(quantity.getText().toString());
                                         }
-                                    }
+                                    /*}*/
                                 delimodel.setName(name.getText().toString().trim());
                                 delimodel.setEmail(email.getText().toString().trim());
                                 delimodel.setFooditm(foditm.getSelectedItem().toString().trim());
@@ -149,9 +146,9 @@ public class deliveryupdate extends AppCompatActivity {
                                 delimodel.setCity(ncity.getSelectedItem().toString().trim());
                                 delimodel.setTotalprice(totalprice);
 
-                                dbref.push().setValue(delimodel);
+                                DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("Delivery").child(lastKey);
+                                dbref.setValue(delimodel);
 
-                                dbref.child("lastDeliveryData").setValue(delimodel);
 
                                 Toast.makeText(getApplicationContext(), "Data Saved Successfully", Toast.LENGTH_SHORT).show();
 
@@ -159,6 +156,43 @@ public class deliveryupdate extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "Invalid Contact Number", Toast.LENGTH_SHORT).show();
                             }
                         } else {
+                            Toast.makeText(getApplicationContext(), "No source to display", Toast.LENGTH_SHORT).show();
+                        }
+                        if(dataSnapshot.hasChild("lastDeliveryData")){
+                            try{
+                                if (foditm.getSelectedItem().toString().equals("Rice And Curry")) {
+                                    totalprice = 250 * Integer.parseInt(quantity.getText().toString());
+                                } else if (foditm.getSelectedItem().toString().equals("Fried Rice")) {
+                                    totalprice = 350 * Integer.parseInt(quantity.getText().toString());
+                                } else if (foditm.getSelectedItem().toString().equals("Koththu")) {
+                                    totalprice = 400 * Integer.parseInt(quantity.getText().toString());
+                                } else if (foditm.getSelectedItem().toString().equals("Hoppers")) {
+                                    totalprice = 30 * Integer.parseInt(quantity.getText().toString());
+                                }
+                                delimodel.setName(name.getText().toString().trim());
+                                delimodel.setEmail(email.getText().toString().trim());
+                                delimodel.setFooditm(foditm.getSelectedItem().toString().trim());
+                                delimodel.setPhone(phone.getText().toString().trim());
+                                delimodel.setQuantity(quantity.getText().toString().trim());
+                                delimodel.setAddress(address.getText().toString().trim());
+                                delimodel.setCity(ncity.getSelectedItem().toString().trim());
+                                delimodel.setTotalprice(totalprice);
+
+                                DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("Delivery").child("lastDeliveryData");
+                                dbRef.setValue(delimodel);
+
+                                Toast.makeText(getApplicationContext(), "Data Saved Successfully", Toast.LENGTH_SHORT).show();
+
+                                Intent intent = new Intent(deliveryupdate.this, deliveryconfirm.class);
+                                startActivity(intent);
+
+                            }catch (NumberFormatException e){
+                                Toast.makeText(getApplicationContext(), "Invalid Contact Number", Toast.LENGTH_SHORT).show();
+                            }
+
+
+                        }
+                        else{
                             Toast.makeText(getApplicationContext(), "No source to display", Toast.LENGTH_SHORT).show();
                         }
                     }
