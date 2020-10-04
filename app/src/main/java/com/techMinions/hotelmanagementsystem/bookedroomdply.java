@@ -149,7 +149,7 @@ public class bookedroomdply extends AppCompatActivity {
                 AlertDialog dialog;
                 AlertDialog.Builder builder = new AlertDialog.Builder(bookedroomdply.this);
                 builder.setTitle("CONFIRMED!");
-                builder.setMessage("Your booking has been confirmed. Thank You!");
+                builder.setMessage("Your booking has been confirmed.\nThank You!");
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

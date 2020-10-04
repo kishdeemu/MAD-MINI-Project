@@ -249,10 +249,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="55dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/norselect"
         android:textColor="@color/txc"
         android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/rlisth"
         app:layout_constraintTop_toBottomOf="@+id/choinput" />
 
