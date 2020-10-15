@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -15,6 +16,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class AdminTables extends AppCompatActivity {
     RecyclerView recyclerView;
@@ -35,16 +37,18 @@ public class AdminTables extends AppCompatActivity {
         tbldbRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot data : dataSnapshot.getChildren()){
-                    if(!data.hasChild("tableData")){
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
+                    if (Objects.equals(data.getKey(), "tableData")) {
+                        break;
+                    } else {
                         tables_model tm = data.getValue(tables_model.class);
                         tableBookingDataList.add(tm);
                     }
+                    Log.d("tm", String.valueOf(data.hasChild("lastHallBooking")));
                     tableRecyclerViewAdapter = new TableRecyclerViewAdapter(tableBookingDataList);
                     recyclerView.setAdapter(tableRecyclerViewAdapter);
 
                 }
-
             }
 
             @Override

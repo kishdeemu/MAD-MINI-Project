@@ -168,6 +168,15 @@
     <string name="table_booking_details">Table Booking Details</string>
     <string name="comments2">Comments :-</string>
     <string name="total_price2">Total Price :-</string>
+    <string name="hall_type">Hall Type :-</string>
+    <string name="date2">Date :-</string>
+    <string name="view_all_hall_bookings">View All Hall Bookings</string>
+    <string name="address">Address :-</string>
+    <string name="food_item">Food Item :-</string>
+    <string name="quantity">Quantity :-</string>
+    <string name="near_by_city">Near By City :-</string>
+    <string name="delivery_details">Delivery Details</string>
+    <string name="view_all_delivery_details">View All Delivery details</string>
 
 
 </resources>

@@ -30,15 +30,6 @@
                     android:icon="@drawable/login"
                     android:title="Admin Login" />
 
-                <item
-                    android:id="@+id/nav_profile"
-                    android:icon="@drawable/profile"
-                    android:title="Profile" />
-
-                <item
-                    android:id="@+id/nav_logout"
-                    android:icon="@drawable/logout"
-                    android:title="Logout" />
 
             </group>
 

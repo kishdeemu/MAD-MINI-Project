@@ -62,5 +62,21 @@ public class AdminDashboard extends AppCompatActivity {
 
             }
         });
+
+        halls.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent3 = new Intent(getApplicationContext(), AdminHalls.class);
+                startActivity(intent3);
+            }
+        });
+
+        delivery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent4 = new Intent(getApplicationContext(), AdminDelivery.class);
+                startActivity(intent4);
+            }
+        });
     }
 }

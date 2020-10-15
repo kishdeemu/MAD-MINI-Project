@@ -1,13 +1,13 @@
 package com.techMinions.hotelmanagementsystem;
 
-import android.os.Bundle;
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.os.Bundle;
+import android.util.Log;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -19,35 +19,35 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class AdminRooms extends AppCompatActivity {
-    RecyclerView recyclerView;
-    RoomRecyclerViewAdapter recyclerViewAdapter;
-    List<room_model> roomDataList;
-    DatabaseReference dbRef;
+public class AdminHalls extends AppCompatActivity {
+    RecyclerView hallrecyclerView;
+    HallRecyclerViewAdapter hallrecyclerViewAdapter;
+    List<hall_model> hallDataList;
+    DatabaseReference halldbRef;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_rooms);
+        setContentView(R.layout.activity_admin_halls);
 
-        recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        roomDataList = new ArrayList<>();
+        hallrecyclerView = findViewById(R.id.hallrecyclerView);
+        hallrecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        hallDataList = new ArrayList<>();
 
-        dbRef = FirebaseDatabase.getInstance().getReference("Rooms");
-        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        halldbRef = FirebaseDatabase.getInstance().getReference("Halls");
+        halldbRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
-                    if (Objects.equals(data.getKey(), "lastRoomData")) {
+                    if (Objects.equals(data.getKey(), "lastHallBooking")) {
                         break;
                     } else {
-                        room_model rm = data.getValue(room_model.class);
-                        roomDataList.add(rm);
+                        hall_model hm = data.getValue(hall_model.class);
+                        hallDataList.add(hm);
                     }
-                    Log.d("rm", String.valueOf(data.hasChild("lastRoomData")));
-                    recyclerViewAdapter = new RoomRecyclerViewAdapter(roomDataList);
-                    recyclerView.setAdapter(recyclerViewAdapter);
+                    Log.d("rm", String.valueOf(data.hasChild("lastHallBooking")));
+                    hallrecyclerViewAdapter = new HallRecyclerViewAdapter(hallDataList);
+                    hallrecyclerView.setAdapter(hallrecyclerViewAdapter);
 
                 }
             }

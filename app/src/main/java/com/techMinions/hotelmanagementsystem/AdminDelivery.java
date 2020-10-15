@@ -1,13 +1,13 @@
 package com.techMinions.hotelmanagementsystem;
 
-import android.os.Bundle;
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.os.Bundle;
+import android.util.Log;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -19,35 +19,35 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class AdminRooms extends AppCompatActivity {
-    RecyclerView recyclerView;
-    RoomRecyclerViewAdapter recyclerViewAdapter;
-    List<room_model> roomDataList;
-    DatabaseReference dbRef;
+public class AdminDelivery extends AppCompatActivity {
+    RecyclerView delvrecyclerView;
+    DeliveryRecyclerViewAdapter deliveryRecyclerViewAdapter;
+    List<delivery_model> deliveryDataList;
+    DatabaseReference delvdbRef;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_rooms);
+        setContentView(R.layout.activity_admin_delivery);
 
-        recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        roomDataList = new ArrayList<>();
+        delvrecyclerView = findViewById(R.id.delvrecyclerView);
+        delvrecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        deliveryDataList = new ArrayList<>();
 
-        dbRef = FirebaseDatabase.getInstance().getReference("Rooms");
-        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        delvdbRef = FirebaseDatabase.getInstance().getReference("Delivery");
+        delvdbRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
-                    if (Objects.equals(data.getKey(), "lastRoomData")) {
+                    if (Objects.equals(data.getKey(), "lastDeliveryData")) {
                         break;
                     } else {
-                        room_model rm = data.getValue(room_model.class);
-                        roomDataList.add(rm);
+                        delivery_model dm = data.getValue(delivery_model.class);
+                        deliveryDataList.add(dm);
                     }
-                    Log.d("rm", String.valueOf(data.hasChild("lastRoomData")));
-                    recyclerViewAdapter = new RoomRecyclerViewAdapter(roomDataList);
-                    recyclerView.setAdapter(recyclerViewAdapter);
+                    Log.d("dm", String.valueOf(data.hasChild("lastDeliveryData")));
+                    deliveryRecyclerViewAdapter = new DeliveryRecyclerViewAdapter(deliveryDataList);
+                    delvrecyclerView.setAdapter(deliveryRecyclerViewAdapter);
 
                 }
             }
