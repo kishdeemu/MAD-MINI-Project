@@ -11,7 +11,9 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
 
-    /** IT19043524 **/
+    /**
+     * IT19043524
+     **/
     @Test
     public void roomtotPriceCalculation() {
         String input1 = "Single Room";
@@ -28,7 +30,9 @@ public class ExampleUnitTest {
 
     }
 
-        /** IT19043456 **/
+    /**
+     * IT19043456
+     **/
     @Test
     public void tabletotPriceCalculation() {
         String input1 = "For 2 people";
@@ -43,7 +47,9 @@ public class ExampleUnitTest {
         assertEquals(expected, output, delta);
     }
 
-    /**IT19040318**/
+    /**
+     * IT19040318
+     **/
     @Test
     public void halltotPriceCalculation() {
         String input1 = "Indoor Wedding Hall";
@@ -58,7 +64,22 @@ public class ExampleUnitTest {
         assertEquals(expected, output, delta);
     }
 
+    /**
+     * IT1901122
+     **/
+    @Test
+    public void deliverytotPriceCalculation() {
+        String input1 = "Rice And Curry";
+        int input2 = 2;
+        int output;
+        int expected = 500;
+        double delta = .1;
 
+        deliveryorder delivery = new deliveryorder();
+        output = delivery.totPriceCalculation(input1, input2);
+
+        assertEquals(expected, output, delta);
+    }
 
 
 }

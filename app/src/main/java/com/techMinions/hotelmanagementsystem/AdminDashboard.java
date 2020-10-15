@@ -53,5 +53,14 @@ public class AdminDashboard extends AppCompatActivity {
 
             }
         });
+
+        tables.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent2 = new Intent(getApplicationContext(), AdminTables.class);
+                startActivity(intent2);
+
+            }
+        });
     }
 }

@@ -96,7 +96,7 @@ public class tables extends AppCompatActivity implements DatePickerDialog.OnDate
                         tables_model.setFname(fname.getText().toString());
                         tables_model.setLname(lname.getText().toString());
                         tables_model.setEmail(email.getText().toString());
-                        tables_model.setPhone(Integer.parseInt(phone.getText().toString()));
+                        tables_model.setPhone(phone.getText().toString());
                         tables_model.setNoOfHours(Integer.parseInt(noOfHours.getText().toString()));
 
 

@@ -78,15 +78,15 @@ public class deliveryorder extends AppCompatActivity {
                     //else if(TextUtils.isEmpty(ncity.getSelectedItem().toString()))
                         //Toast.makeText(getApplicationContext(), "Please select a near city", Toast.LENGTH_SHORT).show();
                     else{
-                        if(foditm.getSelectedItem().toString().equals("Rice And Curry")){
-                            totalprice = 250 * Integer.parseInt(quantity.getText().toString());
-                        }else if(foditm.getSelectedItem().toString().equals("Fried Rice")){
-                            totalprice = 350 * Integer.parseInt(quantity.getText().toString());
-                        }else if(foditm.getSelectedItem().toString().equals("Koththu")){
-                            totalprice = 400 * Integer.parseInt(quantity.getText().toString());
-                        }else if(foditm.getSelectedItem().toString().equals("Hoppers")){
-                            totalprice = 30 * Integer.parseInt(quantity.getText().toString());
-                        }
+//                        if(foditm.getSelectedItem().toString().equals("Rice And Curry")){
+//                            totalprice = 250 * Integer.parseInt(quantity.getText().toString());
+//                        }else if(foditm.getSelectedItem().toString().equals("Fried Rice")){
+//                            totalprice = 350 * Integer.parseInt(quantity.getText().toString());
+//                        }else if(foditm.getSelectedItem().toString().equals("Koththu")){
+//                            totalprice = 400 * Integer.parseInt(quantity.getText().toString());
+//                        }else if(foditm.getSelectedItem().toString().equals("Hoppers")){
+//                            totalprice = 30 * Integer.parseInt(quantity.getText().toString());
+//                        }
 
                         delimodel.setName(name.getText().toString().trim());
                         delimodel.setEmail(email.getText().toString().trim());
@@ -97,20 +97,38 @@ public class deliveryorder extends AppCompatActivity {
                         delimodel.setCity(ncity.getSelectedItem().toString().trim());
                         delimodel.setTotalprice(totalprice);
 
+                        totalprice = totPriceCalculation(foditm.getSelectedItem().toString(),Integer.parseInt(quantity.getText().toString()));
+
                         dbref.push().setValue(delimodel);
 
                         dbref.child("lastDeliveryData").setValue(delimodel);
 
                         Toast.makeText(getApplicationContext(), "Data Saved Successfully", Toast.LENGTH_SHORT).show();
+
+                        Intent nextintent = new Intent(deliveryorder.this,deliveryconfirm.class);
+                        startActivity(nextintent);
                     }
                 }catch(NumberFormatException e){
                     Toast.makeText(getApplicationContext(), "Invalid contact number", Toast.LENGTH_SHORT).show();
 
                 }
 
-                Intent nextintent = new Intent(deliveryorder.this,deliveryconfirm.class);
-                startActivity(nextintent);
+
             }
         });
+    }
+
+    public int totPriceCalculation(String npeople, int quantity){
+        if(npeople.equals("Rice And Curry")){
+            totalprice = 250 * quantity;
+        }else if(npeople.equals("Fried Rice")){
+            totalprice = 350 * quantity;
+        }else if(npeople.equals("Koththu")){
+            totalprice = 400 * quantity;
+        }else if(npeople.equals("Hoppers")){
+            totalprice = 30 * quantity;
+        }
+
+        return totalprice;
     }
 }

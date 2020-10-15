@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg"
-    tools:context=".AdminDashboard"
     android:padding="10dp">
 
     <TextView
@@ -58,7 +57,7 @@
         android:layout_height="0dp"
         android:layout_marginBottom="13dp"
         android:background="@color/blue"
-        android:text="View All Room Bookings"
+        android:text="@string/view_all_table_bookings"
         android:textColor="@color/colorWhite"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/halls"

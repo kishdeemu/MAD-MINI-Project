@@ -164,6 +164,10 @@
     <string name="_20_07_2020">20/07/2020</string>
     <string name="_21_07_2020">21/07/2020</string>
     <string name="room_booking_details">Room Booking Details</string>
+    <string name="view_all_table_bookings">View All Table Bookings</string>
+    <string name="table_booking_details">Table Booking Details</string>
+    <string name="comments2">Comments :-</string>
+    <string name="total_price2">Total Price :-</string>
 
 
 </resources>

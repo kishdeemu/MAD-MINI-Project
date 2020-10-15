@@ -130,7 +130,7 @@ public class tableUpdate extends AppCompatActivity implements DatePickerDialog.O
                                 tableModel.setDate(date.getText().toString().trim());
                                 tableModel.setTime(time.getText().toString().trim());
                                 tableModel.setEmail(email.getText().toString().trim());
-                                tableModel.setPhone(Integer.parseInt(phone.getText().toString().trim()));
+                                tableModel.setPhone(phone.getText().toString().trim());
                                 tableModel.setFname(fname.getText().toString().trim());
                                 tableModel.setLname(lname.getText().toString().trim());
                                 tableModel.setComments(comment.getText().toString().trim());
@@ -159,7 +159,7 @@ public class tableUpdate extends AppCompatActivity implements DatePickerDialog.O
                                 tableModel.setDate(date.getText().toString().trim());
                                 tableModel.setTime(time.getText().toString().trim());
                                 tableModel.setEmail(email.getText().toString().trim());
-                                tableModel.setPhone(Integer.parseInt(phone.getText().toString().trim()));
+                                tableModel.setPhone(phone.getText().toString().trim());
                                 tableModel.setFname(fname.getText().toString().trim());
                                 tableModel.setLname(lname.getText().toString().trim());
                                 tableModel.setComments(comment.getText().toString().trim());

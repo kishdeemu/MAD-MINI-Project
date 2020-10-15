@@ -22,9 +22,8 @@ public class RoomRecyclerViewAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout, parent, false);
-        ViewHolderClass viewHolderClass = new ViewHolderClass(view);
 
-        return viewHolderClass;
+        return new ViewHolderClass(view);
     }
 
     @Override
@@ -50,7 +49,7 @@ public class RoomRecyclerViewAdapter extends RecyclerView.Adapter {
         return roomdataList.size();
     }
 
-    public class ViewHolderClass extends RecyclerView.ViewHolder{
+    public static class ViewHolderClass extends RecyclerView.ViewHolder{
         TextView checkIn, checkOut, roomType, noOfRooms, noOfAdults, noOfChildren, fullName, email, phone, total;
 
         public ViewHolderClass(@NonNull View itemView) {

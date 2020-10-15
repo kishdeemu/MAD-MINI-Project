@@ -22,6 +22,7 @@ public class Admin_Login extends AppCompatActivity {
     DatabaseReference dbRef;
     EditText uname, pwd;
     int count = 0;
+    Admin_model admin_model;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +51,7 @@ public class Admin_Login extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            Admin_model admin_model = snapshot.getValue(Admin_model.class);
+                            admin_model = snapshot.getValue(Admin_model.class);
                             if (uname.getText().toString().equals(admin_model.getUsername()) && pwd.getText().toString().equals(admin_model.getPassword())) {
                                 Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(), AdminDashboard.class);
@@ -58,7 +59,7 @@ public class Admin_Login extends AppCompatActivity {
                             } else {
                                 count++;
 
-                                if(count == dataSnapshot.getChildrenCount()){
+                                if (count == dataSnapshot.getChildrenCount()) {
                                     Toast.makeText(getApplicationContext(), "Username or Password is incorrect", Toast.LENGTH_SHORT).show();
                                 }
 
@@ -74,7 +75,6 @@ public class Admin_Login extends AppCompatActivity {
                 });
             }
         });
-
 
     }
 }

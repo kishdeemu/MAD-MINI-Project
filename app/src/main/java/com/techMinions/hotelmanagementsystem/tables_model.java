@@ -12,10 +12,10 @@ public class tables_model {
     private String fname;
     private String lname;
     private String email;
-    private int phone;
+    private String phone;
     private int total;
 
-    public tables_model(String noOfPeople, String date, String time, String comments, String fname, String lname, String email, int phone) {
+    public tables_model(String noOfPeople, String date, String time, String comments, String fname, String lname, String email, String phone) {
         this.noOfPeople = noOfPeople;
         this.date = date;
         this.time = time;
@@ -101,11 +101,11 @@ public class tables_model {
         this.email = email;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 }
