@@ -26,6 +26,8 @@ import java.util.Date;
 
 public class tables extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
     Spinner noOfPeople;
+    String phoneNo, emailAdd;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     EditText date, time, comments, fname, lname, email, phone, noOfHours;
     DatabaseReference dbRef;
     tables_model tables_model;
@@ -72,6 +74,8 @@ public class tables extends AppCompatActivity implements DatePickerDialog.OnDate
         bookBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                phoneNo = phone.getText().toString();
+                emailAdd = email.getText().toString().trim();
                 dbRef = FirebaseDatabase.getInstance().getReference().child("Tables");
                 try {
                     if (TextUtils.isEmpty(noOfPeople.getSelectedItem().toString()))
@@ -86,8 +90,12 @@ public class tables extends AppCompatActivity implements DatePickerDialog.OnDate
                         Toast.makeText(getApplicationContext(), "Please enter last name", Toast.LENGTH_SHORT).show();
                     else if (TextUtils.isEmpty(email.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter email", Toast.LENGTH_SHORT).show();
+                    else if (!emailAdd.matches(emailPattern))
+                        Toast.makeText(getApplicationContext(), "Please enter valid email", Toast.LENGTH_SHORT).show();
                     else if (TextUtils.isEmpty(phone.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please enter phone", Toast.LENGTH_SHORT).show();
+                    else if (phoneNo.length() != 10)
+                        Toast.makeText(getApplicationContext(), "Please enter valid phone number", Toast.LENGTH_SHORT).show();
                     else {
                         tables_model.setNoOfPeople(noOfPeople.getSelectedItem().toString());
                         tables_model.setDate(date.getText().toString());
