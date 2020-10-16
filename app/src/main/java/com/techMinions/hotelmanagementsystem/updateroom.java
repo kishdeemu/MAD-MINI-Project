@@ -166,17 +166,6 @@ public class updateroom extends AppCompatActivity {
                                     }
 
                                     roomList = rlistup.getSelectedItem().toString().trim();
-                                    if (roomList.equals("Single Room")) {
-                                        total = ((int) diff )  * 10500 * Integer.parseInt(mumofroomsup.getText().toString());
-                                    } else if (roomList.equals("Double Room")) {
-                                        total = ((int) diff ) * 14500 * Integer.parseInt(mumofroomsup.getText().toString());
-                                    } else if (roomList.equals("Triple Room")) {
-                                        total = ((int) diff ) * 16500 * Integer.parseInt(mumofroomsup.getText().toString());
-                                    } else if (roomList.equals("Quadruple Room")) {
-                                        total = ((int) diff ) * 18000 * Integer.parseInt(mumofroomsup.getText().toString());
-                                    }
-
-                                    Log.d("total", String.valueOf(total));
 
                                     roomModel.setCheckIn(chiinput.getText().toString().trim());
                                     roomModel.setCheckOut(choinput.getText().toString().trim());
@@ -187,6 +176,9 @@ public class updateroom extends AppCompatActivity {
                                     roomModel.setNumofRooms(mumofroomsup.getText().toString().trim());
                                     roomModel.setPhonein(phonein.getText().toString().trim());
                                     roomModel.setRoomlist(rlistup.getSelectedItem().toString().trim());
+
+                                    Log.d("total", String.valueOf(total));
+                                    total = roomtotPriceCalculation(roomList, Integer.parseInt(mumofroomsup.getText().toString()), (int) diff);
 
                                     roomModel.setTotal(total);
 
@@ -252,8 +244,8 @@ public class updateroom extends AppCompatActivity {
                                     dbRef3 = FirebaseDatabase.getInstance().getReference().child("Rooms").child("lastRoomData");
                                     dbRef3.setValue(roomModel);
 
-                                    Intent intent = new Intent(updateroom.this, bookedroomdply.class);
-                                    startActivity(intent);
+                                    //Intent intent = new Intent(updateroom.this, bookedroomdply.class);
+                                    //startActivity(intent);
 
                                     //Toast.makeText(getApplicationContext(), "Data updated successfully", Toast.LENGTH_SHORT).show();
                                 }
